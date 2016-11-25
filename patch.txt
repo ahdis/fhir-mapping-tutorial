@@ -1,0 +1,66 @@
+Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java
+===================================================================
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java	(revision 10245)
++++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java	(working copy)
+@@ -237,7 +237,7 @@
+   	for (Element child : children) {
+   		if (child.getName().equals(name))
+   			result.add(child);
+-  		if (child.getName().startsWith(name) && child.getProperty().isChoice() && child.getProperty().getName().equals(name+"[x]"))
++  		if (child.getName().startsWith(name) && child.getProperty()!=null && child.getProperty().isChoice() && child.getProperty().getName().equals(name+"[x]"))
+   			result.add(child);
+   	}
+   	}
+@@ -258,11 +258,51 @@
+ 	
+   @Override
+   public void setProperty(int hash, String name, Base value) throws FHIRException {
+-    throw new Error("not done yet"); 
++  	boolean found = false;
++  	Base[] bases = getProperty(hash, name, false);
++  	if (bases.length==0) {
++  		this.makeProperty(hash, name);
++  		bases = getProperty(hash, name, false);
++  	} 
++  	if (bases.length>0) {
++  		for(Base base : bases) {
++  			Element e = (Element) base;
++  			if (e.isPrimitive()) {
++  				e.setValue(value.primitiveValue());
++  				found = true;
++  			} else {
++  		    throw new Error("not done yet"); 
++  			}
++  		}
++  	}
++  	if (!found) {
++  		throw new Error("not done yet"); 
++  	}
+   }
+ 
+   @Override
+   public Base makeProperty(int hash, String name) throws FHIRException {
++  	StructureDefinition structureDefinition = getProperty().getStructure();
++  	if (structureDefinition!=null && structureDefinition.getSnapshot()!=null) {
++  		
++  		List<ElementDefinition> elementDefinitions = structureDefinition.getSnapshot().getElement();
++  		for(int i=0; i<elementDefinitions.size(); ++i) {
++  			ElementDefinition elementDefinition = elementDefinitions.get(i);
++  			String path = structureDefinition.getName()+"."+name;
++  			if (path.equals(elementDefinition.getPath())) {
++  				if (children==null) {
++  					this.children = new ArrayList<Element>();
++  				}
++  				// FIXME now just adding to the array, probably not correct
++//  				if (elementDefinition.isPrimitive()) {
++  				// FIXME how to provide profile?
++  					Element element = new org.hl7.fhir.dstu3.elementmodel.Element(name, new Property(this.getProperty().getContext(), elementDefinition, null));
++  					children.add(element);
++  					return element;
++//  				}
++  			}
++  		}
++  	}
+     throw new Error("not done yet"); 
+   }
+   

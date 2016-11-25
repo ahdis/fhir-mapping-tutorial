@@ -1,0 +1,365 @@
+package ch.ahdis.fhir.dstu3.test;
+
+import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.dstu3.elementmodel.Manager;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureMap;
+import org.hl7.fhir.dstu3.test.TestingUtilities;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Utilities;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TutorialMapTests {
+	
+	private FluentPathEngine fluentPath;
+	private StructureMapUtilities structureMapUtilites;
+	private Map<String, StructureMap> maps = new HashMap<String, StructureMap>();
+
+	final private String path = ".\\maptutorial\\";
+
+
+	
+	@Before 
+	public void setupTest() throws FileNotFoundException, IOException, FHIRException {
+		// FIXME: put here the path to build directory of the checkout source of forge
+		TestingUtilities.fixedpath = "//Users//oliveregger//Documents//workspace_workshopfhirhandson//fhir//build";
+		if (TestingUtilities.context == null)
+			TestingUtilities.context = SimpleWorkerContext
+					.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
+		fluentPath = new FluentPathEngine(TestingUtilities.context);
+		structureMapUtilites = new StructureMapUtilities(TestingUtilities.context, maps, null);
+	}
+	
+	/**
+	 * reads the logical structure definition from the directroy and returns the target structure definition
+	 * @param pathLogical
+	 * @param target
+	 * @return
+	 * @throws IOException
+	 */
+	private StructureDefinition readLogicalStructureDefintions(String pathLogical,
+			String target) throws IOException {
+		StructureDefinition tRight = null;
+		for (String f : new File(Utilities.path(pathLogical)).list()) {
+			try {
+				StructureDefinition sd = (StructureDefinition) new XmlParser()
+						.parse(new FileInputStream(Utilities.path(pathLogical, f)));
+				((SimpleWorkerContext) TestingUtilities.context).seeResource(sd.getUrl(), sd);
+				if (target.equals(sd.getIdBase())) {
+					tRight = sd;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return tRight;
+	}
+
+	private void testParseMap(String pathin, String namemap, String pathout) throws FileNotFoundException, IOException, FHIRException {
+
+		StructureMap map = structureMapUtilites
+				.parse(TextFile.fileToString(Utilities.path(pathin, namemap)));
+
+		TextFile.stringToFile(structureMapUtilites.render(map),
+				Utilities.path(pathout, namemap));
+	}
+	
+	private void readMaps(String pathMap) throws IOException, FHIRException {
+		for (String f : new File(Utilities.path(pathMap)).list()) {
+				StructureMap map = structureMapUtilites
+						.parse(TextFile.fileToString(Utilities.path(pathMap, f)));
+				maps.put(map.getUrl(), map);
+		}
+	}
+
+	
+	private String getPathLogical(String step) {
+		return path + step +"\\"+"logical";
+	}
+
+	private String getPathMap(String step) {
+		return path + step +"\\"+"map";
+	}
+
+	private String getPathTarget(String step) {
+		return path + step +"\\"+"target";
+	}
+
+	private String getPathSource(String step) {
+		return path + step +"\\"+"source";
+	}
+	
+	@Test
+	public void testMapStep1() throws FHIRException, IOException {
+		testParseMap(getPathMap("step1"), "step1.map", getPathTarget("step1"));
+	}
+
+	@Test
+	public void testTransformStep1SimplestPossibleTransform() throws FileNotFoundException, Exception {
+
+		String step = "step1";
+	  String structureDefintionTarget = "TRight";
+		
+	  StructureDefinition structureDefinitionTRight= readLogicalStructureDefintions(getPathLogical(step), structureDefintionTarget);
+		assertNotNull(structureDefinitionTRight);
+		readMaps(this.getPathMap(step));
+		
+		Element tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source1.xml")),
+				FhirFormat.XML);
+		assertNotNull(tleft);
+
+		// Element tright = Manager.parse(TestingUtilities.context, new FileInputStream(Utilities
+		// .path(pathSource, "target1.xml")),
+		// FhirFormat.XML);
+
+		Manager.compose(TestingUtilities.context, tleft,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "source1.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+
+		Element tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		
+    assertEquals("", fluentPath.evaluateToString(tright, "a"));
+    structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial"), tright);
+    assertEquals("test", fluentPath.evaluateToString(tright, "a"));
+ 
+		Manager.compose(TestingUtilities.context, tright,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "target1.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+	}
+	
+	@Test
+	public void testMapStep2() throws FHIRException, IOException {
+		testParseMap(getPathMap("step2"), "step2.map", getPathTarget("step2"));
+	}
+
+	@Test
+	public void testTransformStep2FieldsWithDifferentNames() throws FileNotFoundException, Exception {
+
+		String step = "step2";
+	  String structureDefintionTarget = "TRight";
+		
+	  StructureDefinition structureDefinitionTRight= readLogicalStructureDefintions(getPathLogical(step), structureDefintionTarget);
+		assertNotNull(structureDefinitionTRight);
+		readMaps(this.getPathMap(step));
+		
+		Element tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source2.xml")),
+				FhirFormat.XML);
+		assertNotNull(tleft);
+
+		Manager.compose(TestingUtilities.context, tleft,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "source2.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+
+		Element tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		
+    assertEquals("", fluentPath.evaluateToString(tright, "a2"));
+    structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial"), tright);
+    assertEquals("test", fluentPath.evaluateToString(tright, "a2"));
+ 
+		Manager.compose(TestingUtilities.context, tright,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "target2.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+	}
+	
+	@Test
+	public void testMapStep3() throws FHIRException, IOException {
+		testParseMap(getPathMap("step3"), "step3a.map", getPathTarget("step3"));
+		testParseMap(getPathMap("step3"), "step3b.map", getPathTarget("step3"));
+		testParseMap(getPathMap("step3"), "step3c.map", getPathTarget("step3"));
+	}
+
+	@Test
+	public void testTransformStep3LengthRestriction() throws FileNotFoundException, Exception {
+
+		String step = "step3";
+	  String structureDefintionTarget = "TRight";
+		
+	  StructureDefinition structureDefinitionTRight= readLogicalStructureDefintions(getPathLogical(step), structureDefintionTarget);
+		assertNotNull(structureDefinitionTRight);
+		readMaps(this.getPathMap(step));
+		
+		Element tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source3.xml")),
+				FhirFormat.XML);
+		assertNotNull(tleft);
+
+		Manager.compose(TestingUtilities.context, tleft,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "source3.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+
+		Element tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		
+    assertEquals("", fluentPath.evaluateToString(tright, "a2"));
+    structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3a"), tright);
+    assertEquals("01234567890123456789", fluentPath.evaluateToString(tright, "a2"));
+ 
+		Manager.compose(TestingUtilities.context, tright,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "target3.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+		
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source3b.xml")),
+				FhirFormat.XML);
+		assertNotNull(tleft);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3a"), tright);
+    assertEquals("0123456789", fluentPath.evaluateToString(tright, "a2"));
+    
+    // 3b
+
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source3.xml")),
+				FhirFormat.XML);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3b"), tright);
+    assertEquals("", fluentPath.evaluateToString(tright, "a2"));
+
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source3b.xml")),
+				FhirFormat.XML);
+		
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		Manager.compose(TestingUtilities.context, tright,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "targetb.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3b"), tright);
+    assertEquals("0123456789", fluentPath.evaluateToString(tright, "a2"));
+    
+    //3c
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source3.xml")),
+				FhirFormat.XML);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		try {
+			structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3c"), tright);
+	    assertEquals("", "check should throw an exception");
+		} catch(Exception e) {
+			
+		}
+
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source3b.xml")),
+				FhirFormat.XML);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3c"), tright);
+    assertEquals("0123456789", fluentPath.evaluateToString(tright, "a2"));
+
+	}
+	
+	@Test
+	public void testMapStep4() throws FHIRException, IOException {
+		testParseMap(getPathMap("step4"), "step4a.map", getPathTarget("step4"));
+		testParseMap(getPathMap("step4"), "step4b.map", getPathTarget("step4"));
+		testParseMap(getPathMap("step4"), "step4c.map", getPathTarget("step4"));
+	}
+
+	
+	
+	@Test
+	public void testTransformStep4TypeConversion() throws FileNotFoundException, Exception {
+
+		String step = "step4";
+	  String structureDefintionTarget = "TRight";
+		
+	  StructureDefinition structureDefinitionTRight= readLogicalStructureDefintions(getPathLogical(step), structureDefintionTarget);
+		assertNotNull(structureDefinitionTRight);
+		readMaps(this.getPathMap(step));
+		
+		Element tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source4.xml")),
+				FhirFormat.XML);
+		assertNotNull(tleft);
+
+		Manager.compose(TestingUtilities.context, tleft,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "source4.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+
+		Element tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		
+    assertEquals("", fluentPath.evaluateToString(tright, "a21"));
+    structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4a"), tright);
+    assertEquals("12345", fluentPath.evaluateToString(tright, "a21"));
+ 
+		Manager.compose(TestingUtilities.context, tright,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "target4.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+		
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source4b.xml")),
+				FhirFormat.XML);
+		assertNotNull(tleft);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4a"), tright);
+		
+		try {
+			structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4c"), tright);
+	    assertEquals("", "check should throw an exception");
+		} catch(Exception e) {
+			
+		}
+
+    
+    // 4b
+
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source4.xml")),
+				FhirFormat.XML);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4b"), tright);
+    assertEquals("12345", fluentPath.evaluateToString(tright, "a21"));
+
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source4b.xml")),
+				FhirFormat.XML);
+		
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		Manager.compose(TestingUtilities.context, tright,
+				new FileOutputStream(Utilities.path(getPathTarget(step), "target4b.xml")),
+				FhirFormat.XML, OutputStyle.PRETTY, null);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4b"), tright);
+    assertEquals("", fluentPath.evaluateToString(tright, "a21"));
+    
+    //4c
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source4.xml")),
+				FhirFormat.XML);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4c"), tright);
+    assertEquals("12345", fluentPath.evaluateToString(tright, "a21"));
+
+
+		tleft = Manager.parse(TestingUtilities.context,
+				new FileInputStream(Utilities.path(getPathSource(step), "source4b.xml")),
+				FhirFormat.XML);
+		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial4c"), tright);
+    assertEquals("0", fluentPath.evaluateToString(tright, "a21"));
+
+	}
+
+
+
+
+
+}

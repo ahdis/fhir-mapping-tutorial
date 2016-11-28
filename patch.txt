@@ -1,6 +1,6 @@
 Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java
 ===================================================================
---- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java	(revision 10245)
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java	(revision 10281)
 +++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elementmodel/Element.java	(working copy)
 @@ -237,7 +237,7 @@
    	for (Element child : children) {
@@ -11,20 +11,22 @@ Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elem
    			result.add(child);
    	}
    	}
-@@ -258,11 +258,51 @@
+@@ -256,13 +256,50 @@
+ 	  }
+ 	}
  	
-   @Override
-   public void setProperty(int hash, String name, Base value) throws FHIRException {
+-  @Override
+-  public void setProperty(int hash, String name, Base value) throws FHIRException {
 -    throw new Error("not done yet"); 
++  public void setProperty(int hash, String name, Base value, int index) throws FHIRException {
 +  	boolean found = false;
 +  	Base[] bases = getProperty(hash, name, false);
-+  	if (bases.length==0) {
++  	if (bases.length==index && index>=0) {
 +  		this.makeProperty(hash, name);
 +  		bases = getProperty(hash, name, false);
 +  	} 
-+  	if (bases.length>0) {
-+  		for(Base base : bases) {
-+  			Element e = (Element) base;
++  	if (index<bases.length && index>=0) {
++  			Element e = (Element) bases[index];
 +  			if (e.isPrimitive()) {
 +  				e.setValue(value.primitiveValue());
 +  				found = true;
@@ -32,7 +34,6 @@ Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elem
 +  		    throw new Error("not done yet"); 
 +  			}
 +  		}
-+  	}
 +  	if (!found) {
 +  		throw new Error("not done yet"); 
 +  	}
@@ -64,3 +65,149 @@ Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/elem
      throw new Error("not done yet"); 
    }
    
+Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/Base.java
+===================================================================
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/Base.java	(revision 10281)
++++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/Base.java	(working copy)
+@@ -640,7 +640,12 @@
+ 	public void setProperty(int hash, String name, Base value) throws FHIRException {
+ 		throw new FHIRException("Attempt to write to invalid property '"+name+"' on type "+fhirType());
+ 	}
++	
++	public void setProperty(int hash, String name, Base value, int index) throws FHIRException {
++		throw new FHIRException("Attempt to write to invalid property '"+name+"' on type "+fhirType()+" at index "+index);
++	}
+ 
++
+ 	public Base makeProperty(int hash, String name) throws FHIRException {
+ 		throw new FHIRException("Attempt to make an invalid property '"+name+"' on type "+fhirType());
+ 	}
+Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/ExpressionNode.java
+===================================================================
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/ExpressionNode.java	(revision 10281)
++++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/ExpressionNode.java	(working copy)
+@@ -40,7 +40,7 @@
+     
+     Empty, Not, Exists, SubsetOf, SupersetOf, IsDistinct, Distinct, Count, Where, Select, All, Repeat, Item /*implicit from name[]*/, As, Is, Single,
+     First, Last, Tail, Skip, Take, Iif, ToInteger, ToDecimal, ToString, Substring, StartsWith, EndsWith, Matches, ReplaceMatches, Contains, Replace, Length,  
+-    Children, Descendants, MemberOf, Trace, Today, Now, Resolve, Extension, HasValue;
++    Children, Descendants, MemberOf, Trace, Today, Now, Resolve, Extension, HasValue, IsInteger;
+ 
+     public static Function fromCode(String name) {
+       if (name.equals("empty")) return Function.Empty;
+@@ -85,6 +85,7 @@
+       if (name.equals("resolve")) return Function.Resolve;
+       if (name.equals("extension")) return Function.Extension;
+       if (name.equals("hasValue")) return Function.HasValue;
++      if (name.equals("isInteger")) return Function.IsInteger;
+       return null;
+     }
+     public String toCode() {
+@@ -131,6 +132,7 @@
+       case Resolve : return "resolve";
+       case Extension : return "extension";
+       case HasValue : return "hasValue";
++      case IsInteger : return "isInteger";
+       default: return "??";
+       }
+     }
+Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/Resource.java
+===================================================================
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/Resource.java	(revision 10281)
++++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model/Resource.java	(working copy)
+@@ -276,7 +276,6 @@
+ 
+       }
+ 
+-      @Override
+       public void setProperty(int hash, String name, Base value) throws FHIRException {
+         switch (hash) {
+         case 3355: // id
+Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils/FluentPathEngine.java
+===================================================================
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils/FluentPathEngine.java	(revision 10281)
++++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils/FluentPathEngine.java	(working copy)
+@@ -826,6 +826,7 @@
+     case Extension: return checkParamCount(lexer, location, exp, 1);
+     case HasValue: return checkParamCount(lexer, location, exp, 0);
+     case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
++    case IsInteger: return checkParamCount(lexer, location, exp, 0);
+     }
+     return false;
+   }
+@@ -2033,6 +2034,7 @@
+     case Resolve : return funcResolve(context, focus, exp);
+     case Extension : return funcExtension(context, focus, exp);
+     case HasValue : return funcHasValue(context, focus, exp);
++    case IsInteger : return this.funcAsInteger(context, focus, exp);
+     case Custom: { 
+       List<List<Base>> params = new ArrayList<List<Base>>();
+       for (ExpressionNode p : exp.getParameters()) 
+@@ -2407,6 +2409,20 @@
+     return result;
+   }
+ 
++	private List<Base> funcAsInteger(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
++    List<Base> result = new ArrayList<Base>();
++    if (focus.size() == 1) {
++      String s = convertToString(focus.get(0));
++      try {
++      	new IntegerType(s);
++        result.add(new BooleanType(true));
++      } catch(Exception e) {
++        result.add(new BooleanType(false));
++      }
++    }
++    return result;
++  }
++
+   private List<Base> funcLength(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
+     List<Base> result = new ArrayList<Base>();
+     if (focus.size() == 1) {
+Index: build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils/StructureMapUtilities.java
+===================================================================
+--- build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils/StructureMapUtilities.java	(revision 10281)
++++ build/implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils/StructureMapUtilities.java	(working copy)
+@@ -1008,9 +1008,10 @@
+ 			throw new Exception("Rule \""+rule.getName()+"\": not handled yet");
+ 		List<Variables> source = processSource(rule.getName(), context, srcVars, rule.getSource().get(0));
+ 		if (source != null) {
+-			for (Variables v : source) {
++			for (int i=0;i<source.size();++i) {
++				Variables v = source.get(i);
+ 				for (StructureMapGroupRuleTargetComponent t : rule.getTarget()) {
+-					processTarget(rule.getName(), context, v, map, t);
++					processTarget(rule.getName(), context, v, map, t, i);
+ 				}
+ 				if (rule.hasRule()) {
+ 					for (StructureMapGroupRuleComponent childrule : rule.getRule()) {
+@@ -1115,7 +1116,7 @@
+ 	}
+ 
+ 
+-	private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
++	private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt, int index) throws Exception {
+ 	  Base dest = null;
+ 	  if (tgt.hasContext()) {
+   		dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
+@@ -1128,7 +1129,7 @@
+ 		if (tgt.hasTransform()) {
+ 			v = runTransform(ruleId, context, map, tgt, vars);
+ 			if (v != null && dest != null)
+-				dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
++				dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v, index);
+ 		} else if (dest != null) 
+ 			v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
+ 		if (tgt.hasVariable() && v != null)
+@@ -1174,6 +1175,11 @@
+ 	    case ESCAPE : 
+ 	      throw new Error("Rule \""+ruleId+"\": Transform "+tgt.getTransform().toCode()+" not supported yet");
+ 	    case CAST :
++	    	String variable = getParamString(vars, tgt.getParameter().get(0));
++	      String castto = getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString());
++	      if ("integer".equals(castto)) {
++	      	return new IntegerType(variable);
++	      }
+ 	      throw new Error("Rule \""+ruleId+"\": Transform "+tgt.getTransform().toCode()+" not supported yet");
+ 	    case APPEND : 
+ 	      throw new Error("Rule \""+ruleId+"\": Transform "+tgt.getTransform().toCode()+" not supported yet");

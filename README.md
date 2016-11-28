@@ -110,10 +110,37 @@ rule_a20a: for source.a2 as a make target.a2 = truncate(a, 20)
 rule_a20b: for source.a2 as a where a2.length() <= 20 make target.a2 = a
 rule_a20c: for source.a2 as a check a2.length() <= 20 make target.a2 = a
 ```
-afther the where, check clause the name of the element has to be used (a2), after the make the variable 
+after the where, check clause the name of the element from tleft has to be used (a2), after the make the variable which is assigned in the rule
 
 
 ## issues step4
 
 Transfrom not supported yet.
+added the cast transform for integer as wall as the function isInteger() to the FluentPathEngine
+TODO: what other casts should be supported?
+
+```
+"rule_a21a" : for source.a21 as a make target.a21 = cast(a, "integer") // error if it's not an integer
+"rule_a21b" : for source.a21 as a where a1.isInteger make target.a2 = cast(a, "integer") // ignore it
+"rule_a21c" : for source.a21 as a where not at1.isInteger make target.a21 = 0 // just assign it 0
+```
+
+changed it to
+
+```
+  rule_a21a: for source.a21 as a make target.a21 = cast(a, "integer")
+  rule_a21b: for source.a21 as a where a21.isInteger() make target.a21 = cast(a, "integer")
+  rule_a21c: for source.a21 as a where a21.isInteger() = false make target.a21 = 0
+```
+
+### issues Step #5: Managing lists, part 1 
+
+repeated elements were not working, improved patched for setProperty that primitive repeated elements get created.
+  
+  
+
+
+
+
+
 

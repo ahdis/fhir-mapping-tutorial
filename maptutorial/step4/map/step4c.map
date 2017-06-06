@@ -7,7 +7,7 @@ group tutorial
   input source : TLeft as source
   input target : TRight as target
 
-rule_a21b: for source.a21 as a where a21.isInteger() make target.a21 = cast(a, "integer") 
-rule_a21c: for source.a21 as a where a21.isInteger() = false make target.a21 = 0
+rule_a21b: for source.a21 as a where a21.matches("[0-9]+") make target.a21 = cast(a, "integer") 
+rule_a21c: for source.a21 as a where (a21.matches("[0-9]+")).not() make target.a21 = 0
 
 endgroup

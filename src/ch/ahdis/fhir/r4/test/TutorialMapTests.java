@@ -33,6 +33,7 @@ public class TutorialMapTests {
 	private FHIRPathEngine fhirPathEngine;
 	private StructureMapUtilities structureMapUtilites;
 	private Map<String, StructureMap> maps = new HashMap<String, StructureMap>();
+	private MappingServices mappingServices = new MappingServices();
 
 	final private String path = ".\\maptutorial\\";
 	
@@ -44,7 +45,7 @@ public class TutorialMapTests {
 			TestingUtilities.context = SimpleWorkerContext
 					.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
 		fhirPathEngine = new FHIRPathEngine(TestingUtilities.context);
-		structureMapUtilites = new StructureMapUtilities(TestingUtilities.context, maps, null);
+		structureMapUtilites = new StructureMapUtilities(TestingUtilities.context, maps, mappingServices);
 	}
 	
 	/**
@@ -240,10 +241,11 @@ public class TutorialMapTests {
 				FhirFormat.XML);
 		tright = Manager.build(TestingUtilities.context, structureDefinitionTRight);
 
+		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3b"), tright);
 		Manager.compose(TestingUtilities.context, tright,
 				new FileOutputStream(Utilities.path(getPathTarget(step), "targetb.xml")),
 				FhirFormat.XML, OutputStyle.PRETTY, null);
-		structureMapUtilites.transform(null, tleft, maps.get("http://hl7.org/fhir/StructureMap/tutorial3b"), tright);
+		
     assertEquals("0123456789", fhirPathEngine.evaluateToString(tright, "a2"));
     
     //3c

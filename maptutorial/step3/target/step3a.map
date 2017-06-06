@@ -3,10 +3,10 @@
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial
-  input source : TLeft as source;
-  input target : TRight as target;
+group for types tutorial
+  input source : TLeft as source
+  input target : TRight as target
 
-  rule_a20a: for source.a2 as a make target.a2 = truncate(a, 20)
+  rule_a20a : for source.a2 as a make target.a2 = truncate(a, 20)
 
 endgroup

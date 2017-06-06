@@ -39,38 +39,45 @@ run the unit test ...
 ## step1
 
 TLeft --> TRight
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <TLeft xmlns="http://hl7.org/fhir/tutorial">
   <a>test</a>
 </TLeft>
-````
+```
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <TRight xmlns="http://hl7.org/fhir/tutorial">
   <a>test</a>
 </TRight>
-
+```
 
 ## issues step3
 
-currently working on
+note: use the structure definition not like in steps1 and steps2 but simplified:
 
-change it to:
+```xml
+<TLeft xmlns="http://hl7.org/fhir/tutorial">
+	<a2 value="012345678901234567890012345678901234567890012345678901234567890" />
+</TLeft>
 ```
 
-rule_a20a: for source.a2 as a make target.a2 = truncate(a, 20)
+```
 rule_a20b: for source.a2 as a where a2.length() <= 20 make target.a2 = a
 rule_a20c: for source.a2 as a check a2.length() <= 20 make target.a2 = a
 ```
-after the where, check clause the name of the element from tleft has to be used (a2), after the make the variable which is assigned in the rule
+change it to:
+```
+rule_a20b: for source.a2 as a where $this.length() <= 20 make target.a2 = a
+rule_a20c: for source.a2 as a check $this.length() <= 20 make target.a2 = a
+```
+looks like the FhirPathEnginge cannot evaluate a2 (L)
+Evaluate {'$this.length() < 20'} on [a2=string[012345678901234567890012345678901234567890012345678901234567890]]
 
+tried to create a patch for FHIRPathEngine L878 (private List<Base> execute(ExecutionContext context, List<Base> focus, ExpressionNode exp, boolean atEntry) throws FHIRException { )
 
 ## issues step4
-
-Transfrom not supported yet.
-added the cast transform for integer as wall as the function isInteger() to the FluentPathEngine
-TODO: what other casts should be supported?
 
 ```
 "rule_a21a" : for source.a21 as a make target.a21 = cast(a, "integer") // error if it's not an integer
@@ -78,16 +85,24 @@ TODO: what other casts should be supported?
 "rule_a21c" : for source.a21 as a where not at1.isInteger make target.a21 = 0 // just assign it 0
 ```
 
-changed it to
+- Transform cast not supported yet. added integer functionality with patch.
+- isInteger is not supported in fhirpath? only option to use matches with regex
+- regex: how to escape \ in map defintion for (\+|-)?\d+ (does give an error message if you using \d or \\d)
+- regex: function matches implementation does not work? changed it, but not sure 
+
+changed it to:
 
 ```
   rule_a21a: for source.a21 as a make target.a21 = cast(a, "integer")
-  rule_a21b: for source.a21 as a where a21.isInteger() make target.a21 = cast(a, "integer")
-  rule_a21c: for source.a21 as a where a21.isInteger() = false make target.a21 = 0
+  rule_a21b: for source.a21 as a where a21.matches("[0-9]+") make target.a21 = cast(a, "integer") 
+  rule_a21c: for source.a21 as a where (a21.matches("[0-9]+")).not() make target.a21 = 0
 ```
+
+
 
 ### issues Step #5: Managing lists, part 1 
 
+working on ...
 repeated elements were not working, improved patched for setProperty that primitive repeated elements get created.
   
 ### issues step #6: Managing lists, part 2 

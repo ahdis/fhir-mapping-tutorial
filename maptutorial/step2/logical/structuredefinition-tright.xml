@@ -23,6 +23,12 @@
 			<path value="TRight.a2" />
 			<min value="1" />
 			<max value="1" />
+		</element>
+		<element>
+			<path value="TRight.a2.txt" />
+			<representation value="xmlText"/>
+			<min value="1" />
+			<max value="1" />
 			<type>
 				<code value="string" />
 			</type>

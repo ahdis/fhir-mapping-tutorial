@@ -1,29 +1,31 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
-	<id value="TLeft" />
+	<id value="TRight" />
 	<extension
 		url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
 		<valueUri value="http://hl7.org/fhir/tutorial" />
 	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
-	<name value="TLeft" />
+	<meta>
+		<lastUpdated value="2016-11-21T16:11:04.708+01:00" />
+	</meta>
+	<url
+		value="http://hl7.org/fhir/StructureDefinition/tutorial-right" />
+	<name value="TRight" />
 	<status value="draft" />
 	<kind value="logical" />
 	<abstract value="false" />
 	<snapshot>
 		<element>
-			<path value="TLeft" />
-			<min value="1" />
-			<max value="1" />
-		</element>
-		 		<element id="TLeft.a1">
-			<path value="TLeft.a1" />
-			<definition value="TLeft definition"/>
+			<path value="TRight" />
 			<min value="1" />
 			<max value="1" />
 		</element>
 		<element>
-			<path value="TLeft.a1.txt" />
-			<representation value="xmlText"/>
+			<path value="TRight.aa" />
+			<min value="0" />
+			<max value="*" />
+		</element>
+		<element>
+			<path value="TRight.ab" />
 			<min value="1" />
 			<max value="1" />
 			<type>

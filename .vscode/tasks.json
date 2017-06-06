@@ -1,0 +1,182 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // assuming validator with org.hl7.fhir.validator.jar and igpack.zip is in the validator folder below the ig
+    // assuming igpublisher with org.hl7.fhir.igpublisher.jar is in the igpublisher directory
+    "version": "0.1.0",
+    "command": "java",
+    "isShellCommand": true,
+    "args": [],
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "validate ressource with local ig without terminology server",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/validator/org.hl7.fhir.validator.jar",
+                "${file}",
+                "-defn",
+                "${workspaceRoot}/validator/igpack.zip",
+                "-tx",
+                "n/a"
+            ],
+            "problemMatcher": {
+                "owner": "fhirvalidator",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": [
+                    {
+                        "regexp": "^.*validating\\s*([^:]*)",
+                        "file": 1
+                    },
+                    {
+                        "regexp": "^.\\s*([^\\s]*).*@\\s*([^\\s]*).*\\(line\\s*(\\d+),.*col(\\d+)[^:]*:\\s(.*)",
+                        "line": 3,
+                        "column": 4,
+                        "severity": 1,
+                        "message": 5,
+                        "code": 2,
+                        "loop": true
+                    }
+                ]
+            }
+        },        {
+            "taskName": "validate ressource pure",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/validator/org.hl7.fhir.validator.jar",
+                "-tx",
+                "n/a"                ,
+                "${file}"
+            ],
+            "problemMatcher": {
+                "owner": "fhirvalidator",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": [
+                    {
+                        "regexp": "^.*validating\\s*([^:]*)",
+                        "file": 1
+                    },
+                    {
+                        "regexp": "^.\\s*([^\\s]*).*@\\s*([^\\s]*).*\\(line\\s*(\\d+),.*col(\\d+)[^:]*:\\s(.*)",
+                        "line": 3,
+                        "column": 4,
+                        "severity": 1,
+                        "message": 5,
+                        "code": 2,
+                        "loop": true
+                    }
+                ]
+            }
+        },
+
+        {
+            "taskName": "validate ressource with local ig",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/validator/org.hl7.fhir.validator.jar",
+                "${file}",
+                "-defn",
+                "${workspaceRoot}/validator/igpack.zip",
+                "-ig",
+                "${workspaceRoot}/resources/StructureDefinition/",
+                "-ig",
+                "${workspaceRoot}/resources/CodeSystem/",
+                "-ig",
+                "${workspaceRoot}/resources/ValueSet/"
+            ],
+            "problemMatcher": {
+                "owner": "fhirvalidator",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": [
+                    {
+                        "regexp": "^.*validating\\s*([^:]*)",
+                        "file": 1
+                    },
+                    {
+                        "regexp": "^.\\s*([^\\s]*).*@\\s*([^\\s]*).*\\(line\\s*(\\d+),.*col(\\d+)[^:]*:\\s(.*)",
+                        "line": 3,
+                        "column": 4,
+                        "severity": 1,
+                        "message": 5,
+                        "code": 2,
+                        "loop": true
+                    }
+                ]
+            }
+        },
+        {
+            "taskName": "validate StructureDefinition without terminology server",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/validator/org.hl7.fhir.validator.jar",
+                "${file}",
+                "-defn",
+                "${workspaceRoot}/validator/igpack.zip",
+                "-ig",
+                "${workspaceRoot}/resources/CodeSystem/",
+                "-ig",
+                "${workspaceRoot}/resources/ValueSet/",
+                "-tx",
+                "n/a"
+            ],
+            "problemMatcher": {
+                "owner": "fhirvalidator",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": [
+                    {
+                        "regexp": "^.*validating\\s*([^:]*)",
+                        "file": 1
+                    },
+                    {
+                        "regexp": "^.\\s*([^\\s]*).*@\\s*([^\\s]*).*\\(line\\s*(\\d+),.*col(\\d+)[^:]*:\\s(.*)",
+                        "line": 3,
+                        "column": 4,
+                        "severity": 1,
+                        "message": 5,
+                        "code": 2,
+                        "loop": true
+                    }
+                ]
+            }
+        },
+        {
+            "taskName": "publish ig",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/igpublisher/org.hl7.fhir.igpublisher.jar",
+                "-ig",
+                "${workspaceRoot}/chmed16af.json",
+                "-spec",
+                "${workspaceRoot}/validator/igpack.zip"
+            ]
+        },
+        {
+            "taskName": "xsl mp bundle to qr",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/tools/saxon9he.jar",
+                "-s:${file}",
+                "-xsl:${workspaceRoot}/chmed16aq/chmed16af-mp_to_chmed16aq-mp.xsl",
+                "-o:${workspaceRoot}/chmed16aq/chmed16aq-mp-output.xml"
+            ]
+        },         {
+            "taskName": "xsd: validate xml with chmed16aq-mp.xsd",
+            "args": [
+                "-jar",
+                "${workspaceRoot}/tools/xsdv.jar",
+                "${workspaceRoot}/chmed16aq/chmed16aq-mp.xsd",
+                "${file}"                
+            ]
+        }
+
+    ]
+}

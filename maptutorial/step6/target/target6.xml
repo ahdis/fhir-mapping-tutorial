@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <TRight xmlns="http://hl7.org/fhir/tutorial">
-  <a2 value="01234567890123456789"/>
+  <a23 value="12345"/>
 </TRight>

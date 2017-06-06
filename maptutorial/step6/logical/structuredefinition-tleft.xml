@@ -4,6 +4,9 @@
 		url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
 		<valueUri value="http://hl7.org/fhir/tutorial" />
 	</extension>
+	<meta>
+		<lastUpdated value="2016-11-21T16:11:04.708+01:00" />
+	</meta>
 	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
 	<name value="TLeft" />
 	<status value="draft" />
@@ -15,17 +18,10 @@
 			<min value="1" />
 			<max value="1" />
 		</element>
-		 		<element id="TLeft.a1">
-			<path value="TLeft.a1" />
-			<definition value="TLeft definition"/>
-			<min value="1" />
-			<max value="1" />
-		</element>
 		<element>
-			<path value="TLeft.a1.txt" />
-			<representation value="xmlText"/>
-			<min value="1" />
-			<max value="1" />
+			<path value="TLeft.a23" />
+			<min value="0" />
+			<max value="*" />
 			<type>
 				<code value="string" />
 			</type>

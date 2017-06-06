@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-discovery-0.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-httpclient-3.0.1.jar"/>
@@ -28,6 +26,8 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/ST4-4.0.7.jar"/>
-		<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

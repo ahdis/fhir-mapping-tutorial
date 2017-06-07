@@ -25,7 +25,7 @@
 			<max value="*" />
 		</element>
 		<element>
-			<path value="TRight.ab" />
+			<path value="TRight.aa.ab" />
 			<min value="1" />
 			<max value="1" />
 			<type>

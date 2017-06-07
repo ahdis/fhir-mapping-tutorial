@@ -1,0 +1,19 @@
+map "http://hl7.org/fhir/StructureMap/tutorial7b" = "tutorial"
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+
+group tutorial
+  input source : TLeft as source
+  input target : TRight as target
+
+rule_aa : for source.aa as s_aa make target.aa as t_aa then ab_content(s_aa, t_aa)  // make aa exist
+
+endgroup
+
+group ab_content
+  input src as source
+  input tgt as target
+
+  rule_ab : for src.ab as ab make tgt.ab = ab // copy ab inside aa
+endgroup

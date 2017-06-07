@@ -1,4 +1,4 @@
-map "http://hl7.org/fhir/StructureMap/tutorial6a" = "tutorial"
+map "http://hl7.org/fhir/StructureMap/tutorial6d" = "tutorial"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
@@ -7,6 +7,6 @@ group tutorial
   input source : TLeft as source
   input target : TRight as target
 
-rule_a23a: for source.a23 only_one as a make target.a23 = a 
+rule_a23d_1 : for source.a23 last as a make target.a23 = a // only use the last item in the list
 
 endgroup

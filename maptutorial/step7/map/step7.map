@@ -7,7 +7,8 @@ group tutorial
   input source : TLeft as source
   input target : TRight as target
 
-rule_aa : for source.aa as s_aa make target.aa as t_aa then rule_ab(s_aa, t_aa) // make aa exist
-rule_ab : for s_aa.ab as ab make t_aa.ab = ab // copy ab inside aa
+rule_aa : for source.aa as s_aa make target.aa as t_aa then {
+  rule_ab : for s_aa.ab as ab make t_aa.ab = ab // copy ab inside aa
+}
 
 endgroup

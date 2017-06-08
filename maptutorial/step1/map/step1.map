@@ -1,7 +1,7 @@
 map "http://hl7.org/fhir/StructureMap/tutorial" = "tutorial"
 
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-1" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-1" as target
 
 group tutorial
   input source : TLeft as source

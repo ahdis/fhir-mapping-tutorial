@@ -81,6 +81,8 @@ Evaluate {'$this.length() < 20'} on [a2=string[012345678901234567890012345678901
 
 tried to create a patch for FHIRPathEngine L878 (private List<Base> execute(ExecutionContext context, List<Base> focus, ExpressionNode exp, boolean atEntry) throws FHIRException { )
 
+however the examples in build/implemtations/r2maps in the build have also the $this parameter
+
 ## step4 - fails
 
 ```
@@ -132,8 +134,54 @@ group ab_content
 endgroup
 ```
  
-
+## step 8 - ok
   
+conceptmpa can be embedded in map: 
+
+```
+map "http://hl7.org/fhir/StructureMap/tutorial8" = "tutorial"
+
+conceptmap "tutorialmap" {
+
+  prefix s = "http://hl7.org/fhir/tutorial8/codeleft"
+  prefix t = "http://hl7.org/fhir/tutorial8/coderight"
+
+  s:vonhier = t:"nach-da"
+  s:test = t:test
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+
+group tutorial
+  input source : TLeft as source
+  input target : TRight as target
+
+
+  rule_d : for source.d as d make target.d = translate(d, '#tutorialmap', 'code')
+
+endgroup
+``
+
+## step 9 - fails
+
+changed mapping to
+```
+map "http://hl7.org/fhir/StructureMap/tutorial9" = "tutorial"
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+
+group tutorial
+  input source : TLeft as source
+  input target : TRight as target
+
+  rule_i1 : for source as s where $this.m < 2 make target.j = evaluate(s,"i")
+  rule_i2 : for source as s where $this.m >= 2 make target.k = evaluate(s,"i")
+
+endgroup
+```
+
 
 
 

@@ -1,0 +1,39 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+	<id value="TRight" />
+	<extension
+		url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+		<valueUri value="http://hl7.org/fhir/tutorial" />
+	</extension>
+	<meta>
+		<lastUpdated value="2016-11-21T16:11:04.708+01:00" />
+	</meta>
+	<url
+		value="http://hl7.org/fhir/StructureDefinition/tutorial-right" />
+	<name value="TRight" />
+	<status value="draft" />
+	<kind value="logical" />
+	<abstract value="false" />
+	<snapshot>
+		<element>
+			<path value="TRight" />
+			<min value="1" />
+			<max value="1" />
+		</element>
+		<element>
+			<path value="TRight.j" />
+			<min value="0" />
+			<max value="1" />
+			<type>
+				<code value="string" />
+			</type>
+		</element>
+		<element>
+			<path value="TRight.k" />
+			<min value="0" />
+			<max value="1" />
+			<type>
+				<code value="string" />
+			</type>
+		</element>
+	</snapshot>
+</StructureDefinition>

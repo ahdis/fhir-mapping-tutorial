@@ -136,7 +136,7 @@ endgroup
  
 ## step 8 - ok
   
-conceptmpa can be embedded in map: 
+conceptmap can be embedded in map: 
 
 ```
 map "http://hl7.org/fhir/StructureMap/tutorial8" = "tutorial"
@@ -161,7 +161,7 @@ group tutorial
   rule_d : for source.d as d make target.d = translate(d, '#tutorialmap', 'code')
 
 endgroup
-``
+```
 
 ## step 9 - fails
 

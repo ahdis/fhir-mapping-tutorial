@@ -49,27 +49,27 @@ public class TutorialMapTests {
 		// FIXME: put here the path to build directory of the checkout source of forge
 		TestingUtilities.fixedpath = "//Users//oliveregger//fhir//trunk//build";
 		if (context == null)
-				context = SimpleWorkerContext
-					.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
+			context = SimpleWorkerContext
+			.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
 
 		TestingUtilities.context = new SimpleWorkerContext(context);
 		fhirPathEngine = new FHIRPathEngine(TestingUtilities.context);
 		structureMapUtilites = new StructureMapUtilities(TestingUtilities.context, maps, mappingServices);
-		
-	    if (setupTargetFolders) {
-	        return;
-	    }
-	    setupTargetFolders = true;
-        DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get(path.replace("\\", File.separator)));
-        for ( Path p : dirStream )
-        {
-            if ( p.toFile().isDirectory() )
-            {
-                Path pathTarget = Paths.get(Utilities.path(getPathTarget(p.getFileName().toString())));
-                if (Files.notExists(pathTarget))
-                	Files.createDirectories(pathTarget);
-            }
-        }
+
+		if (setupTargetFolders) {
+			return;
+		}
+		setupTargetFolders = true;
+		DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get(path.replace("\\", File.separator)));
+		for ( Path p : dirStream )
+		{
+			if ( p.toFile().isDirectory() )
+			{
+				Path pathTarget = Paths.get(Utilities.path(getPathTarget(p.getFileName().toString())));
+				if (Files.notExists(pathTarget))
+					Files.createDirectories(pathTarget);
+			}
+		}
 	}
 	
 	/**

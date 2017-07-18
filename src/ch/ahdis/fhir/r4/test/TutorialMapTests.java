@@ -10,6 +10,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
@@ -37,6 +41,8 @@ public class TutorialMapTests {
 
 	final private String path = ".\\maptutorial\\";
 	static private SimpleWorkerContext context;
+	private static boolean setupTargetFolders = false;
+	
 	
 	@Before 
 	public void setupTest() throws FileNotFoundException, IOException, FHIRException {
@@ -49,6 +55,21 @@ public class TutorialMapTests {
 		TestingUtilities.context = new SimpleWorkerContext(context);
 		fhirPathEngine = new FHIRPathEngine(TestingUtilities.context);
 		structureMapUtilites = new StructureMapUtilities(TestingUtilities.context, maps, mappingServices);
+		
+	    if (setupTargetFolders) {
+	        return;
+	    }
+	    setupTargetFolders = true;
+        DirectoryStream<Path> dirStream = Files.newDirectoryStream(Paths.get(path.replace("\\", File.separator)));
+        for ( Path p : dirStream )
+        {
+            if ( p.toFile().isDirectory() )
+            {
+                Path pathTarget = Paths.get(Utilities.path(getPathTarget(p.getFileName().toString())));
+                if (Files.notExists(pathTarget))
+                	Files.createDirectories(pathTarget);
+            }
+        }
 	}
 	
 	/**

@@ -3,10 +3,7 @@ map "http://hl7.org/fhir/StructureMap/tutorial4a" = "tutorial"
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial
-  input source : TLeft as source
-  input target : TRight as target
+group tutorial(source source : TLeft, target target : TRight) {
+  source.a21 as a -> target.a21 = cast(a, 'integer') "rule_a21a";
+}
 
-rule_a21a: for source.a21 as a make target.a21 = cast(a, "integer")
-
-endgroup

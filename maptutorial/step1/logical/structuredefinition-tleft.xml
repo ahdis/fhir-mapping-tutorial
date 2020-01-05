@@ -7,10 +7,11 @@
 	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
 	<name value="TLeft" />
 	<status value="draft" />
-	<fhirVersion value="3.0.1" />
+	<fhirVersion value="4.0.1" />
 	<kind value="logical" />
 	<abstract value="true" />
 	<type value="TLeft"/>
+    <derivation value="specialization"/>
 	<snapshot>
 		<element id="TLeft">
 			<path value="TLeft" />

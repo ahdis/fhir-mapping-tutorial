@@ -1,9 +1,9 @@
-map "http://hl7.org/fhir/StructureMap/tutorial6b" = "tutorial"
+map "http://hl7.org/fhir/StructureMap/tutorial4b3" = "tutorial"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
 group tutorial(source source : TLeft, target target : TRight) {
-  source.a23 as a -> target.a23 = a "rule_a23b"; // leave error to lower layer; less informative
+  source.a21 as a where $this.matches('\\d+') -> target.a21 = a "rule_a21b";
 }
 

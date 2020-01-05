@@ -1,3 +1,5 @@
 /bin/
 /validator/
 **/target/
+**/output.xml
+test.txt

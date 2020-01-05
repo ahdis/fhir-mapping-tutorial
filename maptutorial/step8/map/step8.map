@@ -1,22 +1,17 @@
 map "http://hl7.org/fhir/StructureMap/tutorial8" = "tutorial"
 
 conceptmap "tutorialmap" {
-
   prefix s = "http://hl7.org/fhir/tutorial8/codeleft"
   prefix t = "http://hl7.org/fhir/tutorial8/coderight"
 
-  s:vonhier = t:"nach-da"
-  s:test = t:test
+  s:vonhier == t:"nach-da"
+  s:test == t:test
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial
-  input source : TLeft as source
-  input target : TRight as target
+group tutorial(source source : TLeft, target target : TRight) {
+  source.d as d -> target.d = translate(d, '#tutorialmap', 'code') "rule_d";
+}
 
-
-  rule_d : for source.d as d make target.d = translate(d, '#tutorialmap', 'code')
-
-endgroup

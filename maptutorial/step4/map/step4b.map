@@ -3,11 +3,7 @@ map "http://hl7.org/fhir/StructureMap/tutorial4b" = "tutorial"
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial
-  input source : TLeft as source
-  input target : TRight as target
-  
-rule_a21b: for source.a21 as a where a21.matches("[0-9]+") make target.a21 = cast(a, "integer") 
+group tutorial(source source : TLeft, target target : TRight) {
+  source.a21 as a where $this.isInteger() -> target.a21 = a "rule_a21b";
+}
 
-
-endgroup

@@ -1,12 +1,8 @@
 map "http://hl7.org/fhir/StructureMap/tutorial" = "tutorial"
 
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-1" as source
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-1" as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
 
-group tutorial
-  input source : TLeft as source
-  input target : TRight as target
-
-rule_a: for source.a as a make target.a = a
-
-endgroup
+group tutorial(source src : TLeft, target tgt : TRight) {
+    src.a as a -> tgt.a = a "rule_a";
+}

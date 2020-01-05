@@ -3,10 +3,7 @@ map "http://hl7.org/fhir/StructureMap/tutorial3c" = "tutorial"
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial
-  input source : TLeft as source
-  input target : TRight as target
+group tutorial(source source : TLeft, target target : TRight) {
+  source.a2 as a check $this.length() <= 20 -> target.a2 = a "rule_a20c";
+}
 
-rule_a20c: for source.a2 as a check $this.length() <= 20 make target.a2 = a
-
-endgroup

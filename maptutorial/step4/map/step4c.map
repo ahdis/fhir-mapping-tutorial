@@ -3,11 +3,8 @@ map "http://hl7.org/fhir/StructureMap/tutorial4c" = "tutorial"
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial
-  input source : TLeft as source
-  input target : TRight as target
+group tutorial(source source : TLeft, target target : TRight) {
+  source.a21 as a where a21.matches('[0-9]+') -> target.a21 = cast(a, 'integer') "rule_a21b";
+  source.a21 as a where (a21.matches('[0-9]+')).not() -> target.a21 = 0 "rule_a21c";
+}
 
-rule_a21b: for source.a21 as a where a21.matches("[0-9]+") make target.a21 = cast(a, "integer") 
-rule_a21c: for source.a21 as a where (a21.matches("[0-9]+")).not() make target.a21 = 0
-
-endgroup

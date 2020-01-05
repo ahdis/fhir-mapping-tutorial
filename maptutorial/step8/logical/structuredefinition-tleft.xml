@@ -9,9 +9,11 @@
 	</meta>
 	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
 	<name value="TLeft" />
-	<status value="draft" />
+	<fhirVersion value="4.0.1" />
 	<kind value="logical" />
-	<abstract value="false" />
+	<abstract value="true" />
+	<type value="TLeft"/>
+    <derivation value="specialization"/>
 	<snapshot>
 		<element>
 			<path value="TLeft" />

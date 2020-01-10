@@ -1,0 +1,9 @@
+map "http://hl7.org/fhir/StructureMap/unioncollection" = "unioncollection"
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
+
+group combine(source source : TLeft, target target : TRight) {
+    source.a first as a -> target.c = (%source.a[0]+%source.b[0]) "concatenated";
+//  source.a as a -> target.c as c, c = (%source.a.item($index) + %source.b.item($index)) "concatenate";
+}

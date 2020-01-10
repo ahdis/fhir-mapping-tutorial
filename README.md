@@ -71,15 +71,17 @@ just cut it off at 20 characters
 ### step3b ignore it - fails
 
 ```
-rule_a20b: for source.a2 as a where a2.length() <= 20 make target.a2 = a
+  source.a2 as a where a2.length()<20 -> target.a2 = a "rule_a20b";
 ```
 
 change it to one of the following to run the map:
 
 ```
-rule_a20b: for source.a2 as a where $this.length() <= 20 make target.a2 = a
-rule_a20b: for source.a2 as a where length() <= 20 make target.a2 = a
-rule_a20b: for source.a2 as a where source.a2.length() <= 20 make target.a2 = a
+  source.a2 as a where length()<20 -> target.a2 = a "rule_a20b";
+  source.a2 as a where $this.length()<20 -> target.a2 = a "rule_a20b";
+  source.a2 as a where source.a2.length()<20 -> target.a2 = a "rule_a20b";
+  source.a2 as a where %source.a2.length()<20 -> target.a2 = a "rule_a20b";
+
 ```
 
 ```

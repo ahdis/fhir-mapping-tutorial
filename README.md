@@ -3,7 +3,7 @@ FHIR has a mapping language to convert between resources and logical models and 
 
 See the [FHIR Mapping Language confluence page](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Mapping+Language) for additional information. 
 
-To run the transforms directly from the command line you can use the FHIR Java Validator, download here [https://storage.googleapis.com/ig-build/org.hl7.fhir.validator.jar]
+To run the transforms directly from the command line you can use the FHIR Java Validator, [download here]( https://storage.googleapis.com/ig-build/org.hl7.fhir.validator.jar)
 
 ```
 java -jar org.hl7.fhir.validator.jar ./maptutorial/step1/source/source1.xml -transform http://hl7.org/fhir/StructureMap/tutorial -version 4.0.1 -ig ./maptutorial/step1/logical -ig ./maptutorial/step1/map -log test.txt -output ./maptutorial/step1/output.xml

@@ -1,3 +1,3 @@
 <TLeft xmlns="http://hl7.org/fhir/tutorial">
-	<a1>test</a1>
+	<a1 value="test"/>
 </TLeft>

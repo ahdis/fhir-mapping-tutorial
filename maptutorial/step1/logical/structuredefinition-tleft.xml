@@ -25,15 +25,6 @@
 			<min value="1" />
 			<max value="1" />
 			<type>
-				<code value="Element"/>
-			</type>
-		</element>
-		<element>
-			<path value="TLeft.a.txt" />
-			<representation value="xmlText"/>
-			<min value="1" />
-			<max value="1" />
-			<type>
 				<code value="string" />
 			</type>
 		</element>

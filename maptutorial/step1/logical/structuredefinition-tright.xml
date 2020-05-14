@@ -20,17 +20,8 @@
 			<max value="1" />
 		</element>
 		<element id="TRight.a">
-			<path value="TRight.a" />
+			<path value="TRight.a" />			
 			<definition value="TRight definition" />
-			<min value="1" />
-			<max value="1" />
-			<type>
-				<code value="Element"/>
-			</type>
-		</element>
-		<element>
-			<path value="TRight.a.txt" />
-			<representation value="xmlText" />
 			<min value="1" />
 			<max value="1" />
 			<type>

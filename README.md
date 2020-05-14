@@ -27,8 +27,9 @@ java -jar org.hl7.fhir.validator.jar ./maptutorial/step1/source/source1.xml -tra
 TLeft --> TRight
 
 ```xml
-<TRight xmlns="http://hl7.org/fhir/tutorial">
-  <a>test</a>
+<TRight 
+  xmlns="http://hl7.org/fhir/tutorial">
+  <a value="step1"/>
 </TRight>
 ```
 

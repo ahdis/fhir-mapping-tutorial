@@ -1,12 +1,11 @@
 # FHIR tutorial mapping example
-FHIR has a mapping language to convert between logical models an a nice [tutorial](http://build.fhir.org/mapping-tutorial.html) how use it, this projects tries to build the structure definitions and mappings for it.
+FHIR has a mapping language to convert between resources and logical models and features a [tutorial](http://build.fhir.org/mapping-tutorial.html) how use it. This projects tries to build the structure definitions and mappings for it.
 
-The [validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator) has  the possiblity to run the transforms, currently a [patched version](https://github.com/ahdis/org.hl7.fhir.core/releases/download/4.1.38-dev/org.hl7.fhir.validation.cli-4.1.38-SNAPSHOT.jar) is necessary to run the steps below:
+See the [FHIR Mapping Language confluence page](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator) for additional information.
 
 ```
 java -jar org.hl7.fhir.validator.jar ./maptutorial/step1/source/source1.xml -transform http://hl7.org/fhir/StructureMap/tutorial -version 4.0.1 -ig ./maptutorial/step1/logical -ig ./maptutorial/step1/map -log test.txt -output ./maptutorial/step1/output.xml
 ```
-
 
 ## run the tutorial
 for each step there is a directory below the maptutorial directory

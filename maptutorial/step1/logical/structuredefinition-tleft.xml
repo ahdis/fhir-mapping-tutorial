@@ -1,7 +1,6 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
 	<id value="TLeft" />
-	<extension
-		url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+	<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
 		<valueUri value="http://hl7.org/fhir/tutorial" />
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
@@ -11,19 +10,23 @@
 	<kind value="logical" />
 	<abstract value="true" />
 	<type value="TLeft"/>
-    <derivation value="specialization"/>
-	<snapshot>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+	<derivation value="specialization"/>
+	<differential>
 		<element id="TLeft">
 			<path value="TLeft" />
 			<definition value="TLeft definition"/>
 			<min value="1" />
 			<max value="1" />
 		</element>
- 		<element id="TLeft.a">
+		<element id="TLeft.a">
 			<path value="TLeft.a" />
 			<definition value="TLeft definition"/>
 			<min value="1" />
 			<max value="1" />
+			<type>
+				<code value="Element"/>
+			</type>
 		</element>
 		<element>
 			<path value="TLeft.a.txt" />
@@ -33,6 +36,6 @@
 			<type>
 				<code value="string" />
 			</type>
-		</element>		
-	</snapshot>
+		</element>
+	</differential>
 </StructureDefinition>

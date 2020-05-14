@@ -1,7 +1,6 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
 	<id value="TRight" />
-	<extension
-		url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+	<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
 		<valueUri value="http://hl7.org/fhir/tutorial" />
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-right" />
@@ -11,8 +10,9 @@
 	<kind value="logical" />
 	<abstract value="true" />
 	<type value="TRight" />
-    <derivation value="specialization"/>
-	<snapshot>
+	<derivation value="specialization"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+	<differential>
 		<element id="TRight">
 			<path value="TRight" />
 			<definition value="TRight definition" />
@@ -24,6 +24,9 @@
 			<definition value="TRight definition" />
 			<min value="1" />
 			<max value="1" />
+			<type>
+				<code value="Element"/>
+			</type>
 		</element>
 		<element>
 			<path value="TRight.a.txt" />
@@ -34,5 +37,5 @@
 				<code value="string" />
 			</type>
 		</element>
-	</snapshot>
+	</differential>
 </StructureDefinition>

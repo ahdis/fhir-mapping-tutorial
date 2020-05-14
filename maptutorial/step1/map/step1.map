@@ -4,5 +4,5 @@ uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as sour
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
-    src.a as a -> tgt.a = a "rule_a";
+    src.a as a -> tgt.a = a "rule-a";
 }

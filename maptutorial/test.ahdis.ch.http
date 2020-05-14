@@ -1,0 +1,31 @@
+@host = http://localhost:8080
+
+### FHIR Tutorial Step 1
+
+### FHIR Tutorial send StructureDefinition TLeft1
+POST {{host}}/r4/StructureDefinition HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./maptutorial/step1/logical/structuredefinition-tleft.xml
+
+### FHIR Tutorial send StructureDefinition TEifhr
+POST {{host}}/r4/StructureDefinition HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./maptutorial/step1/logical/structuredefinition-tright.xml
+
+### Post the StructureMap
+POST {{host}}/r4/StructureMap HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: text/fhir-mapping
+
+< ./maptutorial/step1/map/step1.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./maptutorial/step1/source/source1.xml

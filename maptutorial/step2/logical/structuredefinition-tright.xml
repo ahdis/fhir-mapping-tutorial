@@ -16,12 +16,18 @@
 		<element id="TRight">
 			<path value="TRight" />
 			<definition value="TRight definition" />
+			<type>
+				<code value="string" />
+			</type>
 			<min value="1" />
 			<max value="1" />
 		</element>
 		<element id="TRight.a2">
 			<path value="TRight.a2" />
 			<definition value="TRight definition" />
+			<type>
+				<code value="string" />
+			</type>
 			<min value="1" />
 			<max value="1" />
 		</element>

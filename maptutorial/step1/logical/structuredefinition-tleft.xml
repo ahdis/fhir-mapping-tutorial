@@ -22,7 +22,6 @@
 		</element>
  		<element id="TLeft.a">
 			<path value="TLeft.a" />
-			<representation value="xmlText" />
 			<definition value="TLeft definition"/>
 			<type>
 				<code value="string" />

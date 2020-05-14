@@ -22,7 +22,6 @@
 		</element>
 		<element id="TRight.a">
 			<path value="TRight.a" />
-			<representation value="xmlText" />
 			<definition value="TRight definition" />
 			<type>
 				<code value="string" />

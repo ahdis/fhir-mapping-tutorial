@@ -125,7 +125,7 @@ changed it to:
 ## [step5](http://hl7.org/fhir/mapping-tutorial.html#step5) - ok 
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step5/source/source5b.xml -transform http://hl7.org/fhir/StructureMap/tutorial5 -version 4.0.1 -ig ./maptutorial/step5/logical -ig ./maptutorial/step5/map -log test.txt -output ./maptutorial/step5/output.xml
+java -jar org.hl7.fhir.validator.jar ./maptutorial/step5/source/source5b.xml -transform http://hl7.org/fhir/StructureMap/tutorial-step5 -version 4.0.1 -ig ./maptutorial/step5/logical -ig ./maptutorial/step5/map -log test.txt -output ./maptutorial/step5/output.xml
 ```
   
 ## [step6](http://hl7.org/fhir/mapping-tutorial.html#step6) - ok

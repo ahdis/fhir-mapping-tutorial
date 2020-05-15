@@ -1,4 +1,7 @@
-map "http://hl7.org/fhir/StructureMap/tutorial3a" = "tutorial"
+/// title = "tutorial-step3a"
+/// status = draft
+
+map "http://hl7.org/fhir/StructureMap/tutorial-step3a" = "tutorial-step3a"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target

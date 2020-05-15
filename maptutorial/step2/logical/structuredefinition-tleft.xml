@@ -22,6 +22,9 @@
  		<element id="TLeft.a1">
 			<path value="TLeft.a1" />
 			<definition value="TLeft definition"/>
+			<type>
+				<code value="string" />
+			</type>
 			<min value="1" />
 			<max value="1" />
 		</element>	

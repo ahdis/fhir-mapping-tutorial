@@ -1,9 +1,12 @@
-map "http://hl7.org/fhir/StructureMap/tutorial3c" = "tutorial"
+/// title = "tutorial-step3b"
+/// status = draft
+
+map "http://hl7.org/fhir/StructureMap/tutorial-step3c" = "tutorial-step3c"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.a2 as a check $this.length() <= 20 -> target.a2 = a "rule_a20c";
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a2 as a check "a2.length() <= 20" -> tgt.a2 = a "rule_a20c";
 }
 

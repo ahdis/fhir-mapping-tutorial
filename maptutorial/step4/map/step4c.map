@@ -1,10 +1,12 @@
-map "http://hl7.org/fhir/StructureMap/tutorial4c" = "tutorial"
+/// title = "tutorial-step4c"
+/// status = draft
+
+map "http://hl7.org/fhir/StructureMap/tutorial-step4c" = "tutorial-step4c"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.a21 as a where a21.matches('[0-9]+') -> target.a21 = cast(a, 'integer') "rule_a21b";
-  source.a21 as a where (a21.matches('[0-9]+')).not() -> target.a21 = 0 "rule_a21c";
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a21 as a where "a21.matches('[0-9]+')" -> tgt.a21 = cast(a, 'FHIR.integer') "rule_a21b";
+  src.a21 as a where "a21.matches('[0-9]+').not()" -> tgt.a21 = 0 "rule_a21c";
 }
-

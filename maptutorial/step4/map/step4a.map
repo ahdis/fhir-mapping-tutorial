@@ -1,9 +1,11 @@
-map "http://hl7.org/fhir/StructureMap/tutorial4a" = "tutorial"
+/// title = "tutorial-step4a"
+/// status = draft
+
+map "http://hl7.org/fhir/StructureMap/tutorial-step4a" = "tutorial-step4a"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.a21 as a -> target.a21 = cast(a, 'integer') "rule_a21a";
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a21 as a -> tgt.a21 = cast(a, 'FHIR.integer') "rule_a21a";
 }
-

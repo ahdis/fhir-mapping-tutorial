@@ -1,11 +1,11 @@
-/// title = "tutorial-step2"
-/// status = draft
-
-map "http://hl7.org/fhir/StructureMap/tutorial-step2" = "tutorial-step2"
+map "http://hl7.org/fhir/StructureMap/tutorial" = "tutorial"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
-  src.a1 as a -> tgt.a2 = a "rule_a";
+    src.a as a -> tgt.a as switch then {
+       a.txt as txt -> switch.b = txt "element"; 
+       a.b as attr -> switch.txt = attr "attr"; 
+    };
 }

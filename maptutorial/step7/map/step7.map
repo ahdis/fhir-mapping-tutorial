@@ -1,10 +1,10 @@
-map "http://hl7.org/fhir/StructureMap/tutorial7" = "tutorial"
+map "http://hl7.org/fhir/StructureMap/tutorial-step7" = "tutorial"
 
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-7" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-7" as target
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.aa as s_aa -> target.aa as t_aa then {
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.aa as s_aa -> tgt.aa as t_aa then {
     s_aa.ab as ab -> t_aa.ab = ab "rule_ab"; // copy ab inside aa
   } "rule_aa";
 }

@@ -7,6 +7,6 @@ uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
-  src.a2 as a where "a2.length() < 20" -> tgt.a2 = a "rule_a20b";
+  src.a2 as a where a2.length()<20 -> tgt.a2 = a "rule_a20b";
 }
 

@@ -1,9 +1,13 @@
-map "http://hl7.org/fhir/StructureMap/tutorial6b" = "tutorial"
+/// title = "tutorial-step6b"
+/// status = draft
 
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+map "http://hl7.org/fhir/StructureMap/tutorial-step6b" = "tutorial-step6b"
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.a23 as a -> target.a23 = a "rule_a23b"; // leave error to lower layer; less informative
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-6" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-6" as target
+
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a23 as a -> tgt.a23 = a "rule_a23b"; // leave error to lower layer; less informative
 }
 

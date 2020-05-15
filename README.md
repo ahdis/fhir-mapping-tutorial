@@ -3,7 +3,9 @@ FHIR has a mapping language to convert between resources and logical models and 
 
 See the [FHIR Mapping Language confluence page](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Mapping+Language) for additional information. 
 
-To run the transforms directly from the command line you can use the FHIR Java Validator, [download here]( https://storage.googleapis.com/ig-build/org.hl7.fhir.validator.jar)
+To run the transforms directly from the command line you can use the FHIR Java Validator, [download here]( https://storage.googleapis.com/ig-build/org.hl7.fhir.validator.jar).
+
+If you want to use it with a public test server, you can use https://test.ahdis.ch/r4/. Install [Visual Studio Code](https://code.visualstudio.com/) with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. in each step there is a test.ahdis.ch.http file which you can upload the StructureDefinition and StructureMap and perform the transformation. E.g. see http file for [step1](https://github.com/ahdis/fhir-mapping-tutorial/blob/master/maptutorial/step1/test.ahdis.ch.http).
 
 ## run the tutorial
 for each step there is a directory below the maptutorial directory

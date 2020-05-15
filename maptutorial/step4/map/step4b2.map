@@ -1,9 +1,11 @@
-map "http://hl7.org/fhir/StructureMap/tutorial4b2" = "tutorial"
+/// title = "tutorial-step4b2"
+/// status = draft
+
+map "http://hl7.org/fhir/StructureMap/tutorial-step4b2" = "tutorial-step4b2"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.a21 as a where $this.matches('[0-9]+') -> target.a21 = a "rule_a21b";
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a21 as a where a21.matches('[0-9]+') -> tgt.a21 = a "rule_a21b";
 }
-

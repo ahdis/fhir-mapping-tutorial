@@ -1,0 +1,68 @@
+<StructureMap xmlns="http://hl7.org/fhir">
+    <id value="tutorial-step4c" />
+    <url value="http://hl7.org/fhir/StructureMap/tutorial-step4c" />
+    <name value="tutorial-step4c" />
+    <title value="tutorial-step4c" />
+    <status value="draft" />
+    <structure>
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
+        <mode value="source" />
+    </structure>
+    <structure>
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right" />
+        <mode value="target" />
+    </structure>
+    <group>
+        <name value="tutorial" />
+        <typeMode value="none" />
+        <input>
+            <name value="src" />
+            <type value="TLeft" />
+            <mode value="source" />
+        </input>
+        <input>
+            <name value="tgt" />
+            <type value="TRight" />
+            <mode value="target" />
+        </input>
+        <rule>
+            <name value="rule_a21b" />
+            <source>
+                <context value="src" />
+                <element value="a21" />
+                <variable value="a" />
+                <condition value="a21.matches('[0-9]+')" />
+            </source>
+            <target>
+                <context value="tgt" />
+                <contextType value="variable" />
+                <element value="a21" />
+                <transform value="cast" />
+                <parameter>
+                    <valueId value="a" />
+                </parameter>
+                <parameter>
+                    <valueString value="FHIR.integer" />
+                </parameter>
+            </target>
+        </rule>
+        <rule>
+            <name value="rule_a21c" />
+            <source>
+                <context value="src" />
+                <element value="a21" />
+                <variable value="a" />
+                <condition value="a21.matches('[0-9]+')).not()" />
+            </source>
+            <target>
+                <context value="tgt" />
+                <contextType value="variable" />
+                <element value="a21" />
+                <transform value="copy" />
+                <parameter>
+                    <valueInteger value="0" />
+                </parameter>
+            </target>
+        </rule>
+    </group>
+</StructureMap>

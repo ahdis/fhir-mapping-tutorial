@@ -4,19 +4,19 @@
 		url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
 		<valueUri value="http://hl7.org/fhir/tutorial" />
 	</extension>
-	<meta>
-		<lastUpdated value="2016-11-21T16:11:04.708+01:00" />
-	</meta>
-	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
+	<url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-8" />
 	<name value="TLeft" />
+	<status value="draft" />
 	<fhirVersion value="4.0.1" />
 	<kind value="logical" />
 	<abstract value="true" />
 	<type value="TLeft"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element" />
     <derivation value="specialization"/>
-	<snapshot>
+	<differential>
 		<element>
 			<path value="TLeft" />
+			<definition value="TLeft definition"/>
 			<min value="1" />
 			<max value="1" />
 		</element>
@@ -28,5 +28,5 @@
 				<code value="code" />
 			</type>
 		</element>
-	</snapshot>
+	</differential>
 </StructureDefinition>

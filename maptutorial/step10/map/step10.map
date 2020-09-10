@@ -1,8 +1,14 @@
 map "http://hl7.org/fhir/StructureMap/tutorial-step10" = "tutorial-step10"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-leftinner" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-rightinner" as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
   src.aa -> tgt.aa;
+}
+
+group ab_content(source src : TLeftInner, target tgt : TRightInner) <<types>> {
+  src.ab -> tgt.ab;
 }

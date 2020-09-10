@@ -25,7 +25,7 @@
 			<min value="0" />
 			<max value="*" />
 			<type>
-				<code value="Element" />
+				<code value="BackboneElement" />
 			</type>
 		</element>
 		<element id="TLeft.aa.ab">

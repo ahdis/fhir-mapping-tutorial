@@ -1,0 +1,47 @@
+<StructureMap xmlns="http://hl7.org/fhir">
+    <id value="tutorial-step6c" />
+    <url value="http://hl7.org/fhir/StructureMap/tutorial-step6c" />
+    <name value="tutorial-step6c" />
+    <title value="tutorial-step6c" />
+    <status value="draft" />
+    <structure>
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-6" />
+        <mode value="source" />
+    </structure>
+    <structure>
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right-6" />
+        <mode value="target" />
+    </structure>
+    <group>
+        <name value="tutorial" />
+        <typeMode value="none" />
+        <input>
+            <name value="src" />
+            <type value="TLeft" />
+            <mode value="source" />
+        </input>
+        <input>
+            <name value="tgt" />
+            <type value="TRight" />
+            <mode value="target" />
+        </input>
+        <rule>
+            <name value="rule-a23c-1" />
+            <source>
+                <context value="src" />
+                <element value="a23" />
+                <listMode value="first" />
+                <variable value="a" />
+            </source>
+            <target>
+                <context value="tgt" />
+                <contextType value="variable" />
+                <element value="a23" />
+                <transform value="copy" />
+                <parameter>
+                    <valueId value="a" />
+                </parameter>
+            </target>
+        </rule>
+    </group>
+</StructureMap>

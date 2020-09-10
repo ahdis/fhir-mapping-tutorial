@@ -14,13 +14,13 @@
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element" />
     <derivation value="specialization"/>
 	<differential>
-		<element>
+		<element id="TLeft">
 			<path value="TLeft" />
 			<definition value="TLeft definition"/>
 			<min value="1" />
 			<max value="1" />
 		</element>
-		<element>
+		<element id="TLeft.aa">
 			<path value="TLeft.aa" />
 			<min value="0" />
 			<max value="*" />
@@ -28,7 +28,7 @@
 				<code value="Element" />
 			</type>
 		</element>
-		<element>
+		<element id="TLeft.aa.ab">
 			<path value="TLeft.aa.ab" />
 			<min value="1" />
 			<max value="1" />

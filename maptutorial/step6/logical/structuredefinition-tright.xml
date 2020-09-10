@@ -15,13 +15,13 @@
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element" />
     <derivation value="specialization"/>
 	<differential>
-		<element>
+		<element id="TRight">
 			<path value="TRight" />
 			<definition value="TRight definition" />
 			<min value="1" />
 			<max value="1" />
 		</element>
-		<element>
+		<element id="TRight.a23">
 			<path value="TRight.a23" />
 			<definition value="TRight definition" />
 			<min value="0" />

@@ -1,0 +1,52 @@
+<StructureMap xmlns="http://hl7.org/fhir">
+    <id value="tutorial-step8" />
+    <url value="http://hl7.org/fhir/StructureMap/tutorial-step8" />
+    <name value="tutorial-step8" />
+    <title value="tutorial-step8" />
+    <status value="unknown" />
+    <structure>
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-8" />
+        <mode value="source" />
+    </structure>
+    <structure>
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right-8" />
+        <mode value="target" />
+    </structure>
+    <group>
+        <name value="tutorial" />
+        <typeMode value="none" />
+        <input>
+            <name value="src" />
+            <type value="TLeft" />
+            <mode value="source" />
+        </input>
+        <input>
+            <name value="tgt" />
+            <type value="TRight" />
+            <mode value="target" />
+        </input>
+        <rule>
+            <name value="rule_d" />
+            <source>
+                <context value="src" />
+                <element value="d" />
+                <variable value="d" />
+            </source>
+            <target>
+                <context value="tgt" />
+                <contextType value="variable" />
+                <element value="d" />
+                <transform value="translate" />
+                <parameter>
+                    <valueId value="d" />
+                </parameter>
+                <parameter>
+                    <valueString value="#tutorialmap" />
+                </parameter>
+                <parameter>
+                    <valueString value="code" />
+                </parameter>
+            </target>
+        </rule>
+    </group>
+</StructureMap>

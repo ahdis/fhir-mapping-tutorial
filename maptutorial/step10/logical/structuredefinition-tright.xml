@@ -5,7 +5,7 @@
 		<valueUri value="http://hl7.org/fhir/tutorial" />
 	</extension>
 	<url
-		value="http://hl7.org/fhir/StructureDefinition/tutorial-right-10" />
+		value="http://hl7.org/fhir/StructureDefinition/TRight" />
 	<name value="TRight" />
 	<status value="draft" />
 	<fhirVersion value="4.0.1" />

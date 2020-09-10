@@ -8,6 +8,7 @@
 		value="http://hl7.org/fhir/StructureDefinition/tutorial-right-7" />
 	<name value="TRight" />
 	<fhirVersion value="4.0.1" />
+	<status value="draft" />
 	<kind value="logical" />
 	<abstract value="true" />
 	<type value="TRight"/>

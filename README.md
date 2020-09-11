@@ -29,11 +29,11 @@ output.xml: result of map transform
 | Step 3a  |  ✓   |   ✓  |
 | Step 3b  |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/21)  |   ✓  |
 | Step 3c  |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/21)  |   ✓  |
-| Step 4a  |      |   ✓  |
-| Step 4b  |      |   ✗  |
-| Step 4b2 |      |   ✓  |
-| Step 4b3 |      |   ✓  |
-| Step 4c  |      |   ✓  |
+| [Step 4a](https://jira.hl7.org/browse/FHIR-27140)  |  [x](https://github.com/ahdis/fhir-mapping-tutorial/issues/22)  |   ✓  | 
+| [Step 4b](https://jira.hl7.org/browse/FHIR-28465)  |  ✓  |   ✗  |
+| Step 4b2 |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/20)  |   ✓  |
+| Step 4b3 |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/20) |   ✓  |
+| Step 4c  |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/20)  |   ✓  |
 | Step 5a  |  ✓   |   ✓  |
 | Step 5b  |  ✓   |   ✓  |
 | Step 6a  |  ✓   |   ✓  |

@@ -1,6 +1,7 @@
 @host = https://test.ahdis.ch
 ### @host = http://localhost:8080
 
+
 ### FHIR Tutorial Step 4
 
 ### FHIR Tutorial send StructureDefinition TLeft1
@@ -19,35 +20,35 @@ Content-Type: application/fhir+xml;fhirVersion=4.0
 
 ### Post the StructureMap with transform included
 POST {{host}}/r4/StructureMap HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/step4a.map
 
 ### Post the StructureMap with transform included
 POST {{host}}/r4/StructureMap HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/step4b.map
 
 ### Post the StructureMap with transform included
 POST {{host}}/r4/StructureMap HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/step4b2.map
 
 ### Post the StructureMap with transform included
 POST {{host}}/r4/StructureMap HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/step4b3.map
 
 ### Post the StructureMap with transform included
 POST {{host}}/r4/StructureMap HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/step4c.map

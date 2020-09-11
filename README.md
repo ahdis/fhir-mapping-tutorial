@@ -23,7 +23,7 @@ output.xml: result of map transform
 
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step1/source/source1.xml -transform http://hl7.org/fhir/StructureMap/tutorial -version 4.0.1 -ig ./maptutorial/step1/logical -ig ./maptutorial/step1/map -log test.txt -output ./maptutorial/step1/output.xml
+java -jar validator_cli.jar ./maptutorial/step1/source/source1.xml -transform http://hl7.org/fhir/StructureMap/tutorial -version 4.0.1 -ig ./maptutorial/step1/logical -ig ./maptutorial/step1/map -log test.txt -output ./maptutorial/step1/output.xml
 ```
 
 TLeft --> TRight
@@ -35,10 +35,12 @@ TLeft --> TRight
 </TRight>
 ```
 
+Note: The short version does not work: src.a -> tgt.a, needs to be src.a as a -> tgt.a = a
+
 ## [step2](http://hl7.org/fhir/mapping-tutorial.html#step2) - ok
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step2/source/source2.xml -transform http://hl7.org/fhir/StructureMap/tutorial -version 4.0.1 -ig ./maptutorial/step2/logical -ig ./maptutorial/step2/map -log test.txt -output ./maptutorial/step2/output.xml
+java -jar validator_cli.jar ./maptutorial/step2/source/source2.xml -transform http://hl7.org/fhir/StructureMap/tutorial -version 4.0.1 -ig ./maptutorial/step2/logical -ig ./maptutorial/step2/map -log test.txt -output ./maptutorial/step2/output.xml
 ```
 
 TLeft --> TRight
@@ -57,7 +59,7 @@ note: did not use the structure definition like in steps1 and steps2 but simplif
 ### step3a
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step3/source/source3.xml -transform http://hl7.org/fhir/StructureMap/tutorial3a -version 4.0.1 -ig ./maptutorial/step3/logical -ig ./maptutorial/step3/map -log test.txt -output ./maptutorial/step3/output.xml
+java -jar validator_cli.jar ./maptutorial/step3/source/source3.xml -transform http://hl7.org/fhir/StructureMap/tutorial3a -version 4.0.1 -ig ./maptutorial/step3/logical -ig ./maptutorial/step3/map -log test.txt -output ./maptutorial/step3/output.xml
 ```
 
 just cut it off at 20 characters
@@ -85,7 +87,7 @@ change it to one of the following to run the map:
 ```
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step3/source/source3.xml -transform http://hl7.org/fhir/StructureMap/tutorial3b -version 4.0.1 -ig ./maptutorial/step3/logical -ig ./maptutorial/step3/map -log test.txt -output ./maptutorial/step3/output.xml
+java -jar validator_cli.jar ./maptutorial/step3/source/source3.xml -transform http://hl7.org/fhir/StructureMap/tutorial3b -version 4.0.1 -ig ./maptutorial/step3/logical -ig ./maptutorial/step3/map -log test.txt -output ./maptutorial/step3/output.xml
 ```
 
 ### step3c fails: error if it's longer than 20 characters
@@ -103,7 +105,7 @@ rule_a20c: for source.a2 as a check source.a2.length() <= 20 make target.a2 = a
 ```
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step3/source/source3.xml -transform http://hl7.org/fhir/StructureMap/tutorial3c -version 4.0.1 -ig ./maptutorial/step3/logical -ig ./maptutorial/step3/map -log test.txt -output ./maptutorial/step3/output.xml
+java -jar validator_cli.jar ./maptutorial/step3/source/source3.xml -transform http://hl7.org/fhir/StructureMap/tutorial3c -version 4.0.1 -ig ./maptutorial/step3/logical -ig ./maptutorial/step3/map -log test.txt -output ./maptutorial/step3/output.xml
 ```
 
 
@@ -127,13 +129,13 @@ changed it to:
 ## [step5](http://hl7.org/fhir/mapping-tutorial.html#step5) - ok 
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step5/source/source5b.xml -transform http://hl7.org/fhir/StructureMap/tutorial-step5 -version 4.0.1 -ig ./maptutorial/step5/logical -ig ./maptutorial/step5/map -log test.txt -output ./maptutorial/step5/output.xml
+java -jar validator_cli.jar ./maptutorial/step5/source/source5b.xml -transform http://hl7.org/fhir/StructureMap/tutorial-step5 -version 4.0.1 -ig ./maptutorial/step5/logical -ig ./maptutorial/step5/map -log test.txt -output ./maptutorial/step5/output.xml
 ```
   
 ## [step6](http://hl7.org/fhir/mapping-tutorial.html#step6) - ok
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step6/source/source6b.xml -transform http://hl7.org/fhir/StructureMap/tutorial6d -version 4.0.1 -ig ./maptutorial/step6/logical -ig ./maptutorial/step6/map -log test.txt -output ./maptutorial/step6/output.xml
+java -jar validator_cli.jar ./maptutorial/step6/source/source6b.xml -transform http://hl7.org/fhir/StructureMap/tutorial6d -version 4.0.1 -ig ./maptutorial/step6/logical -ig ./maptutorial/step6/map -log test.txt -output ./maptutorial/step6/output.xml
 ```
 
 ## [step7](http://hl7.org/fhir/mapping-tutorial.html#step7) - ok
@@ -167,7 +169,7 @@ group tutorial(source source : TLeft, target target : TRight) {
 ```
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step8/source/source8.xml -transform http://hl7.org/fhir/StructureMap/tutorial8 -version 4.0.1 -ig ./maptutorial/step8/logical -ig ./maptutorial/step8/map -log test.txt -output ./maptutorial/step8/output.xml
+java -jar validator_cli.jar ./maptutorial/step8/source/source8.xml -transform http://hl7.org/fhir/StructureMap/tutorial8 -version 4.0.1 -ig ./maptutorial/step8/logical -ig ./maptutorial/step8/map -log test.txt -output ./maptutorial/step8/output.xml
 ```
 
 ##[step9](http://hl7.org/fhir/mapping-tutorial.html#step9) - fails
@@ -180,5 +182,5 @@ changed rule to
 ```
 
 ```
-java -jar org.hl7.fhir.validator.jar ./maptutorial/step9/source/source9b.xml -transform http://hl7.org/fhir/StructureMap/tutorial9 -version 4.0.1 -ig ./maptutorial/step9/logical -ig ./maptutorial/step9/map -log test.txt -output ./maptutorial/step9/output.xml
+java -jar validator_cli.jar ./maptutorial/step9/source/source9b.xml -transform http://hl7.org/fhir/StructureMap/tutorial9 -version 4.0.1 -ig ./maptutorial/step9/logical -ig ./maptutorial/step9/map -log test.txt -output ./maptutorial/step9/output.xml
 ```

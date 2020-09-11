@@ -1,4 +1,4 @@
-@host = http://localhost:8080
+@host = http://test.ahdis.ch
 
 ### FHIR Tutorial Step 1
 
@@ -18,7 +18,7 @@ Content-Type: application/fhir+xml;fhirVersion=4.0
 
 ### Post the StructureMap
 POST {{host}}/r4/StructureMap HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/step1.map

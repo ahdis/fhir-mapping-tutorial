@@ -1,5 +1,6 @@
-### @host = https://test.ahdis.ch
-@host = http://localhost:8080
+@host = https://test.ahdis.ch
+### @host = http://localhost:8080
+
 
 ### FHIR Tutorial Step 10
 

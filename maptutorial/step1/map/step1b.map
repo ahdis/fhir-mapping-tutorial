@@ -1,0 +1,11 @@
+/// title = "tutorial-step1"
+/// status = draft
+
+map "http://hl7.org/fhir/StructureMap/tutorial-step1b" = "tutorial-step1"
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
+
+group tutorial(source src : TLeft, target tgt : TRight) {
+    src.a -> tgt.a "rule_a_short";
+}

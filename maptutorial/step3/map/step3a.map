@@ -6,7 +6,7 @@ map "http://hl7.org/fhir/StructureMap/tutorial-step3a" = "tutorial-step3a"
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-group tutorial(source source : TLeft, target target : TRight) {
-  source.a2 as a -> target.a2 = truncate(a, 20) "rule_a20a";
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a2 as a -> tgt.a2 = truncate(a, 20) "rule_a20a";
 }
 

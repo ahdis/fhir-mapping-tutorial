@@ -42,7 +42,7 @@ output.xml: result of map transform
 | Step 6d  |  ✓   |   ✓  |
 | Step 7a  |  ✓   |   ✓  |
 | Step 7b  |  ✓   |   ✓  |
-| Step 8   |      |   ✓ (Not using embedded ConceptMaps)   |
+| Step 8   |  ✓   |   ✓ (Not using embedded ConceptMaps)   |
 | Step 9   |      |   ✓  |
 | Step 10  |      |   ✗  |
 | Step 11  |      |      |

@@ -20,6 +20,34 @@ output.xml: result of map transform
 
 ## Comparison Java Reference Implementation / .NET Reference Implementation
 
+|          | Java | .NET |
+|----------|------|------|
+| Step 1   |      |      |
+| Step 2   |      |      |
+| Step 3a  |      |      |
+| Step 3b  |      |      |
+| Step 3c  |      |      |
+| Step 4   |      |      |
+| Step 4a  |      |      |
+| Step 4b  |      |      |
+| Step 4b2 |      |      |
+| Step 4b3 |      |      |
+| Step 4c  |      |      |
+| Step 5   |      |      |
+| Step 5a  |      |      |
+| Step 5b  |      |      |
+| Step 6   |      |      |
+| Step 6a  |      |      |
+| Step 6b  |      |      |
+| Step 6c  |      |      |
+| Step 6d  |      |      |
+| Step 7   |      |      |
+| Step 7a  |      |      |
+| Step 7b  |      |      |
+| Step 8   |      |      |
+| Step 9   |      |      |
+| Step 10  |      |      |
+
 
 ## [step1](http://hl7.org/fhir/mapping-tutorial.html#step1) - ok
 

@@ -54,6 +54,13 @@ Content-Type: application/fhir+xml;fhirVersion=4.0
 
 < ./source/source3.xml
 
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3b
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./source/source3min.xml
+
 
 ### FHIR Tutorial do the transform
 POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3c
@@ -61,3 +68,10 @@ Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: application/fhir+xml;fhirVersion=4.0
 
 < ./source/source3.xml
+
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3c
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./source/source3min.xml

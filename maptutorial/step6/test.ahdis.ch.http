@@ -61,14 +61,43 @@ Content-Type: application/fhir+xml;fhirVersion=4.0
 < ./source/source6b.xml
 
 ### FHIR Tutorial do the transform
-POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6a
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6b
 Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: application/fhir+xml;fhirVersion=4.0
 
 < ./source/source6.xml
 
 ### FHIR Tutorial do the transform
-POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6a
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6b
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./source/source6b.xml
+
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6c
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./source/source6.xml
+
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6c
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./source/source6b.xml
+
+
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6d
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./source/source6.xml
+
+### FHIR Tutorial do the transform
+POST {{host}}/r4/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step6d
 Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: application/fhir+xml;fhirVersion=4.0
 

@@ -34,12 +34,12 @@ output.xml: result of map transform
 | Step 4b2 |      |   ✓  |
 | Step 4b3 |      |   ✓  |
 | Step 4c  |      |   ✓  |
-| Step 5a  |      |   ✓  |
-| Step 5b  |      |   ✓  |
-| Step 6a  |      |   ✓  |
-| Step 6b  |      |   ✓  |
-| Step 6c  |      |   ✓  |
-| Step 6d  |      |   ✓  |
+| Step 5a  |  ✓   |   ✓  |
+| Step 5b  |  ✓   |   ✓  |
+| Step 6a  |  ✓   |   ✓  |
+| Step 6b  |  ✓   |   ✓  |
+| Step 6c  |  ✓   |   ✓  |
+| Step 6d  |  ✓   |   ✓  |
 | Step 7a  |      |   ✓  |
 | Step 7b  |      |   ✓  |
 | Step 8   |      |   ✓ (Not using embedded ConceptMaps)   |

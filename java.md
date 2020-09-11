@@ -151,7 +151,7 @@ group tutorial(source source : TLeft, target target : TRight) {
 java -jar validator_cli.jar ./maptutorial/step8/source/source8.xml -transform http://hl7.org/fhir/StructureMap/tutorial8 -version 4.0.1 -ig ./maptutorial/step8/logical -ig ./maptutorial/step8/map -log test.txt -output ./maptutorial/step8/output.xml
 ```
 
-##[step9](http://hl7.org/fhir/mapping-tutorial.html#step9) - fails
+##[step9](http://hl7.org/fhir/mapping-tutorial.html#step9) - ok
 
 changed rule to
 

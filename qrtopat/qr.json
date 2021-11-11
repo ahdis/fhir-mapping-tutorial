@@ -1,0 +1,23 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "id": "qrpatientsexeresponse",
+    "questionnaire": "http://ahdis.ch/matchbox/fml/qrpatientsex",
+    "status": "in-progress",
+    "item": [
+      {
+        "linkId": "patient",
+        "text": "Patient",
+        "item": [
+          {
+            "linkId": "patient.sex",
+            "text": "Geschlecht",
+            "answer": [
+              {
+                "valueString": "male"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

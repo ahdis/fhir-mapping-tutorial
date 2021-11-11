@@ -6,7 +6,7 @@ See the [FHIR Mapping Language confluence page](https://confluence.hl7.org/displ
 To run the transforms directly from the command line you can use the FHIR Java Validator, [download here](https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar).
 For more information about the .NET Implementation, [see here](https://docs.fire.ly/mappingengine/index.html).
 
-If you want to use it with a public test server, you can use https://test.ahdis.ch/r4/. Install [Visual Studio Code](https://code.visualstudio.com/) with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. in each step there is a test.ahdis.ch.http file which you can upload the StructureDefinition and StructureMap and perform the transformation. E.g. see http file for [step1](https://github.com/ahdis/fhir-mapping-tutorial/blob/master/maptutorial/step1/test.ahdis.ch.http).
+If you want to use it with a public test server, you can use https://test.ahdis.ch/matchbox/fhir/. Install [Visual Studio Code](https://code.visualstudio.com/) with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. in each step there is a test.ahdis.ch.http file which you can upload the StructureDefinition and StructureMap and perform the transformation. E.g. see http file for [step1](https://github.com/ahdis/fhir-mapping-tutorial/blob/master/maptutorial/step1/test.ahdis.ch.http).
 
 ## run the tutorial
 for each step there is a directory below the maptutorial directory

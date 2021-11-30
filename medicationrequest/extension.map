@@ -1,0 +1,30 @@
+map "http://basic.test/medication-request" = "basic-test-medication-request"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as target
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConcept as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConcept as target
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias Coding as source
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias Coding as target
+
+group MedicationRequest(source src : MedicationRequest, target tgt : MedicationRequest)  {
+    src.extension as ext where $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-PrescriptionType-1'
+        -> tgt.extension as tgtext, tgtext.url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-PrescriptionType' then { 
+        ext.value : CodeableConcept as vs -> tgtext.value = create('CodeableConcept') as vt then CodeableConceptPrescriptionType(vs, vt); 
+     };
+   }
+
+group CodeableConceptPrescriptionType(source src : CodeableConcept, target tgt : CodeableConcept) {
+    src.coding -> tgt.coding;
+    src.text as text -> tgt.text = text;
+}
+
+group Coding(source src : Coding, target tgt : Coding) <<type+>> {
+    // src.coding -> tgt.coding; the short form is only woking when you have a <<type>>
+    src.system as system where $this='https://fhir.nhs.uk/STU3/CodeSystem/CareConnect-PrescriptionType-1' -> tgt.system = 'https://fhir.nhs.uk/STU3/CodeSystem/CareConnect-PrescriptionType-1';
+    src.system as system where (($this='https://fhir.nhs.uk/STU3/CodeSystem/CareConnect-PrescriptionType-1')=false) -> tgt.system = system;
+    src.version as version -> tgt.version = version;
+    src.code as code -> tgt.code = code;
+    src.display as display -> tgt.display = display;
+    src.userSelected as userSelected -> tgt.userSelected = userSelected;
+}

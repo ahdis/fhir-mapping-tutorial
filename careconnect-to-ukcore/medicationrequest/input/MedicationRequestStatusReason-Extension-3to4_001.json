@@ -1,0 +1,48 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatusReason-1",
+      "extension": [
+        {
+          "url": "statusReason",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.hl7.org.uk/Id/egton-codes",
+                "code": "ALLERGY4",
+                "display": "Adverse reaction to Central Nervous System Drugs",
+                "userSelected": true
+              },
+              {
+                "extension": [
+                  {
+                    "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-coding-sctdescid",
+                    "extension": [
+                      {
+                        "url": "descriptionId",
+                        "valueId": "1012851000006115"
+                      },
+                      {
+                        "url": "descriptionDisplay",
+                        "valueString": "Adverse reaction to Central Nervous System Drugs"
+                      }
+                    ]
+                  }
+                ],
+                "system": "http://snomed.info/sct",
+                "code": "1012851000006104",
+                "display": "Adverse reaction to Central Nervous System Drugs"
+              }
+            ],
+            "text": "Adverse reaction to Central Nervous System Drugs (allergy)"
+          }
+        },
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2011-09-28T10:22:32.423+01:00"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2010-01-18T14:33:16.397+00:00"
+        }
+      ],
+      "url": "http://fhir.nhs.uk/fhir/3.0/StructureDefinition/extension-statusChangeDate"
+    }
+  ],
+  "statusReason": {
+    "text": "Clinical Contra-indication"
+  }
+}

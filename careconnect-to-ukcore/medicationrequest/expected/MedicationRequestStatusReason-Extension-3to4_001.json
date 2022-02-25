@@ -1,0 +1,34 @@
+{
+  "resourceType": "MedicationRequest",
+  "statusReason": {
+    "coding": [
+      {
+        "system": "https://fhir.hl7.org.uk/Id/egton-codes",
+        "code": "ALLERGY4",
+        "display": "Adverse reaction to Central Nervous System Drugs",
+        "userSelected": true
+      },
+      {
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "descriptionId",
+                "valueId": "1012851000006115"
+              },
+              {
+                "url": "descriptionDisplay",
+                "valueString": "Adverse reaction to Central Nervous System Drugs"
+              }
+            ],
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CodingSCTDescId"
+          }
+        ],
+        "system": "http://snomed.info/sct",
+        "code": "1012851000006104",
+        "display": "Adverse reaction to Central Nervous System Drugs"
+      }
+    ],
+    "text": "Adverse reaction to Central Nervous System Drugs (allergy)"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "extension": [
+    {
+      "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-Evidence-1",
+	  "valueReference": {
+	    "reference": "DiagnosticReport/3BF93498-ABCF-4326-B5F4-071EDB142D60"
+	  }
+    }
+  ]
+}

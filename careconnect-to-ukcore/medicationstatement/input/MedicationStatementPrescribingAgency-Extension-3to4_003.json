@@ -1,0 +1,12 @@
+{
+    "resourceType": "MedicationStatement",
+	"extension": {
+		"url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationPrescribingAgency-1",
+		"valueCodeableConcept": {
+			"coding": {
+				"code": "prescribed-at-gp-practice",
+				"display": "Prescribed at GP practice"
+			}
+		}
+	}
+}

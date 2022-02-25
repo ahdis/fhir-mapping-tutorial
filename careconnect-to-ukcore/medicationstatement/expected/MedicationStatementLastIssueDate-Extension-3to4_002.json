@@ -1,0 +1,9 @@
+{
+  "resourceType": "MedicationStatement",
+  "extension": [
+    {
+      "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-MedicationStatementLastIssueDate",
+      "valueDateTime": "2010-10-01T00:00:00+01:00"
+    }
+  ]
+}

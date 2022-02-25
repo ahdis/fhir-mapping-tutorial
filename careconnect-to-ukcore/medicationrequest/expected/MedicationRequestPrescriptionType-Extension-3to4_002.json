@@ -1,0 +1,12 @@
+{
+  "resourceType": "MedicationRequest",
+  "courseOfTherapyType": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy",
+        "code": "repeat",
+        "display": "Repeat"
+      }
+    ]
+  }
+}

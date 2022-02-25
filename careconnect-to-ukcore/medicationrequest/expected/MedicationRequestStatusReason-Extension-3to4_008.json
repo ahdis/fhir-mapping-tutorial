@@ -1,0 +1,17 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2020-02-10"
+        }
+      ],
+      "url": "http://fhir.nhs.uk/fhir/3.0/StructureDefinition/extension-statusChangeDate"
+    }
+  ],
+  "statusReason": {
+    "text": "Patient Preference (Switch back to Atorvastatin)"
+  }
+}

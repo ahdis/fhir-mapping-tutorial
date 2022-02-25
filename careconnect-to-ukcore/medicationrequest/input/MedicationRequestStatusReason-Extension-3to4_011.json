@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatusReason-1",
+      "extension": [
+        {
+          "url": "statusReason",
+          "valueCodeableConcept": {
+            "text": "Prescribing Error"
+          }
+        },
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2010-01-14T10:38:27.007+00:00"
+        }
+      ]
+    }
+  ]
+}

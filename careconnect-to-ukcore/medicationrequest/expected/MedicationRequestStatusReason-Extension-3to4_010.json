@@ -1,0 +1,17 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2010-01-15T09:58:37.497+00:00"
+        }
+      ],
+      "url": "http://fhir.nhs.uk/fhir/3.0/StructureDefinition/extension-statusChangeDate"
+    }
+  ],
+  "statusReason": {
+    "text": "Patient no longer requires these"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatusReason-1",
+      "extension": [
+        {
+          "url": "statusReason",
+          "valueCodeableConcept": {
+            "text": "Alergy"
+          }
+        },
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2010-08-09T14:27:43.233+01:00"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationRepeatInformation-1",
+      "extension": [
+        {
+          "url": "numberOfRepeatPrescriptionsAllowed",
+          "valuePositiveInt": 6
+        },
+        {
+          "url": "numberOfRepeatPrescriptionsIssued",
+          "valueUnsignedInt": 1
+        },
+        {
+          "url": "authorisationExpiryDate",
+          "valueDateTime": "2020-08-10"
+        }
+      ]
+    }
+  ]
+}

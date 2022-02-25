@@ -1,0 +1,17 @@
+{
+  "resourceType": "MedicationStatement",
+  "extension": [
+    {
+      "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-MedicationPrescribingOrganization",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.hl7.org.uk/CodeSystem/UKCore-MedicationPrescribingOrganization",
+            "code": "prescribed-by-another-organisation",
+            "display": "Prescribed by another organisation"
+          }
+        ]
+      }
+    }
+  ]
+}

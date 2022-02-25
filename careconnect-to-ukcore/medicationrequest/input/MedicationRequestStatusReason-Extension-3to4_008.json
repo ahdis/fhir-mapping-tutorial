@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatusReason-1",
+      "extension": [
+        {
+          "url": "statusReason",
+          "valueCodeableConcept": {
+            "text": "Patient Preference (Switch back to Atorvastatin)"
+          }
+        },
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2020-02-10"
+        }
+      ]
+    }
+  ]
+}

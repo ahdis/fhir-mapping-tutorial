@@ -1,0 +1,17 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2010-10-01T12:08:19.107+01:00"
+        }
+      ],
+      "url": "http://fhir.nhs.uk/fhir/3.0/StructureDefinition/extension-statusChangeDate"
+    }
+  ],
+  "statusReason": {
+    "text": "Change to Medication Treatment Regime"
+  }
+}

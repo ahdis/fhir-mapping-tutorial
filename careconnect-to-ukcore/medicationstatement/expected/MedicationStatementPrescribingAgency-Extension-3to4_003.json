@@ -1,0 +1,16 @@
+{
+  "resourceType": "MedicationStatement",
+  "extension": [
+    {
+      "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-MedicationPrescribingOrganization",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "prescribed-at-gp-practice",
+            "display": "Prescribed at GP practice"
+          }
+        ]
+      }
+    }
+  ]
+}

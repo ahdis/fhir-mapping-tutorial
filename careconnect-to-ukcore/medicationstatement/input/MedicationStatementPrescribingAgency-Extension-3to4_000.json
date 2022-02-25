@@ -1,0 +1,1 @@
+{"resourceType":"MedicationStatement","extension":[{"url":"https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-PrescribingAgency-1","valueCodeableConcept":{"coding":[{"system":"https://fhir.nhs.uk/STU3/CodeSystem/CareConnect-PrescribingAgency-1","code":"prescribed-at-gp-practice","display":"Prescribed at GP practice"}]}}]}

@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatusReason-1",
+      "extension": [
+        {
+          "url": "statusReason",
+          "valueCodeableConcept": {
+            "text": "Change to Medication Treatment Regime"
+          }
+        },
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2010-10-01T12:08:19.107+01:00"
+        }
+      ]
+    }
+  ]
+}

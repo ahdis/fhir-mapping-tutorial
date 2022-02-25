@@ -1,0 +1,20 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "url": "https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatusReason-1",
+      "extension": [
+        {
+          "url": "statusReason",
+          "valueCodeableConcept": {
+            "text": "End course for acute post G -> T switch for 22047"
+          }
+        },
+        {
+          "url": "statusChangeDate",
+          "valueDateTime": "2011-11-15T15:02:50.72+00:00"
+        }
+      ]
+    }
+  ]
+}

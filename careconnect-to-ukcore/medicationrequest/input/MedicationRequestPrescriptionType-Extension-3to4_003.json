@@ -1,0 +1,1 @@
+{"resourceType":"MedicationRequest","extension":[{"url":"https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-PrescriptionType-1","valueCodeableConcept":{"coding":[{"system":"https://fhir.nhs.uk/STU3/CodeSystem/CareConnect-PrescriptionType-1","code":"repeat-dispensing","display":"Repeat dispensing"}]}}]}

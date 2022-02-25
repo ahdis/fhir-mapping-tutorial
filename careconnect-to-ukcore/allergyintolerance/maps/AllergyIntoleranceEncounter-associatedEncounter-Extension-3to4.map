@@ -1,0 +1,11 @@
+map "http://fhir.nhs.uk/StructureMap/AllergyIntoleranceEncounter-associatedEncounter-Extension-3to4" = "R3 to R4 conversion for CareConnect AllergyIntolerance_encounter-associatedEncounter extension"
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as target
+
+group AllergyIntolerance(source src : AllergyIntolerance, target tgt : AllergyIntolerance)  {
+    src.extension as ext where $this.url='http://hl7.org/fhir/StructureDefinition/encounter-associatedEncounter'
+        -> tgt.encounter as vt then {
+           ext.value: Reference as vs -> vt as vt1, tgt.encounter = vs;
+    };
+}
+

@@ -1,0 +1,32 @@
+map "http://fhir.nhs.uk/StructureMap/MedicationRequestRepeatInformation-Extension-3to4" = "R3 to R4 conversion for CareConnect MedicationRequest RepeatInformation extension"
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as target
+
+group MedicationRequest(source src : MedicationRequest, target tgt : MedicationRequest)  {
+    src.extension as ext where $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationRepeatInformation-1' or
+        $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationRepeatInformation-1'
+        -> tgt.extension as tgtext, tgtext.url='https://fhir.nhs.uk/StructureDefinition/Extension-UKCore-MedicationRepeatInformation' then {
+        ext.extension as vs where $this.url='numberOfRepeatPrescriptionsIssued' 
+           -> tgtext.extension = create('Extension') as vt, vt.url = 'numberOfRepeatPrescriptionsIssued' then ExtensionUnsignedIntValue(vs, vt); 
+        ext.extension as vs where $this.url='authorisationExpiryDate' -> tgtext.extension = create('Extension') as vt, vt.url = 'authorisationExpiryDate' then ExtensionDateTimeValue(vs, vt); 
+     };
+
+    src.extension as ext where $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationRepeatInformation-1' or
+        $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationRepeatInformation-1'
+        -> tgt.extension as tgtext then {
+        ext.extension as vs where $this.url='numberOfRepeatPrescriptionsAllowed' -> tgt.dispenseRequest as vt then DispenseRequest(vs, vt); 
+     };
+}
+
+group ExtensionUnsignedIntValue(source src, target tgt) {
+    src.value as vs -> tgt.value = create('unsignedInt') as vt, vt.value = vs;
+}
+
+group ExtensionDateTimeValue(source src, target tgt) {
+    src.value as vs -> tgt.value = create('dateTime') as vt, vt.value = vs;
+}
+
+group DispenseRequest(source src, target tgt) {
+    src.value as vs -> tgt.numberOfRepeatsAllowed = create('unsignedInt') as vt, vt.value = vs;
+}
+

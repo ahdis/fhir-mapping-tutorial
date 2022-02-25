@@ -1,0 +1,222 @@
+{
+    "resourceType": "Bundle",
+    "id": "1df1545d-fdbf-4142-8261-52acead0871b",
+    "meta": {
+        "profile":  [
+            "https://fhir.hl7.org.uk/StructureDefinition/UKCore-Bundle"
+        ]
+    },
+    "type": "collection",
+    "entry":  [
+        {
+            "resource": {
+                "resourceType": "AllergyIntolerance",
+                "id": "29",
+                "meta": {
+                    "profile":  [
+                        "https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance"
+                    ]
+                },
+                "identifier":  [
+                    {
+                        "system": "https://fhir.nhs.uk/Id/cross-care-setting-identifier",
+                        "value": "2bfc391c-4ffe-11ec-9cc3-00505692d4aa"
+                    }
+                ],
+                "clinicalStatus": {
+                    "coding":  [
+                        {
+                            "code": "active"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding":  [
+                        {
+                            "code": "unconfirmed"
+                        }
+                    ]
+                },
+                "category":  [
+                    "environment"
+                ],
+                "code": {
+                    "coding":  [
+                        {
+                            "extension":  [
+                                {
+                                    "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CodingSCTDescId",
+                                    "extension":  [
+                                        {
+                                            "url": "descriptionId",
+                                            "valueIdentifier": {
+                                                "system": "http://snomed.info/sct",
+                                                "value": "148720012"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "system": "http://snomed.info/sct",
+                            "code": "89707004",
+                            "display": "Sesame oil (substance)"
+                        }
+                    ]
+                },
+                "patient": {
+                    "reference": "Patient/2"
+                },
+                "onsetDateTime": "1963-07-27T12:00:00+01:00",
+                "recordedDate": "1963-07-27T12:00:00+01:00",
+                "recorder": {
+                    "reference": "Practitioner/1"
+                },
+                "reaction":  [
+                    {
+                        "manifestation":  [
+                            {
+                                "coding":  [
+                                    {
+                                        "extension":  [
+                                            {
+                                                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CodingSCTDescId",
+                                                "extension":  [
+                                                    {
+                                                        "url": "descriptionId",
+                                                        "valueIdentifier": {
+                                                            "system": "http://snomed.info/sct",
+                                                            "value": "344917018"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "system": "http://snomed.info/sct",
+                                        "code": "230145002",
+                                        "display": "Difficulty breathing"
+                                    }
+                                ]
+                            }
+                        ],
+                        "severity": "severe"
+                    }
+                ]
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "AllergyIntolerance",
+                "id": "28",
+                "meta": {
+                    "profile":  [
+                        "https://fhir.hl7.org.uk/StructureDefinition/UKCore-AllergyIntolerance"
+                    ]
+                },
+                "extension":  [
+                    {
+                        "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-AllergyIntoleranceEnd",
+                        "extension":  [
+                            {
+                                "url": "endDate",
+                                "valueDateTime": "2016-11-01T00:00:00+00:00"
+                            },
+                            {
+                                "url": "reasonEnded",
+                                "valueString": "Desensitised to Peanuts"
+                            }
+                        ]
+                    }
+                ],
+                "identifier":  [
+                    {
+                        "system": "https://fhir.nhs.uk/Id/cross-care-setting-identifier",
+                        "value": "2bfc3866-4ffe-11ec-9cc3-00505692d4aa"
+                    }
+                ],
+                "clinicalStatus": {
+                    "coding":  [
+                        {
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding":  [
+                        {
+                            "code": "unconfirmed"
+                        }
+                    ]
+                },
+                "category":  [
+                    "environment"
+                ],
+                "code": {
+                    "coding":  [
+                        {
+                            "extension":  [
+                                {
+                                    "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CodingSCTDescId",
+                                    "extension":  [
+                                        {
+                                            "url": "descriptionId",
+                                            "valueIdentifier": {
+                                                "system": "http://snomed.info/sct",
+                                                "value": "152306018"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "system": "http://snomed.info/sct",
+                            "code": "91935009",
+                            "display": "Allergy to peanuts"
+                        },
+                        {
+                            "system": "http://read.info/ctv3",
+                            "code": "Xa1no",
+                            "display": "Peanut allergy"
+                        }
+                    ]
+                },
+                "patient": {
+                    "reference": "Patient/2"
+                },
+                "onsetDateTime": "1962-08-12T00:00:00+01:00",
+                "recordedDate": "2016-11-01T00:00:00+00:00",
+                "recorder": {
+                    "reference": "Practitioner/1"
+                },
+                "reaction":  [
+                    {
+                        "manifestation":  [
+                            {
+                                "coding":  [
+                                    {
+                                        "extension":  [
+                                            {
+                                                "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CodingSCTDescId",
+                                                "extension":  [
+                                                    {
+                                                        "url": "descriptionId",
+                                                        "valueIdentifier": {
+                                                            "system": "http://snomed.info/sct",
+                                                            "value": "372285017"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "system": "http://snomed.info/sct",
+                                        "code": "249519007",
+                                        "display": "Diarrhoea and vomiting"
+                                    }
+                                ]
+                            }
+                        ],
+                        "severity": "mild"
+                    }
+                ]
+            }
+        }
+    ]
+}

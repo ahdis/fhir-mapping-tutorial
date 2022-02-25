@@ -1,0 +1,12 @@
+map "http://fhir.nhs.uk/StructureMap/MedicationStatementLastIssueDate-Extension-3to4" = "R3 to R4 conversion for CareConnect MedicationStatementLastIssueDate extension"
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as target
+
+group MedicationStatement(source src : MedicationStatement, target tgt : MedicationStatement)  {
+    src.extension as ext where $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-MedicationStatementLastIssueDate-1' or
+      $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-MedicationStatementLastIssueDate-1' 
+        -> tgt.extension as tgtext, tgtext.url='https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-MedicationStatementLastIssueDate' then {
+           ext.value: dateTime as vs -> tgtext.value = create('dateTime') as vt, vt.value = vs;
+    };
+}
+

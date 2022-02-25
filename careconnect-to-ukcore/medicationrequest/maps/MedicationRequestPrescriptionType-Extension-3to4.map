@@ -1,0 +1,25 @@
+map "http://fhir.nhs.uk/StructureMap/MedicationRequestPrescriptionType-Extension-3to4" = "R3 to R4 conversion for CareConnect MedicationRequest PrescriptionType extension"
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as target
+
+group MedicationRequest(source src : MedicationRequest, target tgt : MedicationRequest)  {
+    src.extension as ext where $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-PrescritionType-1' or
+       $this.url='https://fhir.nhs.uk/STU3/StructureDefinition/Extension-CareConnect-GPC-PrescriptionType-1'
+       -> tgt.courseOfTherapyType as vt then {
+          ext.value : CodeableConcept as vs -> tgt.courseOfTherapyType as vt1 then CodeableConceptStatusReason(vs, vt1);
+    };
+}
+
+group CodeableConceptStatusReason(source src : CodeableConcept, target tgt : CodeableConcept) {
+    src.coding -> tgt.coding;
+    src.text as text -> tgt.text = text;
+}
+
+group Coding(source src : Coding, target tgt : Coding) <<type+>> {
+    src.system as system -> tgt.system = 'http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy';
+    src.version as version -> tgt.version = version;
+    src.code as code -> tgt.code = code;
+    src.display as display -> tgt.display = display;
+    src.userSelected as userSelected -> tgt.userSelected = userSelected;
+}
+

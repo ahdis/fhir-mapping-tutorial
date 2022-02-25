@@ -1,0 +1,18 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "extension":  [
+      {
+          "url": "https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-AllergyIntoleranceEnd-1",
+          "extension":  [
+              {
+                  "url": "endDate",
+                  "valueDateTime": "2022-01-15"
+              },
+              {
+                  "url": "reasonEnded",
+                  "valueString": "Allergy resolved by prescribed medication"
+              }
+          ]
+      }
+  ]
+}

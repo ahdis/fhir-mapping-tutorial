@@ -1,0 +1,10 @@
+map "http://fhir.nhs.uk/StructureMap/AllergyIntoleranceEvidence-Extension-3to4" = "R3 to R4 conversion for CareConnect AllergyIntolerance Evidence extension"
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as target
+
+group AllergyIntolerance(source src : AllergyIntolerance, target tgt : AllergyIntolerance)  {
+    src.extension as ext where $this.url='https://fhir.hl7.org.uk/STU3/StructureDefinition/Extension-CareConnect-Evidence-1'
+        -> tgt.extension = create('Extension') as tgtext, tgtext.url = 'https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-Evidence' then {
+           ext.value: Reference as vs -> tgtext.value = create('Reference') as vt, tgtext.value = vs;
+    };
+}

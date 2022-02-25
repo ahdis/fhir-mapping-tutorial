@@ -1,0 +1,18 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "numberOfRepeatPrescriptionsIssued",
+          "valueUnsignedInt": 1
+        },
+        {
+          "url": "authorisationExpiryDate",
+          "valueDateTime": "2019-12-31"
+        }
+      ],
+      "url": "https://fhir.nhs.uk/StructureDefinition/Extension-UKCore-MedicationRepeatInformation"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "encounter": {
+    "reference": "Encounter/7D179839-BECC-49FB-B58D-97627930D360"
+  }
+}

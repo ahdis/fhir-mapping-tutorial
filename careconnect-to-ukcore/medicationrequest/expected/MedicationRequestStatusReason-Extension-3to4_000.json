@@ -1,0 +1,34 @@
+{
+  "resourceType": "MedicationRequest",
+  "statusReason": {
+    "coding": [
+      {
+        "system": "https://fhir.hl7.org.uk/Id/egton-codes",
+        "code": "ALLERGY1364",
+        "display": "Adverse reaction to Prednisolone",
+        "userSelected": true
+      },
+      {
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "descriptionId",
+                "valueId": "1030121000006113"
+              },
+              {
+                "url": "descriptionDisplay",
+                "valueString": "Adverse reaction to Prednisolone"
+              }
+            ],
+            "url": "https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-CodingSCTDescId"
+          }
+        ],
+        "system": "http://snomed.info/sct",
+        "code": "1030121000006109",
+        "display": "Adverse reaction to Prednisolone"
+      }
+    ],
+    "text": "Adverse reaction to Prednisolone (Fat, John said)"
+  }
+}

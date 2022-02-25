@@ -1,0 +1,14 @@
+{
+  "resourceType": "MedicationRequest",
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "numberOfRepeatPrescriptionsIssued",
+          "valueUnsignedInt": 5
+        }
+      ],
+      "url": "https://fhir.nhs.uk/StructureDefinition/Extension-UKCore-MedicationRepeatInformation"
+    }
+  ]
+}

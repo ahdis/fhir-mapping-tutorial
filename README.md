@@ -1,5 +1,5 @@
 # FHIR tutorial mapping example
-FHIR has a mapping language to convert between resources and logical models and features a [tutorial](http://build.fhir.org/mapping-tutorial.html) how use it. This projects tries to build the structure definitions and mappings for it.
+FHIR has a mapping language to convert between resources and logical models and features a [tutorial](http://build.fhir.org/mapping-tutorial.html) how use it. This projects tries to build the structure definitions and mappings for it and adds as well additional FHIR mapping language examples.
 
 See the [FHIR Mapping Language confluence page](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Mapping+Language) for additional information. 
 
@@ -18,6 +18,10 @@ map: Mapping files in FHIR Mapping Language
 source: XML files used to transform
 
 output.xml: result of map transform
+
+## additional examples
+- fhir transforms from STU3 NHS Digital extensions to NHS Digital UK Core R4 examples by [declankieran-nhsd](https://github.com/ahdis/fhir-mapping-tutorial/commits?author=declankieran-nhsd), see folder [careconnect-to-ukcore](tree/master/careconnect-to-ukcore)
+
 
 ## Comparison Java Reference Implementation / .NET Reference Implementation
 

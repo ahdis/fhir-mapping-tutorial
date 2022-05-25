@@ -1,0 +1,29 @@
+### @host = https://test.ahdis.ch
+@host = http://localhost:8080
+
+
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: text/fhir-mapping
+
+< ./memberof.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/memberof
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+{
+    "resourceType": "Patient",
+"maritalStatus" : {
+    "coding" : [
+      {
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+        "code" : "M",
+        "display" : "married"
+      }
+    ]
+  }
+}
+

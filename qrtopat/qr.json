@@ -16,6 +16,15 @@
                 "valueString": "male"
               }
             ]
+          },
+          {
+            "linkId": "patient.claim-type",
+            "text": "claim-type",
+            "answer": [
+              {
+                "valueString": "oral"
+              }
+            ]
           }
         ]
       }

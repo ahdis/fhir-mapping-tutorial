@@ -1,4 +1,4 @@
-map "http://ahdis.ch/matchbox/fml/qr2patgender" = "qr2patgender"
+map "http://ahdis.ch/matchbox/fml/qr2patgendername" = "qr2patgender"
 
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
 uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
@@ -9,4 +9,5 @@ group QuestionnaireResponse(source src : QuestionnaireResponse, target tgt : Pat
 
 group item(source src, target tgt: Patient) {
   src.item as item where linkId.value in ('patient.sex') -> tgt.gender = (item.answer.valueString);
+  src.item as item where linkId.value in ('patient.family') -> tgt.name as name, name.family = (item.answer.valueString) "family";
 }

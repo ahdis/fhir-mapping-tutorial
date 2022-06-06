@@ -1,8 +1,8 @@
 @host = https://test.ahdis.ch
-###@host = http://localhost:8080
+### @host = http://localhost:8080
 
 ### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1-addb
 Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: application/fhir+xml;fhirVersion=4.0
 

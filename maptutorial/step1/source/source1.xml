@@ -1,3 +1,4 @@
 <TLeft1 xmlns="http://hl7.org/fhir/tutorial">
 	<a value="step1" />
+	<b value="step1b" />
 </TLeft1>

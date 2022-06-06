@@ -28,5 +28,14 @@
 				<code value="string" />
 			</type>
 		</element>
+		<element id="TLeft1.b">
+			<path value="TLeft1.b" />
+			<definition value="TLeft1 definition"/>
+			<min value="1" />
+			<max value="1" />
+			<type>
+				<code value="string" />
+			</type>
+		</element>
 	</differential>
 </StructureDefinition>

@@ -1,4 +1,5 @@
 {
   "resourceType": "TLeft1",
-  "a": "step1"
+  "a": "step1",
+  "b": "step1b"
 }

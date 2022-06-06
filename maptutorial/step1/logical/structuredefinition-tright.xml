@@ -28,5 +28,14 @@
 				<code value="string" />
 			</type>
 		</element>
+		<element id="TRight1.b">
+			<path value="TRight1.b" />			
+			<definition value="TRight1 definition" />
+			<min value="1" />
+			<max value="1" />
+			<type>
+				<code value="string" />
+			</type>
+		</element>
 	</differential>
 </StructureDefinition>

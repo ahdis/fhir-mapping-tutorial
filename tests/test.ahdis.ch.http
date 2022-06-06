@@ -1,5 +1,5 @@
-@host = https://test.ahdis.ch
-### @host = http://localhost:8080
+### @host = https://test.ahdis.ch
+@host = http://localhost:8080
 
 
 ### Post the StructureMap with transform included
@@ -38,6 +38,20 @@ Content-Type: text/fhir-mapping
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/stringtocoding
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+< ../qrtopat/qr.json
+
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: text/fhir-mapping
+
+< ./quantity.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/qty
 Accept: application/fhir+json;fhirVersion=4.0
 Content-Type: application/fhir+json;fhirVersion=4.0
 

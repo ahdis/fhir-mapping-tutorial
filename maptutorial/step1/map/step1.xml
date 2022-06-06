@@ -5,26 +5,26 @@
     <title value="tutorial" />
     <status value="draft" />
     <structure>
-        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left" />
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left1" />
         <mode value="source" />
-        <alias value="TLeft" />
+        <alias value="TLeft1" />
     </structure>
     <structure>
-        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right" />
+        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right1" />
         <mode value="target" />
-        <alias value="TRight" />
+        <alias value="TRight1" />
     </structure>
     <group>
         <name value="tutorial" />
         <typeMode value="none" />
         <input>
             <name value="src" />
-            <type value="TLeft" />
+            <type value="TLeft1" />
             <mode value="source" />
         </input>
         <input>
             <name value="tgt" />
-            <type value="TRight" />
+            <type value="TRight1" />
             <mode value="target" />
         </input>
         <rule>

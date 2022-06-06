@@ -18,11 +18,29 @@
             ]
           },
           {
+            "linkId": "patient.family",
+            "text": "Family",
+            "answer": [
+              {
+                "valueString": "male"
+              }
+            ]
+          },
+          {
             "linkId": "patient.claim-type",
             "text": "claim-type",
             "answer": [
               {
                 "valueString": "oral"
+              }
+            ]
+          },
+          {
+            "linkId": "systolic-bp_1.2",
+            "text": " systolic-bp_1.2",
+            "answer": [
+              {
+                "valueString": "90"
               }
             ]
           }

@@ -1,4 +1,5 @@
 map "http://ahdis.ch/matchbox/fml/stringtocoding" = "stringtocoding"
+
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
 uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefit as target
 
@@ -8,5 +9,6 @@ group stringtocoding(source src : QuestionnaireResponse, target tgt : Explanatio
   
 group item(source src, target tgt: ExplanationOfBenefit) {
    src.item as item where linkId.value in ('patient.claim-type') -> 
-   tgt.type as code, code.coding as coding, coding.system='http://terminology.hl7.org/CodeSystem/claim-type', coding.code=(item.answer.valueString) "code2coding";
+   tgt.type as code, code.coding as coding, coding.system='http://terminology.hl7.org/CodeSystem/claim-type', 
+                                            coding.code=(item.answer.valueString) "code2coding";
 }

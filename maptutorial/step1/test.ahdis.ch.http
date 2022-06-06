@@ -1,48 +1,6 @@
 @host = https://test.ahdis.ch
 ###@host = http://localhost:8080
 
-### FHIR Tutorial Step 1
-
-###
-GET {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left1 HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
-
-###
-DELETE {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left1 HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
-
-###
-DELETE {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-right1 HTTP/1.1
-Accept: application/fhir+json;fhirVersion=4.0
-
-### FHIR Tutorial send StructureDefinition TLeft11
-POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
-
-< ./logical/structuredefinition-tleft.xml
-
-### FHIR Tutorial send StructureDefinition TRight1
-POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
-
-< ./logical/structuredefinition-tright.xml
-
-### Post the StructureMap with transform included
-POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: text/fhir-mapping
-
-< ./map/step1.map
-
-### Post the StructureMap with transform included
-POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: text/fhir-mapping
-
-< ./map/step1b.map
-
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
 Accept: application/fhir+xml;fhirVersion=4.0
@@ -58,5 +16,37 @@ Content-Type: application/fhir+json;fhirVersion=4.0
 < ./source/source1.json
 
 
-### http://hl7.org/fhir/StructureMap/tutorial-step1
-### Failed to call access method: org.hl7.fhir.exceptions.FHIRException: No matches found for rule for 'string to string' from http://hl7.org/fhir/StructureMap/tutorial-step1b, from rule 'rule_a_short
+### Add Logical Model if not knwon FHIR Tutorial send StructureDefinition TLeft11
+POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./logical/structuredefinition-tleft.xml
+
+### Add Logical Model if not knwon FHIR Tutorial send StructureDefinition TRight1
+POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: application/fhir+xml;fhirVersion=4.0
+
+< ./logical/structuredefinition-tright.xml
+
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: text/fhir-mapping
+
+< ./map/step1.map
+
+
+
+### DEBUG
+GET {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left1 HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+
+###
+DELETE {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left1 HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+
+###
+DELETE {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-right1 HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0

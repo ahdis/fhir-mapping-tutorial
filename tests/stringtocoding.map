@@ -10,5 +10,5 @@ group stringtocoding(source src : QuestionnaireResponse, target tgt : Explanatio
 group item(source src, target tgt: ExplanationOfBenefit) {
    src.item as item where linkId in ('patient.claim-type') -> 
    tgt.type as code, code.coding as coding, coding.system='http://terminology.hl7.org/CodeSystem/claim-type', 
-                                            coding.code=(item.answer.value) "code2coding";
+                                            coding.code=(%item.answer.value) "code2coding";
 }

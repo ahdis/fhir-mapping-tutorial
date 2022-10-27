@@ -13,7 +13,7 @@
             "text": "Geschlecht",
             "answer": [
               {
-                "valueString": "male"
+                "valueString": "female"
               }
             ]
           },
@@ -22,7 +22,7 @@
             "text": "Family",
             "answer": [
               {
-                "valueString": "male"
+                "valueString": "family"
               }
             ]
           },

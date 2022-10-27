@@ -1,0 +1,5 @@
+POST https://test.ahdis.ch/matchbox/fhir/StructureMap/$transform?source=http://hcisolutions.ch/ig/ig-hci-vacd/StructureMap/HciCdsQrToCdsRequest
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+
+< hciqr.json

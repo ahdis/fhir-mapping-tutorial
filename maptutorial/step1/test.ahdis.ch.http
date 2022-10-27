@@ -1,5 +1,5 @@
 @host = https://test.ahdis.ch
-###@host = http://localhost:8080
+### @host = http://localhost:8080
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
@@ -41,6 +41,10 @@ Content-Type: text/fhir-mapping
 
 ### DEBUG
 GET {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left1 HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+
+### DEBUG
+GET {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-right1 HTTP/1.1
 Accept: application/fhir+json;fhirVersion=4.0
 
 ###

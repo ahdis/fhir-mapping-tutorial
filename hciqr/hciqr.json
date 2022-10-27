@@ -1,0 +1,191 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "contained": [
+        {
+            "resourceType": "Patient",
+            "id": "1",
+            "identifier": [
+                {
+                    "system": "urn:oid:2.51.1.3",
+                    "value": "urn:uuid:0b4dee2e-7072-4fa6-8148-a9dcf3f2abf3"
+                }
+            ],
+            "name": [
+                {
+                    "family": "HZ1 LastnName",
+                    "given": [
+                        "HZ1 FirstName"
+                    ]
+                }
+            ],
+            "gender": "male",
+            "birthDate": "1951-03-15",
+            "address": [
+                {
+                    "postalCode": "3000"
+                }
+            ]
+        },
+        {
+            "resourceType": "PractitionerRole",
+            "id": "028e32ca-93f7-44f1-a44b-8ee342f13557",
+            "practitioner": {
+                "reference": "#3"
+            },
+            "organization": {
+                "reference": "#4"
+            }
+        },
+        {
+            "resourceType": "Practitioner",
+            "id": "3",
+            "identifier": [
+                {
+                    "system": "urn:oid:2.51.1.3",
+                    "value": "urn:uuid:7600000000"
+                }
+            ],
+            "name": [
+                {
+                    "family": "HCI Arzt",
+                    "given": [
+                        "test"
+                    ]
+                }
+            ]
+        },
+        {
+            "resourceType": "Organization",
+            "id": "4",
+            "name": "Praxis Arzt"
+        }
+    ],
+    "questionnaire": "http://hcisolutions.ch/ig/ig-hci-vacd/Questionnaire/CdsHERPZOSForm",
+    "status": "completed",
+    "subject": {
+        "reference": "#1"
+    },
+    "author": {
+        "reference": "#028e32ca-93f7-44f1-a44b-8ee342f13557"
+    },
+    "item": [
+        {
+            "linkId": "form",
+            "text": "Einen spezifischen Impfstatus abfragen",
+            "item": [
+                {
+                    "linkId": "form.patientinfo",
+                    "item": [
+                        {
+                            "linkId": "form.patientinfo.questSocialFacts",
+                            "text": "Soziale Faktoren",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "373068000",
+                                        "display": "Keine Angabe"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "form.patientinfo.questPreIllnesses",
+                            "text": "Vorerkrankungen",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "373068000",
+                                        "display": "Keine Angabe"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "form.patientinfo.questRisks",
+                            "text": "Risikofaktoren",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "373068000",
+                                        "display": "Keine Angabe"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "form.patientinfo.questOccupation",
+                            "text": "Beruf",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "373068000",
+                                        "display": "Keine Angabe"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "linkId": "form.patientinfo.questAllergies",
+                            "text": "Allergien / UAW",
+                            "answer": [
+                                {
+                                    "valueCoding": {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "716186003",
+                                        "display": "No known allergy (situation)"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "linkId": "form.questConsent",
+                    "text": "Ich bestätige, dass die angegebenen Informationen korrekt sind und dass mir bekannt ist, dass Informationen, welche nicht angegeben wurden, für die Abfrage des Impfstatus nicht berücksichtigt werden.",
+                    "answer": [
+                        {
+                            "valueBoolean": true
+                        }
+                    ]
+                },
+                {
+                    "linkId": "form.vaccines",
+                    "item": [
+                        {
+                            "linkId": "form.vaccines.entry",
+                            "text": "Impfung",
+                            "item": [
+                                {
+                                    "linkId": "form.vaccines.questVaccineProduct",
+                                    "text": "Impfstoff",
+                                    "answer": [
+                                        {
+                                            "valueCoding": {
+                                                "system": "http://fhir.ch/ig/ch-vacd/CodeSystem/ch-vacd-swissmedic-cs",
+                                                "code": "709",
+                                                "display": "Zostavax"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "linkId": "form.vaccines.questVaccinationDate",
+                                    "text": "Impfdatum",
+                                    "answer": [
+                                        {
+                                            "valueDate": "2021-03-12"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

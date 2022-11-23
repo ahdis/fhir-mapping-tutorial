@@ -9,5 +9,5 @@ group stringtocoding(source src : QuestionnaireResponse, target tgt : Explanatio
   
 group item(source src, target tgt: ExplanationOfBenefit) {
    src.item as item where linkId in ('patient.claim-type') -> 
-   tgt.type as code, code.coding = cc('http://terminology.hl7.org/CodeSystem/communication-category', 'notification') "code2coding";
+   tgt.type = cc('http://terminology.hl7.org/CodeSystem/communication-category', 'notification') "code2coding";
 }

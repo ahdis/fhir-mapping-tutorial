@@ -75,3 +75,18 @@ Accept: application/fhir+json;fhirVersion=4.0
 Content-Type: application/fhir+json;fhirVersion=4.0
 
 < ../qrtopat/qr.json
+
+
+### Post the StructureMap with transform included
+PUT {{host}}/matchbox/fhir/StructureMap/37238 HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: text/fhir-mapping
+
+< ./cast.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/cast
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+< ../qrtopat/qrext.json

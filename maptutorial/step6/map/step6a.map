@@ -1,7 +1,6 @@
-/// title = "tutorial-step6a"
-/// status = draft
-
-map "http://hl7.org/fhir/StructureMap/tutorial-step6a" = "tutorial-step6a"
+/// url = 'http://hl7.org/fhir/StructureMap/tutorial-step6'
+/// name = 'tutorial-step6'
+/// title = 'Tutorial Step 6'
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-6" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-6" as target

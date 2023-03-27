@@ -1,8 +1,6 @@
-/// title = "tutorial-step4b"
-/// status = draft
-/// doest not work in java with a) double quotes for fhirpath and b) isInteger not known
-
-map "http://hl7.org/fhir/StructureMap/tutorial-step4b" = "tutorial-step4b"
+/// url = 'http://hl7.org/fhir/StructureMap/tutorial-step4b'
+/// name = 'tutorial-step4b'
+/// title = 'Tutorial Step 4b'
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target

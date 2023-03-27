@@ -1,0 +1,10 @@
+map "https://www.ehealth.fgov.be/standards/fhir/referral/StructureMap/be-map-model-referral-prescription" = "be-map-model-referral-prescription"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as source
+uses "https://www.ehealth.fgov.be/standards/fhir/referral/StructureDefinition/be-model-referralprescription" alias BeModelReferralPrescription as target
+
+
+
+group Main(source medRequest : MedicationRequest, target model : BeModelReferralPrescription) {
+    medRequest -> model.resultReceiver = false "resultReceiver";
+}

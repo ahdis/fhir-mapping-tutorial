@@ -1,0 +1,13 @@
+map "http://hl7.org/fhir/StructureMap/tutorial-step13" = "tutorial"
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-13" alias TLeft as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-13" alias TRight as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right2-13" alias TRight2 as target
+
+group tutorial(source src : TLeft, target tgt : TRight, target tgt2: TRight2) {
+
+  src.f1 as s_f1 -> create("TRight2") as rr, tgt.ptr = reference(rr) then {
+    s_f1 -> rr.f2 = s_f1 "rule_s_f1";
+  } "rule_ptr";
+
+}

@@ -20,7 +20,7 @@ source: XML files used to transform
 output.xml: result of map transform
 
 ## additional examples
-- fhir transforms from STU3 NHS Digital extensions to NHS Digital UK Core R4 examples by [declankieran-nhsd](https://github.com/ahdis/fhir-mapping-tutorial/commits?author=declankieran-nhsd), see folder [careconnect-to-ukcore](tree/master/careconnect-to-ukcore)
+- fhir transforms from STU3 NHS Digital extensions to NHS Digital UK Core R4 examples by [declankieran-nhsd](https://github.com/ahdis/fhir-mapping-tutorial/commits?author=declankieran-nhsd), see folder [careconnect-to-ukcore](https://github.com/ahdis/fhir-mapping-tutorial/tree/master/careconnect-to-ukcore)
 
 
 ## Comparison Java Reference Implementation / .NET Reference Implementation

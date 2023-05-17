@@ -1,48 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <StructureMap xmlns="http://hl7.org/fhir">
-    <id value="tutorial" />
-    <url value="http://hl7.org/fhir/StructureMap/tutorial" />
-    <name value="tutorial" />
-    <title value="tutorial" />
-    <status value="draft" />
-    <structure>
-        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left1" />
-        <mode value="source" />
-        <alias value="TLeft1" />
-    </structure>
-    <structure>
-        <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right1" />
-        <mode value="target" />
-        <alias value="TRight1" />
-    </structure>
-    <group>
-        <name value="tutorial" />
-        <typeMode value="none" />
-        <input>
-            <name value="src" />
-            <type value="TLeft1" />
-            <mode value="source" />
-        </input>
-        <input>
-            <name value="tgt" />
-            <type value="TRight1" />
-            <mode value="target" />
-        </input>
-        <rule>
-            <name value="rule_a" />
-            <source>
-                <context value="src" />
-                <element value="a" />
-                <variable value="a" />
-            </source>
-            <target>
-                <context value="tgt" />
-                <contextType value="variable" />
-                <element value="a" />
-                <transform value="copy" />
-                <parameter>
-                    <valueId value="a" />
-                </parameter>
-            </target>
-        </rule>
-    </group>
+  <id value="tutorial-step1"/>
+  <url value="http://hl7.org/fhir/StructureMap/tutorial-step1"/>
+  <name value="tutorial-step1"/>
+  <title value="Tutorial Step 1"/>
+  <status value="draft"/>
+  <description value="Tutorial Step 1"/>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left1"/>
+    <mode value="source"/>
+    <alias value="TLeft1"/>
+  </structure>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right1"/>
+    <mode value="target"/>
+    <alias value="TRight1"/>
+  </structure>
+  <group>
+    <name value="tutorial"/>
+    <input>
+      <name value="src"/>
+      <type value="TLeft1"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="tgt"/>
+      <type value="TRight1"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="rule_a"/>
+      <source>
+        <context value="src"/>
+        <element value="a"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="tgt"/>
+        <element value="a"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueId value="a"/>
+        </parameter>
+      </target>
+    </rule>
+  </group>
 </StructureMap>

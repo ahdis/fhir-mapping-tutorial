@@ -8,8 +8,8 @@ conceptmap "tutorialmap" {
   s:test == t:test
 }
 
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-8" as source
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-8" as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-8"  alias TLeft as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-8"  alias TRight as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
   src.d as d -> tgt.d = translate(d, '#tutorialmap', 'code') "rule_d";

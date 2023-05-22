@@ -1,6 +1,6 @@
-/// url = 'http://hl7.org/fhir/StructureMap/tutorial-step6'
-/// name = 'tutorial-step6'
-/// title = 'Tutorial Step 6'
+/// url = 'http://hl7.org/fhir/StructureMap/tutorial-step6a'
+/// name = 'tutorial-step6a'
+/// title = 'Tutorial Step 6a'
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-6" alias TLeft as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-6" alias Right as target

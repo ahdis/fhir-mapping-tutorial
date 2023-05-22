@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureMap xmlns="http://hl7.org/fhir">
-  <id value="tutorial-step4a"/>
-  <url value="http://hl7.org/fhir/StructureMap/tutorial-step4a"/>
-  <name value="tutorial-step4a"/>
-  <title value="Tutorial Step 4a"/>
+  <id value="tutorial-step4b"/>
+  <url value="http://hl7.org/fhir/StructureMap/tutorial-step4b"/>
+  <name value="tutorial-step4b"/>
+  <title value="Tutorial Step 4b"/>
   <status value="draft"/>
-  <description value="Tutorial Step 4a"/>
+  <description value="Tutorial Step 4b"/>
   <structure>
     <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left"/>
     <mode value="source"/>
@@ -30,21 +30,19 @@
       <mode value="target"/>
     </input>
     <rule>
-      <name value="rule_a21a"/>
+      <name value="rule_a21b"/>
       <source>
         <context value="src"/>
         <element value="a21"/>
         <variable value="a"/>
+        <condition value="'a21.isInteger()'"/>
       </source>
       <target>
         <context value="tgt"/>
         <element value="a21"/>
-        <transform value="cast"/>
+        <transform value="copy"/>
         <parameter>
           <valueId value="a"/>
-        </parameter>
-        <parameter>
-          <valueString value="FHIR.integer"/>
         </parameter>
       </target>
     </rule>

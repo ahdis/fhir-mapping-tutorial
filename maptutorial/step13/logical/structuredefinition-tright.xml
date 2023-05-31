@@ -22,5 +22,14 @@
 				<code value="string" />
 			</type>
 		</element>
+		<element id="TRight.f2">
+			<path value="TRight.f2" />
+			<definition value="TRight2 definition" />
+			<min value="0" />
+			<max value="*" />
+			<type>
+				<code value="Basic" />
+			</type>
+		</element>
 	</differential>
 </StructureDefinition>

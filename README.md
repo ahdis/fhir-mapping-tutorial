@@ -53,6 +53,6 @@ output.xml: result of map transform
 | Step 10  |  ✓   |
 | Step 11  |  ✓   |
 | Step 12  |  ✓   |
-| Step 13  |  ✓ [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/31)    |
+| Step 13  |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/31)    |
 | Step 14  |      |
 | Step 15  |      |

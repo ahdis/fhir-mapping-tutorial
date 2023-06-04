@@ -3,5 +3,7 @@
 **/target/
 **/output.xml
 test.txt
+validator_cli.jar
 qrtopat/validator_cli.jar
 maptutorial/step1/validator_cli.jar
+.project

@@ -3,15 +3,15 @@
 
 
 ### Post the StructureMap with transform included
-POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+POST {{host}}/matchboxv3/fhir/StructureMap HTTP/1.1
 Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: text/fhir-mapping
 
 < ./map/qr2patgender.map
 
 ### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/qr2patgender
-Accept: application/fhir+xml;fhirVersion=4.0
+POST {{host}}/matchboxv3/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/qr2patgender
+Accept: application/fhir+json;fhirVersion=4.0
 Content-Type: application/fhir+json;fhirVersion=4.0
 
 < ./qr.json

@@ -6,7 +6,10 @@ See the [FHIR Mapping Language confluence page](https://confluence.hl7.org/displ
 To run the transforms directly from the command line you can use the FHIR Java Validator, [download here](https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar).
 For more information about the .NET Implementation, [see here](https://github.com/brianpos/fhir-net-mappinglanguage).
 
-If you want to use it with a public test server, you can use https://test.ahdis.ch/matchbox/fhir/. Install [Visual Studio Code](https://code.visualstudio.com/) with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. in each step there is a test.ahdis.ch.http file which you can upload the StructureDefinition and StructureMap and perform the transformation. E.g. see http file for [step1](https://github.com/ahdis/fhir-mapping-tutorial/blob/master/maptutorial/step1/test.ahdis.ch.http).
+If you want to use it with a public test server, you can use https://test.ahdis.ch/matchboxv3/fhir/. Install [Visual Studio Code](https://code.visualstudio.com/) with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. in each step there is a test.ahdis.ch.http file which you can upload the StructureDefinition and StructureMap and perform the transformation. E.g. see http file for [step1](https://github.com/ahdis/fhir-mapping-tutorial/blob/master/maptutorial/step1/test.ahdis.ch.http).
+
+The mapping infrastructure runs internally on r5, meaning that you have to specify the version 5.0.0 that the right "StructureMapUtilities" are used. However note, that this will also generate then a R5 StructureMapResource:
+
 
 ## run the tutorial
 for each step there is a directory below the maptutorial directory
@@ -20,8 +23,7 @@ source: XML files used to transform
 output.xml: result of map transform
 
 ## additional examples
-- fhir transforms from STU3 NHS Digital extensions to NHS Digital UK Core R4 examples by [declankieran-nhsd](https://github.com/ahdis/fhir-mapping-tutorial/commits?author=declankieran-nhsd), see folder [careconnect-to-ukcore](tree/master/careconnect-to-ukcore)
-
+- fhir transforms from STU3 NHS Digital extensions to NHS Digital UK Core R4 examples by [declankieran-nhsd](https://github.com/ahdis/fhir-mapping-tutorial/commits?author=declankieran-nhsd), see folder [careconnect-to-ukcore](https://github.com/ahdis/fhir-mapping-tutorial/tree/master/careconnect-to-ukcore)
 
 ## Java Reference Implementation features
 
@@ -49,8 +51,8 @@ output.xml: result of map transform
 | Step 8   |  ✓   |
 | Step 9   |  ✓   |
 | Step 10  |  ✓   |
-| Step 11  |      |
-| Step 12  |      |
-| Step 13  |      |
+| Step 11  |  ✓   |
+| Step 12  |  ✓   |
+| Step 13  |  ✓ [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/31)    |
 | Step 14  |      |
 | Step 15  |      |

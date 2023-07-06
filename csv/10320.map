@@ -1,0 +1,22 @@
+map "http://ahdis.ch/matchbox/fml/csv10320" = "csv10320"
+
+uses "http://hl7.org/fhir/tools/StructureDefinition/CSV" alias CVS as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as target
+
+group CSVtoBundle(source src : CVS, target tgt : Bundle) {
+    src.record as record -> tgt.entry as entry, entry.resource = create('Organization') as org then {
+        record.firma as firma -> org.name = firma;
+        record -> org.address as address then {
+           record.adresse as strasse -> address.line = strasse;
+           record.plz as plz -> address.postalCode = plz;
+           record.ort as ort -> address.city = ort;
+        } "adresse";
+        record.vorname_name -> org.contact as contact then {
+            record.vorname_name -> contact.name as name then {
+                record.vorname_name as vornamename -> name.given = (%vornamename.substring(0, %vornamename.indexOf(' '))) "given";            
+                record.vorname_name as vornamename -> name.family = (%vornamename.substring(%vornamename.indexOf(' ')+1)) "family";            
+            } "given";
+        } "contact";
+    } "record";
+}

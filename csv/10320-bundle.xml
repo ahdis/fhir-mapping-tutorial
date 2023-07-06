@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Bahnhof Pratteln, GaleniCare AG"/>
+        <address>
+          <line value="Bahnhofstrasse 3"/>
+          <city value="Pratteln"/>
+          <postalCode value="4133"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Ravidà"/>
+            <given value="Valeria"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Birsfelden, GaleniCare AG"/>
+        <address>
+          <line value="Chrischonastrasse 2"/>
+          <city value="Birsfelden"/>
+          <postalCode value="4127"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Anne Wunderle"/>
+            <given value="Alina"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Bücheli Center"/>
+        <address>
+          <line value="Büchelistrasse 10"/>
+          <city value="Liestal"/>
+          <postalCode value="4410"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Fuchs"/>
+            <given value="Claudia"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Liestal"/>
+        <address>
+          <line value="Rathausstrasse 53"/>
+          <city value="Liestal"/>
+          <postalCode value="4410"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Katzmann"/>
+            <given value="Fiona"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Paradies"/>
+        <address>
+          <line value="Spitzwaldstrasse 215"/>
+          <city value="Allschwil"/>
+          <postalCode value="4123"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Andres"/>
+            <given value="Stephan"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Pratteln, GaleniCare AG"/>
+        <address>
+          <line value="Burggartenstrasse 21"/>
+          <city value="Pratteln"/>
+          <postalCode value="4133"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Jöhri"/>
+            <given value="Katrin"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Amavita Apotheke Schneeberger, GaleniCare AG"/>
+        <address>
+          <line value="Bachweg 1"/>
+          <city value="Arlesheim"/>
+          <postalCode value="4144"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Bauer"/>
+            <given value="Kristin"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke Dorenbach GmbH"/>
+        <address>
+          <line value="Hauptstrasse 4"/>
+          <city value="Binningen"/>
+          <postalCode value="4102"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Ha Locher"/>
+            <given value="Le"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke DROPA Betriebs AG, Filiale Laufen"/>
+        <address>
+          <line value="Bahnhofstrasse 11"/>
+          <city value="Laufen"/>
+          <postalCode value="4242"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Huong Luong"/>
+            <given value="My"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke DROPA Füllinsdorf AG"/>
+        <address>
+          <line value="Mühlerainstrasse 19"/>
+          <city value="Füllinsdorf"/>
+          <postalCode value="4414"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Christiane Meuthen"/>
+            <given value="Andrea"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke Gelterkinden Handschin AG"/>
+        <address>
+          <line value="Poststrasse 9"/>
+          <city value="Gelterkinden"/>
+          <postalCode value="4460"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Heidi Gessler"/>
+            <given value="Katherine"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke Hornstein AG"/>
+        <address>
+          <line value="Angensteinerstrasse 5"/>
+          <city value="Reinach"/>
+          <postalCode value="4153"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Bürki-Hornstein"/>
+            <given value="Barbara"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke Kunz GmbH"/>
+        <address>
+          <line value="Hauptstrasse 105"/>
+          <city value="Aesch"/>
+          <postalCode value="4147"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Kunz"/>
+            <given value="Sabine"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke Parfümerie Liechti AG"/>
+        <address>
+          <line value="Hauptstrasse 27"/>
+          <city value="Reinach"/>
+          <postalCode value="4153"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Dominik Liechti"/>
+            <given value="Matthias"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Apotheke Parfümerie Liechti AG, Mischeli-Center"/>
+        <address>
+          <line value="Niederbergstrasse 1"/>
+          <city value="Reinach"/>
+          <postalCode value="4153"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Schmid-Ineichen"/>
+            <given value="Lotti"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Bahnhof Apotheke Liestal AG"/>
+        <address>
+          <line value="Bahnhofplatz 11"/>
+          <city value="Liestal"/>
+          <postalCode value="4410"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Viktorovna Munsch-Plesski"/>
+            <given value="Olessia"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Blauen Apotheke AG"/>
+        <address>
+          <line value="Therwilerstrasse 11"/>
+          <city value="Ettingen"/>
+          <postalCode value="4107"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Stebler-Schenk"/>
+            <given value="Thomas"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Central Apotheke"/>
+        <address>
+          <line value="Hauptstrasse 46"/>
+          <city value="Sissach"/>
+          <postalCode value="4450"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Vitellaro"/>
+            <given value="Monica"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Central-Apotheke Jeanette Voisard"/>
+        <address>
+          <line value="Baslerstrasse 169"/>
+          <city value="Allschwil"/>
+          <postalCode value="4123"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Andrea Voisard"/>
+            <given value="Jeanette"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Coop Vitality Apotheke Bubendorf AG"/>
+        <address>
+          <line value="Gewerbestrasse 1"/>
+          <city value="Bubendorf"/>
+          <postalCode value="4416"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Luisoni"/>
+            <given value="Enrico"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Coop Vitality Apotheke Laufen"/>
+        <address>
+          <line value="Bahnhofstrasse 16"/>
+          <city value="Laufen"/>
+          <postalCode value="4242"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Stanislaw Bedkowski"/>
+            <given value="Michal"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Coop Vitality Apotheke Oberwil"/>
+        <address>
+          <line value="Hauptstrasse 15"/>
+          <city value="Oberwil"/>
+          <postalCode value="4104"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Garcia Rosa"/>
+            <given value="Iván"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Dorfplatz-Apotheke"/>
+        <address>
+          <line value="Baslerstrasse 29"/>
+          <city value="Allschwil"/>
+          <postalCode value="4123"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Ottilie Wirz-Leupolt"/>
+            <given value="Brigitte"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Gartenstadt Apotheke"/>
+        <address>
+          <line value="Stöckackerstrasse 8"/>
+          <city value="Münchenstein"/>
+          <postalCode value="4142"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Schneider"/>
+            <given value="Tanja"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Hard-Apotheke"/>
+        <address>
+          <line value="Hauptstrasse 53"/>
+          <city value="Birsfelden"/>
+          <postalCode value="4127"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Peter Steiner"/>
+            <given value="Hans"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Klinik Arlesheim AG, Apotheke der Klinik Arlesheim"/>
+        <address>
+          <line value="Stollenrain 11"/>
+          <city value="Arlesheim"/>
+          <postalCode value="4144"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Michael Stöckler"/>
+            <given value="Gallus"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Kronen Apotheke AG"/>
+        <address>
+          <line value="Oberwilerstrasse 2"/>
+          <city value="Binningen"/>
+          <postalCode value="4102"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Eichenberger-Bader"/>
+            <given value="Manuela"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Leimen-Apotheke AG"/>
+        <address>
+          <line value="Bahnhofstrasse 21"/>
+          <city value="Therwil"/>
+          <postalCode value="4106"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Jermann Jeker"/>
+            <given value="Elisabeth"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Lerchengarten Apotheke AG"/>
+        <address>
+          <line value="Baslerstrasse 254"/>
+          <city value="Allschwil"/>
+          <postalCode value="4123"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Edith Stein"/>
+            <given value="Lena"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Lindenapotheke AG"/>
+        <address>
+          <line value="Hauptstrasse 2"/>
+          <city value="Füllinsdorf"/>
+          <postalCode value="4414"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Isabella Melileo"/>
+            <given value="Susanne"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Medbase Apotheke Allschwil"/>
+        <address>
+          <line value="Langmattweg 1"/>
+          <city value="Allschwil"/>
+          <postalCode value="4123"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Dorotea S. Tognola"/>
+            <given value="Carlotta"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Medbase Apotheke Arlesheim Birseck"/>
+        <address>
+          <line value="Ermitagestrasse 9"/>
+          <city value="Arlesheim"/>
+          <postalCode value="4144"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Feigenwinter"/>
+            <given value="Martin"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Medbase Apotheke Laufen Stedtli"/>
+        <address>
+          <line value="Hauptstrasse 20"/>
+          <city value="Laufen"/>
+          <postalCode value="4242"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Leila Kuster"/>
+            <given value="Nicole"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Mühlematt-Apotheke (Zentrum Mühlematt)"/>
+        <address>
+          <line value="Mühlemattstrasse 22"/>
+          <city value="Oberwil"/>
+          <postalCode value="4104"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Schmid"/>
+            <given value="Monica"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Rössli-Apotheke AG"/>
+        <address>
+          <line value="Hauptstrasse 54"/>
+          <city value="Muttenz"/>
+          <postalCode value="4132"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Verena Tamborrini-Schütz"/>
+            <given value="Bettina"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Saner Apotheke AG, Liestal Stadt"/>
+        <address>
+          <line value="Rathausstrasse 63"/>
+          <city value="Liestal"/>
+          <postalCode value="4410"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Ercolina Candolfi Luginbühl"/>
+            <given value="Andrea"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="St. Margarethen-Apotheke AG"/>
+        <address>
+          <line value="Hauptstrasse 46"/>
+          <city value="Binningen"/>
+          <postalCode value="4102"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Joset Halter"/>
+            <given value="Claudine"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Strichcode Apotheke AG"/>
+        <address>
+          <line value="Rheinfelderstrasse 16"/>
+          <city value="Sissach"/>
+          <postalCode value="4450"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Paulo Da Costa Gonçalves"/>
+            <given value="Marco"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="SUN STORE SA Apotheke Parfümerie, Filiale 902"/>
+        <address>
+          <line value="Gorenmattstrasse 17"/>
+          <city value="Binningen"/>
+          <postalCode value="4102"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Domke"/>
+            <given value="Jesco"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Apotheke Arbogast"/>
+        <address>
+          <line value="St. Jakob-Strasse 1A"/>
+          <city value="Muttenz"/>
+          <postalCode value="4132"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Waldner"/>
+            <given value="Christoph"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Apotheke Gmünder"/>
+        <address>
+          <line value="Grüngenstrasse 1"/>
+          <city value="Bubendorf"/>
+          <postalCode value="4416"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Gmünder"/>
+            <given value="Urs"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Apotheke Gmünder AG Oberdorf"/>
+        <address>
+          <line value="Hauptstrasse 45b"/>
+          <city value="Oberdorf"/>
+          <postalCode value="4436"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Baur"/>
+            <given value="Séverine"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Apotheke und Drogerie Sissach"/>
+        <address>
+          <line value="Hauptstrasse 17"/>
+          <city value="Sissach"/>
+          <postalCode value="4450"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Beatrix Villalonga Venero-Hofsetter"/>
+            <given value="Susanne"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Apotheken Muttenz AG, Schänzli"/>
+        <address>
+          <line value="St. Jakob-Strasse 140"/>
+          <city value="Muttenz"/>
+          <postalCode value="4132"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Tosic"/>
+            <given value="Deana"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Birs-Apotheke und Arena für Gesundheit"/>
+        <address>
+          <line value="Hauptstrasse 78"/>
+          <city value="Birsfelden"/>
+          <postalCode value="4127"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Barbara Heuss"/>
+            <given value="Annina"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="TopPharm Center Apotheke Werthmüller AG"/>
+        <address>
+          <line value="Badweg 2"/>
+          <city value="Gelterkinden"/>
+          <postalCode value="4460"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Atria"/>
+            <given value="Susanna"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Weiherschloss-Apotheke AG"/>
+        <address>
+          <line value="Therwilerstrasse 2"/>
+          <city value="Bottmingen"/>
+          <postalCode value="4103"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Weber-Schmocker"/>
+            <given value="Martha"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <Organization>
+        <name value="Zollweiden Apotheke AG"/>
+        <address>
+          <line value="Baselstrasse 71"/>
+          <city value="Münchenstein"/>
+          <postalCode value="4142"/>
+        </address>
+        <contact>
+          <name>
+            <family value="Kostyák"/>
+            <given value="László"/>
+          </name>
+        </contact>
+      </Organization>
+    </resource>
+  </entry>
+</Bundle>

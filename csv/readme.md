@@ -1,4 +1,4 @@
-# Experimental
+# Experimental CVS to FHIR
 
 Michael Lawley: @Oliver Egger and others, you can find my branch here: https://github.com/aehrc/org.hl7.fhir.core/tree/feature/20230627-csv-parser-for-fml
 
@@ -16,14 +16,22 @@ Source CSV is from [Apotheken mit Betriebsbewilligung oder Impfberechtigung nach
 Identifier: 10320@kanton-basel-landschaft, Publikationsdatum 5. September 2022, Änderungsdatum 15. Juni 2023, Publisher kanton-basel-landschaft
 
 
-1. you need to build the future build branch and then copy the validator jar to this direcoty
+1. you need to build the oe_cvs branch and then copy the validator jar to this direcoty
 
+https://github.com/oliveregger/org.hl7.fhir.core/tree/oe_cvs
+
+```
 cp /Users/oegger/Documents/github/feature/org.hl7.fhir.core/org.hl7.fhir.validation.cli/target/org.hl7.fhir.validation.cli-6.0.19-SNAPSHOT.jar validator_cli.jar
+```
 
 2. you can test the logical model 
 
+```
 java -jar validator_cli.jar 10320.csv -version 4.0.1 -profile http://hl7.org/fhir/tools/StructureDefinition/CSV -convert -output 10320.json
+```
 
 3. map the cvs example to a logical model
 
+```
 java -jar validator_cli.jar 10320.csv -transform http://ahdis.ch/matchbox/fml/csv10320 -version 4.0.1 -ig ./10320.map -log test.txt -output ./10320-bundle.xml
+```

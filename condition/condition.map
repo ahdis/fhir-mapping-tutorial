@@ -1,0 +1,71 @@
+map "http://example.org/fhir/CDS-Condition_to_IPS-ProblemList" = "CDS-Condition_to_IPS-ProblemList"
+
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Diagnose as source
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as target
+
+
+group DiagnoseToCondition(source src : Diagnose, target tgt : Condition) {
+
+    src.id -> uuid() "id";
+
+    //mapping the meta data
+    src.meta -> src.meta;
+
+
+    //mapping the clinicalStatus resource
+    src.clinicalStatus as srcStatus -> tgt.clinicalStatus = create('CodeableConcept') as tgtStatus then {
+        srcStatus.coding as srcCoding -> tgtStatus.coding = create('Coding') as tgtCoding then {
+            srcCoding.system as srcSystem -> tgtCoding.system = srcSystem;
+            srcCoding.code as srcCode -> tgtCoding.code = srcCode;
+        } "mapSystemCode";
+    } "mapClinicalStatus";
+
+
+    //src.clinicalStatus as srcStatus -> tgt.clinicalStatus = srcStatus "mapClinicalStatus";
+
+
+    //mapping the verificationStatus resource
+    src.verificationStatus as srcVerifStat -> tgt.verificationStatus = create('CodeableConcept') as tgtVerifStat then {
+        srcVerifStat.coding as srcVCoding -> tgtVerifStat.coding = srcVCoding "verifStatCoding";
+    } "mapVerificationStatus";
+
+
+    //explicit mapping of code SNOMED-Code
+    src.code as srcCode -> tgt.code = create('CodeableConcept') as tgtCode then {
+        srcCode.coding as srcCoding -> tgtCode.coding as tgtCoding then {
+            srcCoding.system as systemCode where (srcCoding.system = 'http://snomed.info/sct') -> tgtCoding.system = systemCode "codingSystem";
+            srcCoding.version as sversionCode where (srcCoding.version = 'http://snomed.info/sct/900000000000207008/version/20230731') -> tgtCoding.version = sversionCode "codingVersion";
+            srcCoding.code as scodingCode where (srcCoding.code = '13420004') -> tgtCoding.code = scodingCode "codingCode";
+            srcCoding.display as scodingDisplay where (srcCoding.display = 'Post measles otitis media (disorder)') -> tgtCoding.display = scodingDisplay "codingDisplay";
+            } "mapCodeSystem";
+        } "mapCoding";
+
+
+    //explicit mapping of `bodySite` SNOMED-Code
+    src.bodySite as srcBodySite -> tgt.bodySite = create('CodeableConcept') as tgtBodySite then {
+        srcBodySite.coding as sbSiteCoding -> tgtBodySite.coding = create('CodeableConcept') as tbSiteCoding then {
+            sbSiteCoding.system as sBSCodingSystem where (sbSiteCoding.system = 'http://snomed.info/sct') -> tbSiteCoding.system = sBSCodingSystem "BSiteSystem";
+            sbSiteCoding.version as sBSCodingVersion where (sbSiteCoding.version = 'http://snomed.info/sct/900000000000207008/version/20230731') -> tbSiteCoding.version = sBSCodingVersion "BSiteVersion";
+            sbSiteCoding.code as sBSCodingCode where (sbSiteCoding.code = '25342003') -> tbSiteCoding.code = sBSCodingCode "BSiteCode";
+            sbSiteCoding.display as sBSCodingDisplay where (sbSiteCoding.display = 'Middle ear structure (body structure)') -> tbSiteCoding.display = sBSCodingDisplay "BSiteDisplay";
+        } "mapBSCoding";
+    } "mapBodySite";
+
+
+
+    //mapping of subject
+    src.subject as srcSubject -> tgt.subject as tgtSubject then {
+        srcSubject.reference as srcSubjRef -> tgtSubject.reference = srcSubjRef "subjectReference";
+    } "mapSubject";
+
+    //mapping of recorded date
+    src.recordedDate -> tgt.recordedDate;
+
+    //mapping of onset date time
+    src.onset as dt -> tgt.onset = dt;
+
+
+    //mapping of note
+    src.note -> tgt.note;
+
+}

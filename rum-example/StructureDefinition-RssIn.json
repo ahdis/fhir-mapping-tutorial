@@ -1,0 +1,79 @@
+{
+    "resourceType" : "StructureDefinition",
+    "id" : "RssIn",
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode" : "can-be-target"
+    }],
+    "url" : "https://id.fr/ig/fhir/eds/StructureDefinition/RssIn",
+    "version" : "0.1.0",
+    "name" : "RssIn",
+    "title" : "rss.ini.txt",
+    "status" : "draft",
+    "date" : "2024-07-29T08:38:17+00:00",
+    "description" : "fichier texte rss.ini",
+    "jurisdiction" : [{
+      "coding" : [{
+        "system" : "urn:iso:std:iso:3166",
+        "code" : "FR",
+        "display" : "France"
+      }]
+    }],
+    "fhirVersion" : "4.0.1",
+    "kind" : "logical",
+    "abstract" : false,
+    "type" : "https://id.fr/ig/fhir/eds/StructureDefinition/RssIn",
+    "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+    "derivation" : "specialization",
+    "snapshot" : {
+      "element" : [{
+        "id" : "RssIn",
+        "path" : "RssIn",
+        "short" : "rss.ini.txt",
+        "definition" : "fichier texte rss.ini",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "Base",
+          "min" : 0,
+          "max" : "*"
+        },
+        "isModifier" : false
+      },
+      {
+        "id" : "RssIn.rum",
+        "path" : "RssIn.rum",
+        "short" : "RUM",
+        "definition" : "Résumé d'unité médicale",
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "RssIn.rum",
+          "min" : 1,
+          "max" : "1"
+        },
+        "type" : [{
+          "code" : "string"
+        }]
+      }]
+    },
+    "differential" : {
+      "element" : [{
+        "id" : "RssIn",
+        "path" : "RssIn",
+        "short" : "rss.ini.txt",
+        "definition" : "fichier texte rss.ini"
+      },
+      {
+        "id" : "RssIn.rum",
+        "path" : "RssIn.rum",
+        "short" : "RUM",
+        "definition" : "Résumé d'unité médicale",
+        "min" : 1,
+        "max" : "1",
+        "type" : [{
+          "code" : "string"
+        }]
+      }]
+    }
+  }

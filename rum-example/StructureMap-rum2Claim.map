@@ -1,0 +1,17 @@
+map "https://id.fr/ig/fhir/eds/StructureMap/AREMMCOPhysical2Business" = "AREMMCOPhysical2Business"
+
+uses "https://id.fr/ig/fhir/eds/StructureDefinition/RssIn" alias rssin as source
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias LogicQR as target
+
+// group rssin2logicQR(source srcRss : rssin, target tgtQR : LogicQR ) {
+//   srcRss.rum as srcRum-> tgtQR.item as tgtItem,
+//     tgtItem.text as tgtText,
+//     tgtText = evaluate(srcRum, substring(2,6)) "test";
+// }
+
+group rssin2logicQR(source srcRss : rssin, target tgtQR : LogicQR ) {
+//   srcRss.rum as srcRum-> tgtQR.item as tgtItem,
+//     tgtItem.text = (%srcRum.substring(2,6)) "test";
+     srcRss.rum as srcRum-> tgtQR.item as tgtItem,
+     tgtItem.text = evaluate(srcRum, substring(2,6)) "test";
+}

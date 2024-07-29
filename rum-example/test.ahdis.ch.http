@@ -1,0 +1,29 @@
+### @host = https://test.ahdis.ch
+@host = http://localhost:8080
+
+### Post the Logical Model
+POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+< ./StructureDefinition-RssIn.json
+
+
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+xml;fhirVersion=4.0
+Content-Type: text/fhir-mapping
+
+< ./StructureMap-rum2Claim.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=https://id.fr/ig/fhir/eds/StructureMap/AREMMCOPhysical2Business
+Accept: application/fhir+json;fhirVersion=4.0
+Content-Type: application/fhir+json;fhirVersion=4.0
+
+{
+    "resourceType": "https://id.fr/ig/fhir/eds/StructureDefinition/RssIn",
+    "rum": "9909C3349999999"
+}
+
+

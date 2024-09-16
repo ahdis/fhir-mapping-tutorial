@@ -6,5 +6,5 @@ uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as sour
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
-  src.a21 as a -> tgt.a21 = cast(a, 'FHIR.integer') "rule_a21a";
+  src.a21 as a -> tgt.a21 = cast(a, 'integer') "rule_a21a";
 }

@@ -4,14 +4,14 @@
 
 ### FHIR Tutorial Step 10
 
-### FHIR Tutorial send StructureDefinition TLeft1
+### FHIR Tutorial send StructureDefinition TLeft
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
 Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: application/fhir+xml;fhirVersion=4.0
 
 < ./logical/structuredefinition-tleft.xml
 
-### FHIR Tutorial send StructureDefinition TLeft1
+### FHIR Tutorial send StructureDefinition TLeft
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
 Accept: application/fhir+xml;fhirVersion=4.0
 Content-Type: application/fhir+xml;fhirVersion=4.0

@@ -4,7 +4,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
     <valueUri value="http://hl7.org/fhir/tutorial"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/TRight"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/tutorial-rightinner-10"/>
   <name value="TRightInner"/>
   <status value="draft"/>
   <fhirVersion value="4.0.1"/>
@@ -20,12 +20,12 @@
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="TRightInner.d">
-      <path value="TRightInner.aa"/>
-      <min value="0"/>
-      <max value="*"/>
+    <element id="TRightInner.ab">
+      <path value="TRightInner.ab"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
-        <code value="TRightInner"/>
+        <code value="string"/>
       </type>
     </element>
   </differential>

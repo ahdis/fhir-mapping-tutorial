@@ -1,4 +1,6 @@
 {
     "resourceType": "TLeft",
-    "f1": "test"
+    "f1": [
+        "test"
+    ]
 }

@@ -6,11 +6,11 @@
   <title value="tutorial-step4b"/>
   <status value="draft"/>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-4"/>
     <mode value="source"/>
   </structure>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right-4"/>
     <mode value="target"/>
   </structure>
   <group>

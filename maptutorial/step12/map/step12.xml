@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="tutorial"/>
   <url value="http://hl7.org/fhir/StructureMap/tutorial-step12"/>
@@ -16,6 +16,7 @@
   </structure>
   <group>
     <name value="tutorial"/>
+    <typeMode value="none"/>
     <input>
       <name value="src"/>
       <type value="TLeft"/>
@@ -26,7 +27,6 @@
       <type value="TRight"/>
       <mode value="target"/>
     </input>
-    <!-- setting up a variable for the parent -->
     <rule>
       <name value="rule_saz1"/>
       <source>
@@ -34,7 +34,6 @@
         <element value="az1"/>
         <variable value="s_az1"/>
       </source>
-      <!-- one tgt.az1 for each az3 -->
       <rule>
         <name value="rule_taz1"/>
         <source>
@@ -44,10 +43,10 @@
         </source>
         <target>
           <context value="tgt"/>
+          <contextType value="variable"/>
           <element value="az1"/>
           <variable value="t_az1"/>
         </target>
-        <!-- value for az2. Note that this refers to a previous context in the source -->
         <rule>
           <name value="rule_az2"/>
           <source>
@@ -57,6 +56,7 @@
           </source>
           <target>
             <context value="t_az1"/>
+            <contextType value="variable"/>
             <element value="az2"/>
             <transform value="copy"/>
             <parameter>
@@ -64,7 +64,6 @@
             </parameter>
           </target>
         </rule>
-        <!-- value for az3 -->
         <rule>
           <name value="rule_az3"/>
           <source>
@@ -72,6 +71,7 @@
           </source>
           <target>
             <context value="t_az1"/>
+            <contextType value="variable"/>
             <element value="az3"/>
             <transform value="copy"/>
             <parameter>

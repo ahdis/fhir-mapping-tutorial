@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="tutorial"/>
   <url value="http://hl7.org/fhir/StructureMap/tutorial-step11"/>
@@ -16,6 +16,7 @@
   </structure>
   <group>
     <name value="tutorial"/>
+    <typeMode value="none"/>
     <input>
       <name value="src"/>
       <type value="TLeft"/>
@@ -35,6 +36,7 @@
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="e"/>
         <variable value="t_e"/>
       </target>
@@ -45,6 +47,7 @@
         </source>
         <target>
           <context value="t_e"/>
+          <contextType value="variable"/>
           <element value="f"/>
           <transform value="copy"/>
           <parameter>
@@ -53,6 +56,7 @@
         </target>
         <target>
           <context value="t_e"/>
+          <contextType value="variable"/>
           <element value="g"/>
           <transform value="copy"/>
           <parameter>
@@ -70,6 +74,7 @@
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="e"/>
         <variable value="t_e"/>
         <listMode value="first"/>
@@ -81,6 +86,7 @@
         </source>
         <target>
           <context value="t_e"/>
+          <contextType value="variable"/>
           <element value="f"/>
           <transform value="copy"/>
           <parameter>
@@ -89,6 +95,7 @@
         </target>
         <target>
           <context value="t_e"/>
+          <contextType value="variable"/>
           <element value="g"/>
           <transform value="copy"/>
           <parameter>

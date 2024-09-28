@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="tutorial-step4c"/>
   <url value="http://hl7.org/fhir/StructureMap/tutorial-step4c"/>
@@ -7,17 +7,18 @@
   <status value="draft"/>
   <description value="Tutorial Step 4c"/>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-4"/>
     <mode value="source"/>
     <alias value="TLeft"/>
   </structure>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right-4"/>
     <mode value="target"/>
     <alias value="TRight"/>
   </structure>
   <group>
     <name value="tutorial"/>
+    <typeMode value="none"/>
     <input>
       <name value="src"/>
       <type value="TLeft"/>
@@ -34,17 +35,18 @@
         <context value="src"/>
         <element value="a21"/>
         <variable value="a"/>
-        <condition value="'a21.matches('[0-9]+')'"/>
+        <condition value="a21.matches('[0-9]+')"/>
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="a21"/>
         <transform value="cast"/>
         <parameter>
           <valueId value="a"/>
         </parameter>
         <parameter>
-          <valueString value="FHIR.integer"/>
+          <valueString value="integer"/>
         </parameter>
       </target>
     </rule>
@@ -54,10 +56,11 @@
         <context value="src"/>
         <element value="a21"/>
         <variable value="a"/>
-        <condition value="'a21.matches('[0-9]+').not()'"/>
+        <condition value="a21.matches('[0-9]+').not()"/>
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="a21"/>
         <transform value="copy"/>
         <parameter>

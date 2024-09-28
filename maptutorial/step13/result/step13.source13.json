@@ -1,0 +1,15 @@
+{
+  "resourceType": "TRight",
+  "f2": [
+    {
+      "resourceType": "Basic",
+      "id": "generated-uuid",
+      "code": {
+        "text": "test"
+      }
+    }
+  ],
+  "ptr": [
+    "Basic/generated-uuid"
+  ]
+}

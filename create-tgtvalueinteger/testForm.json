@@ -1,0 +1,369 @@
+{
+  "resourceType": "FormLogical",
+  "instance": [
+     { 
+          "subform" : 4054,
+          "num" : 10717141723,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4055,
+          "num" : 10717141725,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4056,
+          "num" : 123456789,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4052,
+          "num" : 10717141727,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4075,
+          "num" : 10717141729,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4053,
+          "num" : 10717141728,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4056,
+          "num" : 10792651434,
+          "visit" : 47496867
+      },
+      { 
+          "subform" : 4075,
+          "num" : 10792651437,
+          "visit" : 47496868
+      }
+  ],
+      "subform": [
+      {
+          "num" : 4054,
+          "name" : "FR_KT_Pose"
+      },
+      {
+          "num" : 4055,
+          "name" : "FR_KT_Pose Sub"
+      },
+      {
+          "num" : 4056,
+          "name" : "FR_KT_Pose SubSub"
+      },
+      {
+          "num" : 4052,
+          "name" : "FR_KT_Info_Gen Sub"
+      },
+      {
+          "num" : 4053,
+          "name" : "FR_KT_InfoSup_Gen Sub"
+      },
+      {
+          "num" : 4075,
+          "name" : "FR_KT_Tech_Gen Sub"
+      }
+  ],
+      "field": [
+      {
+          "num" : 42258,
+          "subform" : 4054,
+          "datatype" : 359,
+          "code" : "subform_VeineusePeripherique"
+      },
+      {
+          "num" : 42259,
+          "subform" : 4054,
+          "datatype" : 359,
+          "code" : "subform_VeineuseCentrale"
+      },
+      {
+          "num" : 42271,
+          "subform" : 4055,
+          "datatype" : 357,
+          "code" : "lst_subformSaisie"
+      },
+      {
+          "num" : 42275,
+          "subform" : 4056,
+          "datatype" : 359,
+          "code" : "subform_KT_Info"
+      },
+      {
+          "num" : 42278,
+          "subform" : 4056,
+          "datatype" : 359,
+          "code" : "subform_KT_Tehnique"
+      },
+      {
+          "num" : 42232,
+          "subform" : 4052,
+          "datatype" : 2,
+          "code" : "Param_txt_Voie"
+      },
+      {
+          "num" : 42235,
+          "subform" : 4052,
+          "datatype" : 256,
+          "code" : "cat_KT_Type"
+      },
+      {
+          "num" : 42236,
+          "subform" : 4052,
+          "datatype" : 2,
+          "code" : "txt_AutreType"
+      },
+      {
+          "num" : 42231,
+          "subform" : 4052,
+          "datatype" : 256,
+          "code" : "cat_SiteInsertion"
+      },
+      {
+          "num" : 42228,
+          "subform" : 4052,
+          "datatype" : 2,
+          "code" : "txt_AutreSiteInsertion"
+      },
+      {
+          "num" : 42239,
+          "subform" : 4052,
+          "datatype" : 359,
+          "code" : "subform_ArriveAvec"
+      },
+      {
+          "num" : 42244,
+          "subform" : 4053,
+          "datatype" : 6,
+          "code" : "cbx_ArriveAvec"
+      },
+      {
+          "num" : 85499,
+          "subform" : 4053,
+          "datatype" : 6,
+          "code" : "cbx_DateInconnue"
+      },
+      {
+          "num" : 42245,
+          "subform" : 4053,
+          "datatype" : 9,
+          "code" : "dt_PoseAncienKT"
+      },
+      {
+          "num" : 85498,
+          "subform" : 4053,
+          "datatype" : 15,
+          "code" : "hr_HeureAncienKT"
+      },
+      {
+          "num" : 42256,
+          "subform" : 4053,
+          "datatype" : 18,
+          "code" : "ts_PoseAncienKT"
+      },
+      {
+          "num" : 42525,
+          "subform" : 4075,
+          "datatype" : 9,
+          "code" : "date_DatePose"
+      },
+      {
+          "num" : 42526,
+          "subform" : 4075,
+          "datatype" : 15,
+          "code" : "hr_HeurePose"
+      },
+      {
+          "num" : 42527,
+          "subform" : 4075,
+          "datatype" : 6,
+          "code" : "cbx_Urgence"
+      },
+      {
+          "num" : 42528,
+          "subform" : 4075,
+          "datatype" : 6,
+          "code" : "cbx_Programmee"
+      },
+      {
+          "num" : 42531,
+          "subform" : 4075,
+          "datatype" : 256,
+          "code" : "cat_Operateur_Premier"
+      },
+      {
+          "num" : 42568,
+          "subform" : 4075,
+          "datatype" : 2,
+          "code" : "txt_Operateur_Premier"
+      },
+      {
+          "num" : 42532,
+          "subform" : 4075,
+          "datatype" : 256,
+          "code" : "cat_Operateur_Deuxieme"
+      },
+      {
+          "num" :42569,
+          "subform" : 4075,
+          "datatype" : 2,
+          "code" : "txt_Operateur_Deuxieme"
+      },
+      {
+          "num" :85523,
+          "subform" : 4056,
+          "datatype" : 0,
+          "code" : "int_OriginalPoseID"
+      }
+  ],
+  "subfield": [
+      {
+          "num" : 11343,
+          "field" : 42271,
+          "datatype" : 1,
+          "code" : "subform_Saisie"
+      }
+  ],
+  "data": [
+      {
+          "instance" : 10717141723,
+          "num" : 42258,
+          "subfield" : 0,
+          "choicevalue" : 10717141725
+      },
+      {
+        "instance" : 10717141725,
+        "num" : 42271,
+        "subfield" : 11343,
+        "choicevalue" : 123456789
+      },
+      {
+          "instance" : 123456789,
+          "num" : 42275,
+          "subfield" : 0,
+          "choicevalue" : 10717141727
+      },
+      {
+          "instance" : 123456789,
+          "num" : 42278,
+          "subfield" : 0,
+          "choicevalue" : 10717141729
+      },
+      {
+          "instance" : 10717141727,
+          "num" : 42232,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141727,
+          "num" : 42235,
+          "subfield" : 0,
+          "choicevalue" : 66991
+      },
+      {
+          "instance" : 10717141727,
+          "num" : 42236,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141727,
+          "num" : 42231,
+          "subfield" : 0,
+          "choicevalue" : 66860
+      },
+      {
+          "instance" : 10717141727,
+          "num" : 42239,
+          "subfield" : 0,
+          "choicevalue" : 10717141728
+      },
+      {
+          "instance" : 10717141728,
+          "num" : 42244,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141728,
+          "num" : 85499,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141728,
+          "num" : 42245,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141728,
+          "num" : 85498,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141728,
+          "num" : 42256,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10717141725,
+          "num" : 42271,
+          "subfield" : 11343,
+          "choicevalue" : 10792651434
+      },
+      {
+          "instance" : 10792651434,
+          "num" : 42278,
+          "subfield" : 0,
+          "choicevalue" : 10792651437
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42525,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42526,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42527,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42528,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42531,
+          "subfield" : 0,
+          "choicevalue" : 280352
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42568,
+          "subfield" : 0
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42532,
+          "subfield" : 0,
+          "choicevalue" : 66803
+      },
+      {
+          "instance" : 10792651437,
+          "num" : 42569,
+          "subfield" : 0
+      },
+      {
+          "instance" : 123456789,
+          "num" : 85523,
+          "integervalue" : 1071714172
+      }
+  ]
+}

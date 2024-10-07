@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0"?>
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="tutorial-step1"/>
   <url value="http://hl7.org/fhir/StructureMap/tutorial-step1"/>
@@ -8,25 +7,26 @@
   <status value="draft"/>
   <description value="Tutorial Step 1"/>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left1"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-1"/>
     <mode value="source"/>
-    <alias value="TLeft1"/>
+    <alias value="TLeft"/>
   </structure>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right1"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right-1"/>
     <mode value="target"/>
-    <alias value="TRight1"/>
+    <alias value="TRight"/>
   </structure>
   <group>
     <name value="tutorial"/>
+    <typeMode value="none"/>
     <input>
       <name value="src"/>
-      <type value="TLeft1"/>
+      <type value="TLeft"/>
       <mode value="source"/>
     </input>
     <input>
       <name value="tgt"/>
-      <type value="TRight1"/>
+      <type value="TRight"/>
       <mode value="target"/>
     </input>
     <rule>
@@ -38,6 +38,7 @@
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="a"/>
         <transform value="copy"/>
         <parameter>

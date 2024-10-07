@@ -2,9 +2,9 @@
 /// name = 'tutorial-step4b'
 /// title = 'Tutorial Step 4b'
 
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" alias TLeft as source
-uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" alias TRight as target
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left-4" alias TLeft as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-4" alias TRight as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
-  src.a21 as a where "a21.isInteger()" -> tgt.a21 = a "rule_a21b";
+  src.a21 as a where a21.isInteger() -> tgt.a21 = a "rule_a21b";
 }

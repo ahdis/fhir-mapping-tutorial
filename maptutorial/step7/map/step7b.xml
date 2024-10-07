@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0"?>
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="tutorial"/>
   <url value="http://hl7.org/fhir/StructureMap/tutorial-step7b"/>
@@ -17,6 +16,7 @@
   </structure>
   <group>
     <name value="tutorial"/>
+    <typeMode value="none"/>
     <input>
       <name value="src"/>
       <type value="TLeft"/>
@@ -36,22 +36,20 @@
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="aa"/>
         <variable value="t_aa"/>
       </target>
       <dependent>
         <name value="ab_content"/>
-        <parameter>
-          <valueId value="s_aa"/>
-        </parameter>
-        <parameter>
-          <valueId value="t_aa"/>
-        </parameter>
+        <variable value="s_aa"/>
+        <variable value="t_aa"/>
       </dependent>
     </rule>
   </group>
   <group>
     <name value="ab_content"/>
+    <typeMode value="none"/>
     <input>
       <name value="src"/>
       <mode value="source"/>
@@ -69,6 +67,7 @@
       </source>
       <target>
         <context value="tgt"/>
+        <contextType value="variable"/>
         <element value="ab"/>
         <transform value="copy"/>
         <parameter>

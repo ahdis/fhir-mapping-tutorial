@@ -14,10 +14,17 @@
   "kind": "logical",
   "abstract": true,
   "type": "TRight",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
   "derivation": "specialization",
   "differential": {
     "element": [
+      {
+        "id": "TRight",
+        "path": "TRight",
+        "definition": "TLeft definition",
+        "min": 1,
+        "max": "1"
+      },
       {
         "id": "TRight.ptr",
         "path": "TRight.ptr",
@@ -38,7 +45,10 @@
         "max": "*",
         "type": [
           {
-            "code": "Basic"
+            "code": "Basic",
+            "profile":  [
+              "http://hl7.org/fhir/StructureDefinition/Basic"
+            ]
           }
         ]
       }

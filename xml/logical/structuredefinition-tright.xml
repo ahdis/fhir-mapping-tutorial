@@ -11,7 +11,7 @@
 	<abstract value="true" />
 	<type value="TRight" />
 	<derivation value="specialization"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Base"/>
 	<differential>
 		<element id="TRight">
 			<path value="TRight" />

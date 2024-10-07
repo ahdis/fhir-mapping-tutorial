@@ -4,15 +4,15 @@
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./memberof.map
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/memberof
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+json
+Content-Type: application/fhir+json
 
 {
     "resourceType": "Patient",
@@ -30,7 +30,7 @@ Content-Type: application/fhir+json;fhirVersion=4.0
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./stringtocoding.map
@@ -38,15 +38,15 @@ Content-Type: text/fhir-mapping
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/stringtocoding
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+json
+Content-Type: application/fhir+json
 
 < ../qrtopat/qr.json
 
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./stringtocodingwithcc.map
@@ -55,8 +55,8 @@ Content-Type: text/fhir-mapping
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/stringtocodingwithcc
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+json
+Content-Type: application/fhir+json
 
 < ../qrtopat/qr.json
 
@@ -64,29 +64,29 @@ Content-Type: application/fhir+json;fhirVersion=4.0
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./quantity.map
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/qty
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+json
+Content-Type: application/fhir+json
 
 < ../qrtopat/qr.json
 
 
 ### Post the StructureMap with transform included
 PUT {{host}}/matchbox/fhir/StructureMap/37238 HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./cast.map
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://ahdis.ch/matchbox/fml/cast
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+json;fhirVersion=4.0
+Accept: application/fhir+json
+Content-Type: application/fhir+json
 
 < ../qrtopat/qrext.json

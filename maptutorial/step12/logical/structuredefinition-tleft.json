@@ -14,7 +14,7 @@
   "kind": "logical",
   "abstract": true,
   "type": "TLeft",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
   "derivation": "specialization",
   "differential": {
     "element": [

@@ -2,7 +2,7 @@
 ### @host = http://localhost:8080
 
 
-### FHIR Tutorial Step 7
+### FHIR Tutorial Step 12
 
 ### FHIR Tutorial send StructureDefinition TLeft
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
@@ -23,32 +23,18 @@ POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
 Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
-< ./map/step7.map
-
-### Post the StructureMap with transform included
-POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml
-Content-Type: text/fhir-mapping
-
-< ./map/step7b.map
+< ./map/step12.map
 
 ### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step7
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step12
 Accept: application/fhir+xml
 Content-Type: application/fhir+xml
 
-< ./source/source7.xml
+< ./source/source12.xml
 
 ### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step7b
-Accept: application/fhir+xml
-Content-Type: application/fhir+xml
-
-< ./source/source7.xml
-
-### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step7
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step12
 Accept: application/fhir+json
 Content-Type: application/fhir+json
 
-< ./source/source7.json
+< ./source/source12.json

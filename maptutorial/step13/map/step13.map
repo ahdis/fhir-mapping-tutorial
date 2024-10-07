@@ -5,8 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/tutorial-right-13" alias TRight as
 uses "http://hl7.org/fhir/StructureDefinition/Basic" alias Basic as target
 
 group tutorial(source src : TLeft, target tgt : TRight) {
-
-  src.f1 as s_f1 -> tgt.f2 = create("Basic") as rr, tgt.ptr = reference(rr) then {
+// setting id to one is not necessary, this is just to compare the output
+  src.f1 as s_f1 -> tgt.f2 = create("Basic") as rr, rr.id = "1", tgt.ptr = reference(rr) then {
     s_f1 -> rr.code as code, code.text = s_f1 "rule_s_f1";
   } "rule_ptr";
 

@@ -1,4 +1,4 @@
-<TRight xmlns="http://hl7.org/fhir">
+<TRight xmlns="http://hl7.org/fhir/tutorial">
   <e>
     <f value="12345" />
     <g value="g1" />

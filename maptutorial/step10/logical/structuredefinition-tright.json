@@ -14,7 +14,7 @@
   "kind": "logical",
   "abstract": true,
   "type": "TRight",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
   "derivation": "specialization",
   "differential": {
     "element": [
@@ -32,7 +32,10 @@
         "max": "*",
         "type": [
           {
-            "code": "TRightInner"
+            "code": "TRightInner",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/tutorial-rightinner-10"
+            ]
           }
         ]
       }

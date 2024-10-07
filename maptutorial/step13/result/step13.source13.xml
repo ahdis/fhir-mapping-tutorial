@@ -1,11 +1,13 @@
-<TRight xmlns="http://hl7.org/fhir">
-  <f2>
-    <Basic>
-      <id value="0098d74d73da43e49d81d05b2b2b7048" />
-      <code>
-        <text value="test" />
-      </code>
-    </Basic>
-  </f2>
-  <ptr value="Basic/0098d74d73da43e49d81d05b2b2b7048" />
+<TRight 
+  xmlns="http://hl7.org/fhir/tutorial" 
+  xmlns:f="http://hl7.org/fhir">
+  <ptr value="Basic/1"/>
+  <f:f2>
+    <f:Basic>
+      <id value="1"/>
+      <f:code>
+        <text value="test"/>
+      </f:code>
+    </f:Basic>
+  </f:f2>
 </TRight>

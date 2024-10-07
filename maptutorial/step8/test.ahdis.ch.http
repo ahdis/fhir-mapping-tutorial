@@ -6,28 +6,28 @@
 
 ### FHIR Tutorial send StructureDefinition TLeft
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./logical/structuredefinition-tleft.xml
 
 ### FHIR Tutorial send StructureDefinition TRight
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./logical/structuredefinition-tright.xml
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./map/step8.map
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step8
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./source/source8.xml

@@ -1,4 +1,4 @@
-<OperationOutcome xmlns='http://hl7.org/fhir'>
+<OperationOutcome xmlns="http://hl7.org/fhir/tutorial">
     <issue>
         <severity value='error' />
         <code value='processing' />

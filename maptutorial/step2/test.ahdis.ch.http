@@ -6,28 +6,49 @@
 
 ### FHIR Tutorial send StructureDefinition TLeft
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./logical/structuredefinition-tleft.xml
 
 ### FHIR Tutorial send StructureDefinition TRight
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./logical/structuredefinition-tright.xml
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./map/step2.map
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step2
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./source/source2.xml
+
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step2
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+< ./source/source2.json
+
+
+###
+GET {{host}}/matchbox/fhir/StructureMap/tutorial-step2 HTTP/1.1
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+
+
+###
+GET {{host}}/matchbox/fhir/StructureMap?url=http://hl7.org/fhir/StructureMap/tutorial-step2 HTTP/1.1
+Accept: application/fhir+json
+Content-Type: application/fhir+json

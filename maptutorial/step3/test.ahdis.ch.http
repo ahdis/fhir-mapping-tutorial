@@ -6,35 +6,35 @@
 
 ### FHIR Tutorial send StructureDefinition TLeft
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./logical/structuredefinition-tleft.xml
 
 ### FHIR Tutorial send StructureDefinition TRight
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./logical/structuredefinition-tright.xml
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./map/step3a.map
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./map/step3b.map
 
 ### Post the StructureMap with transform included
 POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
-Accept: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
 Content-Type: text/fhir-mapping
 
 < ./map/step3c.map
@@ -42,36 +42,43 @@ Content-Type: text/fhir-mapping
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3a
-Accept: application/fhir+json;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
+
+< ./source/source3.xml
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3a
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
+
+< ./source/source3min.xml
+
+### FHIR Tutorial do the transform (result should be empty)
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3b
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./source/source3.xml
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3b
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
-
-< ./source/source3.xml
-
-### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3b
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./source/source3min.xml
 
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3c
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./source/source3.xml
 
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step3c
-Accept: application/fhir+xml;fhirVersion=4.0
-Content-Type: application/fhir+xml;fhirVersion=4.0
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
 
 < ./source/source3min.xml

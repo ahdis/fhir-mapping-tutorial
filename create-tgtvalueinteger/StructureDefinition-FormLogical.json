@@ -1,0 +1,2611 @@
+{
+
+  "resourceType" : "StructureDefinition",
+
+  "id" : "FormLogical",
+
+  "extension" : [{
+
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+
+    "valueCode" : "can-be-target"
+
+  }],
+
+  "url" : "https://test.fr/fhir/StructureDefinition/FormLogical",
+
+  "version" : "0.1.3",
+
+  "name" : "FormLogical",
+
+  "title" : "Formulaires - modèle logique",
+
+  "status" : "draft",
+
+  "date" : "2024-10-02T11:21:10+02:00",
+
+  "description" : "Modèle logique pour les formulaires",
+
+  "fhirVersion" : "4.0.1",
+
+  "kind" : "logical",
+
+  "abstract" : false,
+
+  "type" : "https://test.fr/fhir/StructureDefinition/FormLogical",
+
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+
+  "derivation" : "specialization",
+
+  "snapshot" : {
+
+    "element" : [{
+
+      "id" : "FormLogical",
+
+      "path" : "FormLogical",
+
+      "short" : "Formulaires - modèle logique",
+
+      "definition" : "Modèle logique pour les formulaires",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "Base",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "isModifier" : false
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance",
+
+      "path" : "FormLogical.instance",
+
+      "short" : "instance",
+
+      "definition" : "instance",
+
+      "min" : 1,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "FormLogical.instance",
+
+        "min" : 1,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.id",
+
+      "path" : "FormLogical.instance.id",
+
+      "representation" : ["xmlAttr"],
+
+      "short" : "Unique id for inter-element referencing",
+
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "Element.id",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "extension" : [{
+
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+
+          "valueUrl" : "string"
+
+        }],
+
+        "code" : "http://hl7.org/fhirpath/System.String"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.extension",
+
+      "path" : "FormLogical.instance.extension",
+
+      "slicing" : {
+
+        "discriminator" : [{
+
+          "type" : "value",
+
+          "path" : "url"
+
+        }],
+
+        "description" : "Extensions are always sliced by (at least) url",
+
+        "rules" : "open"
+
+      },
+
+      "short" : "Additional content defined by implementations",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "alias" : ["extensions",
+
+      "user content"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "Element.extension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.modifierExtension",
+
+      "path" : "FormLogical.instance.modifierExtension",
+
+      "short" : "Extensions that cannot be ignored even if unrecognized",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "requirements" : "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).",
+
+      "alias" : ["extensions",
+
+      "user content",
+
+      "modifiers"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "BackboneElement.modifierExtension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : true,
+
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+
+      "isSummary" : true,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "N/A"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.subform",
+
+      "path" : "FormLogical.instance.subform",
+
+      "short" : "subform",
+
+      "definition" : "identifiant du formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.instance.subform",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.num",
+
+      "path" : "FormLogical.instance.num",
+
+      "short" : "num",
+
+      "definition" : "identifiant de l'instance de formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.instance.num",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.visit",
+
+      "path" : "FormLogical.instance.visit",
+
+      "short" : "visit",
+
+      "definition" : "Identifiant du NDA",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.instance.visit",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform",
+
+      "path" : "FormLogical.subform",
+
+      "short" : "subform",
+
+      "definition" : "subform",
+
+      "min" : 1,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "FormLogical.subform",
+
+        "min" : 1,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.id",
+
+      "path" : "FormLogical.subform.id",
+
+      "representation" : ["xmlAttr"],
+
+      "short" : "Unique id for inter-element referencing",
+
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "Element.id",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "extension" : [{
+
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+
+          "valueUrl" : "string"
+
+        }],
+
+        "code" : "http://hl7.org/fhirpath/System.String"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.extension",
+
+      "path" : "FormLogical.subform.extension",
+
+      "slicing" : {
+
+        "discriminator" : [{
+
+          "type" : "value",
+
+          "path" : "url"
+
+        }],
+
+        "description" : "Extensions are always sliced by (at least) url",
+
+        "rules" : "open"
+
+      },
+
+      "short" : "Additional content defined by implementations",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "alias" : ["extensions",
+
+      "user content"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "Element.extension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.modifierExtension",
+
+      "path" : "FormLogical.subform.modifierExtension",
+
+      "short" : "Extensions that cannot be ignored even if unrecognized",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "requirements" : "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).",
+
+      "alias" : ["extensions",
+
+      "user content",
+
+      "modifiers"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "BackboneElement.modifierExtension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : true,
+
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+
+      "isSummary" : true,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "N/A"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.num",
+
+      "path" : "FormLogical.subform.num",
+
+      "short" : "num",
+
+      "definition" : "identifiant du formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.subform.num",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.name",
+
+      "path" : "FormLogical.subform.name",
+
+      "short" : "name",
+
+      "definition" : "Code du formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.subform.name",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "string"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field",
+
+      "path" : "FormLogical.field",
+
+      "short" : "field",
+
+      "definition" : "field",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "FormLogical.field",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.id",
+
+      "path" : "FormLogical.field.id",
+
+      "representation" : ["xmlAttr"],
+
+      "short" : "Unique id for inter-element referencing",
+
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "Element.id",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "extension" : [{
+
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+
+          "valueUrl" : "string"
+
+        }],
+
+        "code" : "http://hl7.org/fhirpath/System.String"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.extension",
+
+      "path" : "FormLogical.field.extension",
+
+      "slicing" : {
+
+        "discriminator" : [{
+
+          "type" : "value",
+
+          "path" : "url"
+
+        }],
+
+        "description" : "Extensions are always sliced by (at least) url",
+
+        "rules" : "open"
+
+      },
+
+      "short" : "Additional content defined by implementations",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "alias" : ["extensions",
+
+      "user content"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "Element.extension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.modifierExtension",
+
+      "path" : "FormLogical.field.modifierExtension",
+
+      "short" : "Extensions that cannot be ignored even if unrecognized",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "requirements" : "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).",
+
+      "alias" : ["extensions",
+
+      "user content",
+
+      "modifiers"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "BackboneElement.modifierExtension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : true,
+
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+
+      "isSummary" : true,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "N/A"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.num",
+
+      "path" : "FormLogical.field.num",
+
+      "short" : "num",
+
+      "definition" : "num",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.field.num",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.subform",
+
+      "path" : "FormLogical.field.subform",
+
+      "short" : "subform",
+
+      "definition" : "subform",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.field.subform",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.datatype",
+
+      "path" : "FormLogical.field.datatype",
+
+      "short" : "datatype",
+
+      "definition" : "datatype",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.field.datatype",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.code",
+
+      "path" : "FormLogical.field.code",
+
+      "short" : "code",
+
+      "definition" : "code",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.field.code",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "string"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield",
+
+      "path" : "FormLogical.subfield",
+
+      "short" : "subfield",
+
+      "definition" : "subfield",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "FormLogical.subfield",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.id",
+
+      "path" : "FormLogical.subfield.id",
+
+      "representation" : ["xmlAttr"],
+
+      "short" : "Unique id for inter-element referencing",
+
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "Element.id",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "extension" : [{
+
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+
+          "valueUrl" : "string"
+
+        }],
+
+        "code" : "http://hl7.org/fhirpath/System.String"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.extension",
+
+      "path" : "FormLogical.subfield.extension",
+
+      "slicing" : {
+
+        "discriminator" : [{
+
+          "type" : "value",
+
+          "path" : "url"
+
+        }],
+
+        "description" : "Extensions are always sliced by (at least) url",
+
+        "rules" : "open"
+
+      },
+
+      "short" : "Additional content defined by implementations",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "alias" : ["extensions",
+
+      "user content"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "Element.extension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.modifierExtension",
+
+      "path" : "FormLogical.subfield.modifierExtension",
+
+      "short" : "Extensions that cannot be ignored even if unrecognized",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "requirements" : "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).",
+
+      "alias" : ["extensions",
+
+      "user content",
+
+      "modifiers"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "BackboneElement.modifierExtension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : true,
+
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+
+      "isSummary" : true,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "N/A"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.num",
+
+      "path" : "FormLogical.subfield.num",
+
+      "short" : "num",
+
+      "definition" : "num",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.subfield.num",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.field",
+
+      "path" : "FormLogical.subfield.field",
+
+      "short" : "field",
+
+      "definition" : "field",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.subfield.field",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.datatype",
+
+      "path" : "FormLogical.subfield.datatype",
+
+      "short" : "datatype",
+
+      "definition" : "datatype",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.subfield.datatype",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.code",
+
+      "path" : "FormLogical.subfield.code",
+
+      "short" : "code",
+
+      "definition" : "code",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.subfield.code",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "string"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data",
+
+      "path" : "FormLogical.data",
+
+      "short" : "data",
+
+      "definition" : "data",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "FormLogical.data",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.id",
+
+      "path" : "FormLogical.data.id",
+
+      "representation" : ["xmlAttr"],
+
+      "short" : "Unique id for inter-element referencing",
+
+      "definition" : "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "Element.id",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "extension" : [{
+
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+
+          "valueUrl" : "string"
+
+        }],
+
+        "code" : "http://hl7.org/fhirpath/System.String"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.extension",
+
+      "path" : "FormLogical.data.extension",
+
+      "slicing" : {
+
+        "discriminator" : [{
+
+          "type" : "value",
+
+          "path" : "url"
+
+        }],
+
+        "description" : "Extensions are always sliced by (at least) url",
+
+        "rules" : "open"
+
+      },
+
+      "short" : "Additional content defined by implementations",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "alias" : ["extensions",
+
+      "user content"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "Element.extension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : false,
+
+      "isSummary" : false,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "n/a"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.modifierExtension",
+
+      "path" : "FormLogical.data.modifierExtension",
+
+      "short" : "Extensions that cannot be ignored even if unrecognized",
+
+      "definition" : "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+
+      "comment" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+
+      "requirements" : "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).",
+
+      "alias" : ["extensions",
+
+      "user content",
+
+      "modifiers"],
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "base" : {
+
+        "path" : "BackboneElement.modifierExtension",
+
+        "min" : 0,
+
+        "max" : "*"
+
+      },
+
+      "type" : [{
+
+        "code" : "Extension"
+
+      }],
+
+      "constraint" : [{
+
+        "key" : "ele-1",
+
+        "severity" : "error",
+
+        "human" : "All FHIR elements must have a @value or children",
+
+        "expression" : "hasValue() or (children().count() > id.count())",
+
+        "xpath" : "@value|f:*|h:div",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+
+      },
+
+      {
+
+        "key" : "ext-1",
+
+        "severity" : "error",
+
+        "human" : "Must have either extensions or value[x], not both",
+
+        "expression" : "extension.exists() != value.exists()",
+
+        "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+
+        "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+
+      }],
+
+      "isModifier" : true,
+
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+
+      "isSummary" : true,
+
+      "mapping" : [{
+
+        "identity" : "rim",
+
+        "map" : "N/A"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.instance",
+
+      "path" : "FormLogical.data.instance",
+
+      "short" : "instance",
+
+      "definition" : "identifiant de l'instance de formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.data.instance",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.num",
+
+      "path" : "FormLogical.data.num",
+
+      "short" : "num",
+
+      "definition" : "Identifiant de la question",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.data.num",
+
+        "min" : 1,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.subfield",
+
+      "path" : "FormLogical.data.subfield",
+
+      "short" : "subfield",
+
+      "definition" : "Identifiant de la sous question (tableau)",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.data.subfield",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.choicevalue",
+
+      "path" : "FormLogical.data.choicevalue",
+
+      "short" : "choicevalue",
+
+      "definition" : "Réponse de type référence ou choice",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.data.choicevalue",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.integervalue",
+
+      "path" : "FormLogical.data.integervalue",
+
+      "short" : "integervalue",
+
+      "definition" : "Réponse de type nombre entier",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "base" : {
+
+        "path" : "FormLogical.data.integervalue",
+
+        "min" : 0,
+
+        "max" : "1"
+
+      },
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    }]
+
+  },
+
+  "differential" : {
+
+    "element" : [{
+
+      "id" : "FormLogical",
+
+      "path" : "FormLogical",
+
+      "short" : "Formulaires - modèle logique",
+
+      "definition" : "Modèle logique pour les formulaires"
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance",
+
+      "path" : "FormLogical.instance",
+
+      "short" : "instance",
+
+      "definition" : "instance",
+
+      "min" : 1,
+
+      "max" : "*",
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.subform",
+
+      "path" : "FormLogical.instance.subform",
+
+      "short" : "subform",
+
+      "definition" : "identifiant du formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.num",
+
+      "path" : "FormLogical.instance.num",
+
+      "short" : "num",
+
+      "definition" : "identifiant de l'instance de formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.instance.visit",
+
+      "path" : "FormLogical.instance.visit",
+
+      "short" : "visit",
+
+      "definition" : "Identifiant du NDA",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform",
+
+      "path" : "FormLogical.subform",
+
+      "short" : "subform",
+
+      "definition" : "subform",
+
+      "min" : 1,
+
+      "max" : "*",
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.num",
+
+      "path" : "FormLogical.subform.num",
+
+      "short" : "num",
+
+      "definition" : "identifiant du formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subform.name",
+
+      "path" : "FormLogical.subform.name",
+
+      "short" : "name",
+
+      "definition" : "Code du formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "string"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field",
+
+      "path" : "FormLogical.field",
+
+      "short" : "field",
+
+      "definition" : "field",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.num",
+
+      "path" : "FormLogical.field.num",
+
+      "short" : "num",
+
+      "definition" : "num",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.subform",
+
+      "path" : "FormLogical.field.subform",
+
+      "short" : "subform",
+
+      "definition" : "subform",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.datatype",
+
+      "path" : "FormLogical.field.datatype",
+
+      "short" : "datatype",
+
+      "definition" : "datatype",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.field.code",
+
+      "path" : "FormLogical.field.code",
+
+      "short" : "code",
+
+      "definition" : "code",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "string"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield",
+
+      "path" : "FormLogical.subfield",
+
+      "short" : "subfield",
+
+      "definition" : "subfield",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.num",
+
+      "path" : "FormLogical.subfield.num",
+
+      "short" : "num",
+
+      "definition" : "num",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.field",
+
+      "path" : "FormLogical.subfield.field",
+
+      "short" : "field",
+
+      "definition" : "field",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.datatype",
+
+      "path" : "FormLogical.subfield.datatype",
+
+      "short" : "datatype",
+
+      "definition" : "datatype",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.subfield.code",
+
+      "path" : "FormLogical.subfield.code",
+
+      "short" : "code",
+
+      "definition" : "code",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "string"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data",
+
+      "path" : "FormLogical.data",
+
+      "short" : "data",
+
+      "definition" : "data",
+
+      "min" : 0,
+
+      "max" : "*",
+
+      "type" : [{
+
+        "code" : "BackboneElement"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.instance",
+
+      "path" : "FormLogical.data.instance",
+
+      "short" : "instance",
+
+      "definition" : "identifiant de l'instance de formulaire",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.num",
+
+      "path" : "FormLogical.data.num",
+
+      "short" : "num",
+
+      "definition" : "Identifiant de la question",
+
+      "min" : 1,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.subfield",
+
+      "path" : "FormLogical.data.subfield",
+
+      "short" : "subfield",
+
+      "definition" : "Identifiant de la sous question (tableau)",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.choicevalue",
+
+      "path" : "FormLogical.data.choicevalue",
+
+      "short" : "choicevalue",
+
+      "definition" : "Réponse de type référence ou choice",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    },
+
+    {
+
+      "id" : "FormLogical.data.integervalue",
+
+      "path" : "FormLogical.data.integervalue",
+
+      "short" : "integervalue",
+
+      "definition" : "Réponse de type nombre entier",
+
+      "min" : 0,
+
+      "max" : "1",
+
+      "type" : [{
+
+        "code" : "integer"
+
+      }]
+
+    }]
+
+  }
+
+}

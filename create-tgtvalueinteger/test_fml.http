@@ -1,0 +1,39 @@
+# Host example:
+## v3.8.10 (commit 10f162fe (more specificaly 9ee9a00a on my repo))
+@host = https://matchbox-dev-ext-k8s.eds.aphp.fr/matchboxv3/fhir 
+## v3.9.2 (commit 65a325a8 (more specificaly 32357905 on my repo))
+#@host = http://localhost:8080/matchboxv3/fhir
+
+### I Verification serveur : returns metadata configuration for server, verify that you have in implementation description "Development Mode" 
+GET {{host}}/metadata HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+Origin: http://localhost
+
+
+### II Map create/update: create the map on the server
+POST {{host}}/StructureMap HTTP/1.1
+Accept: application/fhir+json
+Content-Type: text/fhir-mapping
+
+# Path example:  
+< StructureMap-tgtvalueinteger.fml
+
+### III Map execution: transform the provided source to target resource using provided structuremap
+# map id example
+@mapID = tgtvalueinteger
+POST {{host}}/StructureMap/$transform?source=https://test.fr/fhir/StructureMap/{{mapID}}
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+# SourcePath example:  
+< testForm.json
+
+
+### IV StructureDefinition creation
+POST {{host}}/StructureDefinition HTTP/1.1
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+# Path example:  
+< StructureDefinition-FormLogical.json
+#< StructureDefinition-sdc-questionnaireresponse.json

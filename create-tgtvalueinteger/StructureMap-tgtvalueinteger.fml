@@ -1,0 +1,83 @@
+map "https://test.fr/fhir/StructureMap/tgtvalueinteger" = "tgtvalueinteger"
+
+uses "https://test.fr/fhir/StructureDefinition/FormLogical" alias FormLogicalModel as source
+uses "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse" alias QR as target
+
+group begin(source srcLogical : FormLogicalModel,  target tgtQR : QR) {
+   srcLogical ->  tgtQR.id = 'test-qr',
+                  tgtQR.status = 'completed' "setQRAttributs";
+   srcLogical.instance first as srcInstance then {
+      srcInstance.visit as visit -> tgtQR.encounter as tgtEncounter,
+                                    tgtEncounter.reference = ('Encounter/'+%visit.toString()) "setEncounter";
+   } "setResource";
+
+   srcLogical then setItemGroupPose (srcLogical, tgtQR) "setItemGroupPose";
+};
+
+group setItemGroupPose(source srcLogical, target tgtQR) {
+    srcLogical 
+        -> tgtQR.item as tgtQRItem,
+            tgtQRItem.linkId = '5498268612387',
+            tgtQRItem.text = 'Pose de cathéters'
+            then setItemSubform718565916797 (srcLogical, tgtQRItem) "setItemSubform718565916797";
+}
+
+group setItemSubform718565916797(source srcLogical, target tgtQR) {
+   srcLogical.subform as srcSubForm then {
+      srcSubForm 
+      where name = 'FR_KT_Pose Sub' 
+      then {
+         srcLogical.field as srcField then {
+            srcField 
+            where 1 = 1
+            and subform = %srcSubForm.num 
+            and code = 'lst_subformSaisie'
+            then {
+               srcLogical.subfield as srcSubField then {
+                  srcSubField 
+                  where 1 = 1
+                  and code = 'subform_Saisie'
+                  and field = %srcField.num 
+                  then {
+                     srcLogical.data as srcData then {
+                        srcData where 1 = 1
+                        and subfield = %srcSubField.num
+                        and num = %srcField.num
+                        then {
+                           srcData.choicevalue as choicedSubform
+                                 -> tgtQR.item as tgtQRItem,
+                                 tgtQRItem.linkId = '718565916797',
+                                 tgtQRItem.text = ('Cathéter'+ %choicedSubform.toString())
+                                 then {
+                                    srcLogical then setItemInt5374188134407(srcLogical, choicedSubform, tgtQRItem) "setItemInt5374188134407";
+                                 };
+                        } "felddatenSelection";
+                     } "felddaten";
+                  } "subitemSelection";
+               } "subitem";
+            } "feldcodeSelection";
+         } "feldcode"; 
+      } "klasseSelection";
+   } "klasse";
+}
+
+group setItemInt5374188134407(source srcLogical, source srcChoicedSubform, target tgtQR) {
+   srcLogical.subform as srcSubForm then {
+   srcLogical.field as srcField then {
+   srcLogical.data as srcData then {
+      srcData.integervalue as srcValue where 
+      srcData.instance = srcChoicedSubform
+      and srcSubForm.name = 'FR_KT_Pose SubSub'
+      and srcData.num = srcField.num
+      and srcField.subform = srcSubForm.num
+      and srcField.code = 'int_OriginalPoseID' 
+      -> tgtQR.item as tgtQRItem,
+         tgtQRItem.linkId = '5374188134407',
+         tgtQRItem.text = "Numéro interne d'identification du cathéter",
+         tgtQRItem.answer as tgtQRItemAnswer, 
+         tgtQRItemAnswer.value = srcValue 
+         "Create5374188134407";
+   } "Felddaten5374188134407";
+   } "Feldcode5374188134407";
+   } "Klasse5374188134407";
+}

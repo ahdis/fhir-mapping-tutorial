@@ -25,6 +25,13 @@ Content-Type: text/fhir-mapping
 
 < ./map/step2.map
 
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+json
+Content-Type: text/fhir-mapping
+
+< ./map/step2.map
+
 ### FHIR Tutorial do the transform
 POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step2
 Accept: application/fhir+xml

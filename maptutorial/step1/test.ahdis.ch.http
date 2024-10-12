@@ -1,21 +1,6 @@
 @host = https://test.ahdis.ch
 ### @host = http://localhost:8080
 
-### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
-Accept: application/fhir+xml
-Content-Type: application/fhir+xml
-
-< ./source/source1.xml
-
-### FHIR Tutorial do the transform
-POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
-Accept: application/fhir+json
-Content-Type: application/fhir+json
-
-< ./source/source1.json
-
-
 ### Add Logical Model if not knwon FHIR Tutorial send StructureDefinition TLeft1
 POST {{host}}/matchbox/fhir/StructureDefinition HTTP/1.1
 Accept: application/fhir+xml
@@ -37,24 +22,53 @@ Content-Type: text/fhir-mapping
 
 < ./map/step1.map
 
-
-
-### DEBUG
-GET {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left-1 HTTP/1.1
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
 Accept: application/fhir+json
+Content-Type: text/fhir-mapping
 
-### DEBUG
-GET {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-right-1 HTTP/1.1
-Accept: application/fhir+json
+< ./map/step1.map
 
-### DEBUG
-GET {{host}}/matchbox/fhir/StructureMap?url=http://hl7.org/fhir/StructureMap/tutorial-step1 HTTP/1.1
-Accept: application/fhir+json
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+xml
+Content-Type: text/fhir-mapping
 
-###
-DELETE {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-left-1 HTTP/1.1
-Accept: application/fhir+json
+< ./map/step1b.map
 
-###
-DELETE {{host}}/matchbox/fhir/StructureDefinition?url=http://hl7.org/fhir/StructureDefinition/tutorial-right-1 HTTP/1.1
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
 Accept: application/fhir+json
+Content-Type: text/fhir-mapping
+
+< ./map/step1b.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
+
+< ./source/source1.xml
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+< ./source/source1.json
+
+
+### FHIR Tutorial do the transform 1b
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1b
+Accept: application/fhir+xml
+Content-Type: application/fhir+xml
+
+< ./source/source1.xml
+
+### FHIR Tutorial do the transform 1b
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://hl7.org/fhir/StructureMap/tutorial-step1b
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+< ./source/source1.json
+

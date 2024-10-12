@@ -30,11 +30,11 @@ output.xml: result of map transform
 |          | Java |
 |----------|------|
 | Step 1   |  ✓   |
-| Step 1b  |  [✗](https://github.com/ahdis/fhir-mapping-tutorial/issues/20)   |
+| Step 1b  |  ✓ Note: Map needs to be extended for default mapping  see also [#20](https://github.com/ahdis/fhir-mapping-tutorial/issues/20)   |
 | Step 2   |  ✓   |
 | Step 3a  |  ✓   |
-| Step 3b  |  [✓](https://github.com/ahdis/fhir-mapping-tutorial/issues/21)  |
-| Step 3c  |  [✓](https://github.com/ahdis/fhir-mapping-tutorial/issues/21)  |
+| Step 3b  |  ✓ Note: Map needs to eb adapted according [FHIR-I 46548](https://jira.hl7.org/browse/FHIR-46548), see also [21](https://github.com/ahdis/fhir-mapping-tutorial/issues/21)  |
+| Step 3c  |  ✓ Note: Map needs to eb adapted according [FHIR-I 46548](https://jira.hl7.org/browse/FHIR-46548), see also [#21](https://github.com/ahdis/fhir-mapping-tutorial/issues/21) |
 | Step 4a  |  ✓  |
 | Step 4b  |  ✓  |
 | Step 4b2 |  ✓  |
@@ -53,6 +53,6 @@ output.xml: result of map transform
 | Step 10  |  ✓   |
 | Step 11  |  ✓   |
 | Step 12  |  ✓   |
-| Step 13  | [✓](https://github.com/ahdis/fhir-mapping-tutorial/issues/31)    |
+| Step 13  |  ✓ Note: Uses Basic resource that ptr functions is  working, see [#31](https://github.com/ahdis/fhir-mapping-tutorial/issues/31)    |
 | Step 14  |      |
 | Step 15  |      |

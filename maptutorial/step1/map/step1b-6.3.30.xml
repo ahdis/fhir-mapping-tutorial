@@ -1,6 +1,9 @@
 <StructureMap 
   xmlns="http://hl7.org/fhir">
   <id value="tutorial-step1b"/>
+  <meta>
+    <lastUpdated value="2024-10-10T11:44:21.716+00:00"/>
+  </meta>
   <text>
     <status value="generated"/>
     <div 
@@ -10,12 +13,12 @@
 /// title = &quot;Tutorial Step 1b&quot;
 /// status = &quot;draft&quot;
 
-/// description = &quot;&quot;&quot;
-TutorialStep1b
-&quot;&quot;&quot;
-uses &quot;http://hl7.org/fhir/StructureDefinition/tutorial-left-1&quot; alias TLeft as source
-uses &quot;http://hl7.org/fhir/StructureDefinition/tutorial-right-1&quot; alias TRight as target // uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as source
+// Tutorial Step 1b
 
+uses &quot;http://hl7.org/fhir/StructureDefinition/tutorial-left-1&quot; alias TLeft as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/tutorial-right-1&quot; alias TRight as target
+
+// uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as source
 // uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as target
 group tutorial(source src : TLeft, target tgt : TRight) &lt;&lt;type+&gt;&gt; {
   src.a -&gt; tgt.a &quot;rule_a_short&quot;;
@@ -32,7 +35,7 @@ group string(source src : string, target tgt : string) &lt;&lt;type+&gt;&gt; {
   <name value="tutorial-step1b"/>
   <title value="Tutorial Step 1b"/>
   <status value="draft"/>
-  <description value="TutorialStep1b"/>
+  <description value="Tutorial Step 1b"/>
   <structure>
     <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-1"/>
     <mode value="source"/>
@@ -42,12 +45,11 @@ group string(source src : string, target tgt : string) &lt;&lt;type+&gt;&gt; {
     <url value="http://hl7.org/fhir/StructureDefinition/tutorial-right-1"/>
     <mode value="target"/>
     <alias value="TRight"/>
-    <documentation value="uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as source"/>
   </structure>
   <group>
     <name value="tutorial"/>
     <typeMode value="type-and-types"/>
-    <documentation value="uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as target"/>
+    <documentation value="uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as source&#xd;&#xa;uses &quot;http://hl7.org/fhir/StructureDefinition/string&quot; alias string as target"/>
     <input>
       <name value="src"/>
       <type value="TLeft"/>
@@ -72,13 +74,9 @@ group string(source src : string, target tgt : string) &lt;&lt;type+&gt;&gt; {
         <variable value="vvv"/>
         <transform value="create"/>
       </target>
-      <dependent>
-        <name value="DefaultMappingGroupAnonymousAlias"/>
-        <variable value="vvv"/>
-        <variable value="vvv"/>
-      </dependent>
     </rule>
   </group>
+  <!-- this group should be created on demand if we have to equivalent types -->
   <group>
     <name value="string"/>
     <typeMode value="type-and-types"/>

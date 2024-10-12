@@ -1,11 +1,33 @@
-<?xml version="1.0"?>
-<StructureMap xmlns="http://hl7.org/fhir">
+<StructureMap 
+  xmlns="http://hl7.org/fhir">
   <id value="tutorial-step2"/>
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <pre>/// url = &quot;http://hl7.org/fhir/StructureMap/tutorial-step2&quot;
+/// name = &quot;tutorial-step2&quot;
+/// title = &quot;Tutorial Step 2&quot;
+/// status = &quot;draft&quot;
+
+/// description = &quot;&quot;&quot;
+TutorialStep2
+&quot;&quot;&quot;
+uses &quot;http://hl7.org/fhir/StructureDefinition/tutorial-left-2&quot; alias TLeft as source
+uses &quot;http://hl7.org/fhir/StructureDefinition/tutorial-right-2&quot; alias TRight as target
+
+group tutorial(source src : TLeft, target tgt : TRight) {
+  src.a1 as a -&gt; tgt.a2 = a &quot;rule_a&quot;;
+}
+
+</pre>
+    </div>
+  </text>
   <url value="http://hl7.org/fhir/StructureMap/tutorial-step2"/>
   <name value="tutorial-step2"/>
   <title value="Tutorial Step 2"/>
   <status value="draft"/>
-  <description value="Tutorial Step 2"/>
+  <description value="TutorialStep2"/>
   <structure>
     <url value="http://hl7.org/fhir/StructureDefinition/tutorial-left-2"/>
     <mode value="source"/>

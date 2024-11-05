@@ -1,0 +1,18 @@
+@host = https://test.ahdis.ch
+###@host = http://localhost:8080
+
+
+### Post the StructureMap with transform included
+POST {{host}}/matchbox/fhir/StructureMap HTTP/1.1
+Accept: application/fhir+xml
+Content-Type: text/fhir-mapping
+
+< ./extract-demo-smap.map
+
+### FHIR Tutorial do the transform
+POST {{host}}/matchbox/fhir/StructureMap/$transform?source=http://fhir.forms-lab.com/StructureMap/extract-demo-smap
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+< ./qr.json
+

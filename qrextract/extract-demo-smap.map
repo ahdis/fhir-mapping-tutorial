@@ -1,0 +1,27 @@
+map "http://fhir.forms-lab.com/StructureMap/extract-demo-smap" = "extract-demo-smap"
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" as target
+uses "http://hl7.org/fhir/StructureDefinition/Observation" as target
+
+group ExtractBundle(source src : QuestionnaireResponse, target tgt : Bundle) {
+  // Prepare the bundle entry
+  src -> tgt.entry as entry, uuid() as fullUrl then {
+    src -> entry.fullUrl = ('urn:uuid:' & %fullUrl) "SetFullUrl";
+    src -> entry.request as req then {
+      src -> req.method = 'POST' "setMethod";
+    } "SetRequest";
+    src -> entry.resource = create('Observation') as obs then PopulateObservation(src, obs) "popObs";
+  } "CreateObsEntry";
+}
+
+group PopulateObservation(source src : QuestionnaireResponse, target tgt : Observation) {
+  src -> tgt.code = cc('http://example.org/sdh/demo/CodeSystem/cc-screening-codes', 'sigmoidoscopy-complication') "SetObservationCode";
+  src.subject as subject -> tgt.subject = subject "SetSubject";
+  src.authored as s -> tgt.issued = s "SetAuthored";
+  src.author as author -> tgt.performer = author "SetAuthor";
+
+  src.item as item where (linkId = 'complication') -> tgt.value = create('CodeableConcept') as obsValue then {
+        item -> tgt.value = (%item.answer.value.first()) "SetObservationValue";
+      };
+}

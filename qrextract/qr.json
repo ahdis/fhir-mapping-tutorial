@@ -1,0 +1,31 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "status": "in-progress",
+    "questionnaire": "http://fhir.forms-lab.com/Questionnaire/extract-demo-smap",
+    "item": [
+      {
+        "linkId": "complication",
+        "text": "Have you had a Sigmoidoscopy Complication (concern with invasive procedure, for example)",
+        "answer": [
+          {
+            "valueBoolean": true
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "tag": [
+        {
+          "code": "csiro:generated"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/45086382"
+    },
+    "author": {
+      "reference": "Practitioner/example",
+      "display": "Dr Adam Careful"
+    },
+    "authored": "2024-11-04T07:09:20.967Z"
+  }
